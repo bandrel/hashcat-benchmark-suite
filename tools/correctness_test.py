@@ -201,15 +201,21 @@ def main() -> None:
     args = parser.parse_args()
 
     # ── Self-test gate ──────────────────────────────────────────────────────
-    print("Running hashcat self-test (mode 1000)...")
+    # hashcat runs self-test automatically on startup (no --self-test flag).
+    # Verify by running a quick benchmark — if self-test fails, hashcat exits
+    # with a non-zero code before producing benchmark output.
+    print("Running hashcat self-test (mode 1000 benchmark)...")
     try:
-        subprocess.run(
-            [args.hashcat_bin, "--self-test", "-m", "1000", "--quiet"],
-            check=True,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
+        result = subprocess.run(
+            [args.hashcat_bin, "-b", "-m", "1000", "--quiet"],
+            capture_output=True, text=True, timeout=60,
         )
-    except (subprocess.CalledProcessError, FileNotFoundError) as exc:
+        if result.returncode != 0:
+            print(f"ERROR: hashcat self-test failed (exit {result.returncode})",
+                  file=sys.stderr)
+            print(result.stderr, file=sys.stderr)
+            sys.exit(1)
+    except (subprocess.TimeoutExpired, FileNotFoundError) as exc:
         print(f"ERROR: hashcat self-test failed: {exc}", file=sys.stderr)
         sys.exit(1)
     print("Self-test passed.")
