@@ -110,8 +110,12 @@ def generate_device_id(info: dict) -> str:
     """Derive a slug-style device ID from ``info['gpu_model']``.
 
     ``"Apple M3 Max"`` → ``"apple-m3-max"``
+    ``"NVIDIA GeForce RTX 3080 Ti"`` → ``"nvidia-rtx-3080-ti"``
     """
     model = info.get("gpu_model", "unknown")
+    # Strip common brand prefixes to keep IDs concise
+    model = re.sub(r"(?i)^NVIDIA\s+GeForce\s+", "NVIDIA ", model)
+    model = re.sub(r"(?i)^AMD\s+Radeon\s+", "AMD ", model)
     slug = _NON_ALNUM.sub("-", model.lower())
     slug = slug.strip("-")
     return slug

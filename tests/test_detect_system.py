@@ -128,11 +128,11 @@ class TestGenerateDeviceId(unittest.TestCase):
 
     def test_nvidia(self):
         info = {"gpu_model": "NVIDIA GeForce RTX 3080 Ti"}
-        self.assertEqual(generate_device_id(info), "nvidia-geforce-rtx-3080-ti")
+        self.assertEqual(generate_device_id(info), "nvidia-rtx-3080-ti")
 
     def test_amd(self):
         info = {"gpu_model": "AMD Radeon RX 7900 XTX"}
-        self.assertEqual(generate_device_id(info), "amd-radeon-rx-7900-xtx")
+        self.assertEqual(generate_device_id(info), "amd-rx-7900-xtx")
 
     def test_special_characters(self):
         info = {"gpu_model": "NVIDIA (TM) RTX™ 4090 -- Special!"}
