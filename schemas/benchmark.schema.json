@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "benchmark.schema.json",
+  "title": "Benchmark Results",
+  "description": "Benchmark speed measurements across hash modes and vector widths.",
+  "type": "object",
+  "required": [
+    "system_info",
+    "results"
+  ],
+  "properties": {
+    "system_info": {
+      "type": "object",
+      "description": "System metadata (see system_info.schema.json)"
+    },
+    "results": {
+      "type": "object",
+      "description": "Benchmark results keyed by hash mode number",
+      "patternProperties": {
+        "^\\d+$": {
+          "type": "object",
+          "required": ["name", "vec_results"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Hash mode name (e.g. 'NTLM')"
+            },
+            "vec_results": {
+              "type": "object",
+              "description": "Results keyed by vector width",
+              "patternProperties": {
+                "^\\d+$": {
+                  "type": "object",
+                  "properties": {
+                    "speeds": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "description": "Raw speed measurements (H/s)"
+                    },
+                    "summary": {
+                      "type": "object",
+                      "description": "Summary statistics"
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
