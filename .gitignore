@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Build artifacts
+build/
+*.o
+*.so
+
+# Generated corpus (large, regenerated locally)
+corpus/deterministic/
+corpus/random/
+corpus/adversarial/
+corpus/real_world/
+
+# Wordlists (not distributed)
+*.txt.gz
+rockyou.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
