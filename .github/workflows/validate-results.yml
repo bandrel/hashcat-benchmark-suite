@@ -1,0 +1,75 @@
+name: Validate Results
+
+on:
+  pull_request:
+    paths:
+      - 'results/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Find changed result directories
+        id: find-results
+        run: |
+          # Get changed files in results/
+          CHANGED=$(git diff --name-only origin/main...HEAD -- results/ || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No result files changed"
+            echo "dirs=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Extract unique result directories (results/<device>/<timestamp>/)
+          DIRS=$(echo "$CHANGED" | while read f; do
+            echo "$f" | sed 's|\(results/[^/]*/[^/]*/\).*|\1|'
+          done | sort -u)
+          echo "dirs<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$DIRS" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Validate results
+        if: steps.find-results.outputs.dirs != ''
+        env:
+          RESULT_DIRS: ${{ steps.find-results.outputs.dirs }}
+        run: |
+          IFS=$'\n'
+          FAILED=0
+          for dir in $RESULT_DIRS; do
+            echo "Validating: $dir"
+            python3 tools/validate_results.py "$dir" || FAILED=$((FAILED + 1))
+          done
+          if [ $FAILED -gt 0 ]; then
+            echo "FAILED: $FAILED result set(s) failed validation"
+            exit 1
+          fi
+
+      - name: Check for PII
+        if: steps.find-results.outputs.dirs != ''
+        run: |
+          for f in $(find results -name "system_info.json" -newer .git/HEAD 2>/dev/null); do
+            echo "Checking: $f"
+            if grep -qiE '(hostname|username|serial|uuid|/Users/|/home/)' "$f"; then
+              echo "WARNING: Possible PII in $f"
+              grep -iE '(hostname|username|serial|uuid|/Users/|/home/)' "$f"
+              exit 1
+            fi
+          done
+          echo "PII check passed"
+
+      - name: Check no binary files
+        if: steps.find-results.outputs.dirs != ''
+        run: |
+          BINARIES=$(git diff --name-only origin/main...HEAD -- results/ | \
+                     xargs file 2>/dev/null | grep -v "text\|JSON\|empty\|ASCII" || true)
+          if [ -n "$BINARIES" ]; then
+            echo "ERROR: Binary files detected in results:"
+            echo "$BINARIES"
+            exit 1
+          fi
+          echo "No binary files detected"
