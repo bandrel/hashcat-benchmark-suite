@@ -82,10 +82,10 @@ real-world-check:
 
 # ---------- correctness ----------
 .PHONY: run-correctness
-run-correctness: ## Run correctness tests via Makefile.correctness
-	@$(MAKE) -f Makefile.correctness run \
+run-correctness: generate-corpus ## Run correctness tests via Makefile.correctness
+	@$(MAKE) -f Makefile.correctness test-all \
 		PYTHON="$(PYTHON)" \
-		HASHCAT_BIN="$(HASHCAT_BIN)" \
+		HASHCAT_SRC="$(HASHCAT_SRC)" \
 		RESULTS_DIR="$(RESULTS_DIR)"
 
 # ---------- synthetic benchmarks ----------

@@ -1,0 +1,137 @@
+# Makefile.correctness — Correctness build matrix for hashcat NTLM testing
+#
+# Builds hashcat variants with different kernel configurations and runs
+# correctness tests against each.  Invoked by the top-level Makefile via:
+#   make -f Makefile.correctness test-all HASHCAT_SRC=... RESULTS_DIR=...
+
+SHELL := /bin/bash
+
+# ---------- configurable variables ----------
+PYTHON       ?= python3
+HASHCAT_SRC  ?= ../hashcat
+RESULTS_DIR  ?= results
+CORPUS_DIR   ?= corpus
+BITSELECT    ?= off
+VEC          ?= 1
+ATTACK_MODE  ?= 0
+
+# ---------- derived variables ----------
+VARIANT   := bs-$(BITSELECT)_vec-$(VEC)_a$(ATTACK_MODE)
+BUILD_DIR := build/correctness/$(VARIANT)
+NPROC     := $(shell nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 4)
+
+# ---------- all targets are phony ----------
+.PHONY: build-variant test-variant test-all verify-all smoke clean-builds run
+
+# ---------- build-variant ----------
+# Build one hashcat variant into an isolated directory.
+build-variant:
+	@echo "=== Building variant: $(VARIANT) ==="
+	mkdir -p $(BUILD_DIR)
+	rsync -a --delete \
+		--exclude='.git' \
+		--exclude='build' \
+		--exclude='*.o' \
+		$(HASHCAT_SRC)/ $(BUILD_DIR)/
+ifeq ($(BITSELECT),on)
+	@echo "  Patching inc_vendor.h for USE_BITSELECT on Apple Silicon..."
+	sed -i.bak 's/#ifndef IS_APPLE_SILICON/#if 1/' $(BUILD_DIR)/OpenCL/inc_vendor.h
+	rm -f $(BUILD_DIR)/OpenCL/inc_vendor.h.bak
+endif
+	$(MAKE) -C $(BUILD_DIR) -j$(NPROC)
+	@echo "  Build complete: $(BUILD_DIR)/hashcat"
+
+# ---------- test-variant ----------
+# Build and test a single variant.
+test-variant: build-variant
+	@echo "=== Testing variant: $(VARIANT) ==="
+	@# Generate corpus if the directory is missing or empty
+	@if [ ! -d "$(CORPUS_DIR)/deterministic" ]; then \
+		echo "  Generating test corpus..."; \
+		$(PYTHON) tools/generate_corpus.py --output-dir $(CORPUS_DIR); \
+	fi
+	@# Generate a temporary .hctune file that forces the desired vector width
+	@echo "* * * $(VEC) A A" > $(BUILD_DIR)/force_vec.hctune
+	@# Run correctness tests
+	mkdir -p $(RESULTS_DIR)/correctness
+	$(PYTHON) tools/correctness_test.py \
+		--hashcat-bin $(BUILD_DIR)/hashcat \
+		--corpus-dir $(CORPUS_DIR) \
+		--attack-mode $(ATTACK_MODE) \
+		--output $(RESULTS_DIR)/correctness/$(VARIANT).json
+	@echo "  Results saved to $(RESULTS_DIR)/correctness/$(VARIANT).json"
+
+# ---------- test-all ----------
+# Loop over all BITSELECT x VEC combinations (attack mode 0 only for now).
+test-all:
+	@FAILURES=0; \
+	for bs in off on; do \
+		for vec in 1 2 4; do \
+			echo ""; \
+			echo "===================================================="; \
+			echo "  Variant: BITSELECT=$$bs VEC=$$vec ATTACK_MODE=0"; \
+			echo "===================================================="; \
+			$(MAKE) -f Makefile.correctness test-variant \
+				PYTHON="$(PYTHON)" \
+				HASHCAT_SRC="$(HASHCAT_SRC)" \
+				RESULTS_DIR="$(RESULTS_DIR)" \
+				CORPUS_DIR="$(CORPUS_DIR)" \
+				BITSELECT=$$bs \
+				VEC=$$vec \
+				ATTACK_MODE=0 \
+			|| { echo "FAILED: BITSELECT=$$bs VEC=$$vec"; FAILURES=$$((FAILURES + 1)); }; \
+		done; \
+	done; \
+	echo ""; \
+	if [ $$FAILURES -ne 0 ]; then \
+		echo "ERROR: $$FAILURES variant(s) failed correctness tests."; \
+		exit 1; \
+	else \
+		echo "All variants passed correctness tests."; \
+	fi
+
+# ---------- verify-all ----------
+# Read all correctness JSON files and verify no failures.
+verify-all:
+	@echo "=== Verifying all correctness results ==="
+	@FAILURES=0; \
+	for f in $(RESULTS_DIR)/correctness/*.json; do \
+		if [ ! -f "$$f" ]; then \
+			echo "ERROR: No result files found in $(RESULTS_DIR)/correctness/"; \
+			exit 1; \
+		fi; \
+		PASS=$$($(PYTHON) -c "import json,sys; d=json.load(open('$$f')); sys.exit(0 if d.get('all_passed',False) else 1)" 2>&1) || { \
+			echo "  FAIL: $$f"; \
+			FAILURES=$$((FAILURES + 1)); \
+			continue; \
+		}; \
+		echo "  PASS: $$f"; \
+	done; \
+	echo ""; \
+	if [ $$FAILURES -ne 0 ]; then \
+		echo "ERROR: $$FAILURES result file(s) contain failures."; \
+		exit 1; \
+	else \
+		echo "All correctness results verified."; \
+	fi
+
+# ---------- smoke ----------
+# Quick single-variant test: BITSELECT=off, VEC=1, ATTACK_MODE=0.
+smoke:
+	@$(MAKE) -f Makefile.correctness test-variant \
+		PYTHON="$(PYTHON)" \
+		HASHCAT_SRC="$(HASHCAT_SRC)" \
+		RESULTS_DIR="$(RESULTS_DIR)" \
+		CORPUS_DIR="$(CORPUS_DIR)" \
+		BITSELECT=off \
+		VEC=1 \
+		ATTACK_MODE=0
+
+# ---------- run ----------
+# Alias used by the top-level Makefile.
+run: test-all
+
+# ---------- clean-builds ----------
+clean-builds:
+	rm -rf build/correctness
+	@echo "Cleaned correctness builds."
