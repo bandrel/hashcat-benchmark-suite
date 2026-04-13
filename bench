@@ -199,7 +199,7 @@ def cmd_default(args):
     cmd_run_all(args)
     print()
     print("=" * 54)
-    print("  Benchmarks complete! Results saved to results/")
+    print(f"  Benchmarks complete! Results saved to {args.results_dir}/")
     print()
     print("  To submit your findings:")
     print("    ./bench submit")
