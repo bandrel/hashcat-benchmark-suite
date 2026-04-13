@@ -5,80 +5,45 @@ Benchmark and correctness testing suite for hashcat GPU kernel optimizations.
 ## Quick Start
 
 ```bash
-# Clone
 git clone https://github.com/bandrel/hashcat-benchmark-suite.git
 cd hashcat-benchmark-suite
-
-# Verify prerequisites
-make setup
-
-# Run all tests (correctness + synthetic; real-world if rockyou.txt is available)
-make run-all
-
-# Submit results
-make submit
+./bench
 ```
+
+This validates your environment, then runs correctness tests, synthetic benchmarks (30 trials), and real-world benchmarks (if rockyou.txt is available). Expect ~20-45 minutes depending on your GPU.
 
 ## Requirements
 
-- Python 3.8+
+- [uv](https://docs.astral.sh/uv/) (Python dependencies are managed automatically)
 - A built hashcat binary (default: `../hashcat/hashcat`)
 - GitHub CLI (`gh`) for result submission
 - (Optional) `rockyou.txt` for real-world benchmarks
 
-## Configuration
+## Submitting Results
 
-All variables can be overridden via environment or on the `make` command line.
-
-| Variable | Default | Description |
-|---|---|---|
-| `PYTHON` | `python3` | Python interpreter |
-| `HASHCAT_SRC` | `../hashcat` | Path to hashcat source tree |
-| `HASHCAT_BIN` | `$(HASHCAT_SRC)/hashcat` | Path to hashcat binary |
-| `ROCKYOU_PATH` | `$(HOME)/wordlists/rockyou.txt` | Path to rockyou.txt wordlist |
-| `TRIALS` | `30` | Number of trials for full benchmark runs |
-| `QUICK_TRIALS` | `3` | Number of trials for quick benchmark runs |
-| `RESULTS_DIR` | `results` | Output directory for results |
-
-Example:
+After benchmarks complete:
 
 ```bash
-make run-synthetic HASHCAT_BIN=/opt/hashcat/hashcat TRIALS=10
+./bench submit
 ```
 
-## Targets
+This reviews your results for PII, then creates a GitHub PR on your behalf.
 
-| Target | Description |
-|---|---|
-| `make help` | Print usage and configuration |
-| `make setup` | Validate prerequisites |
-| `make detect` | Detect system hardware |
-| `make test` | Run pytest suite |
-| `make generate-corpus` | Generate test corpus |
-| `make run-correctness` | Run correctness tests |
-| `make run-synthetic` | Synthetic benchmarks (30 trials) |
-| `make quick-synthetic` | Synthetic benchmarks (3 trials) |
-| `make run-real-world` | Real-world benchmarks with rockyou.txt |
-| `make quick-real-world` | Real-world benchmarks, quick mode |
-| `make run-all` | Correctness + synthetic + real-world |
-| `make submit` | Package and submit results |
-| `make clean` | Remove generated files |
+## Configuration
 
-## Directory Structure
+All options can be passed as flags or set via environment variables.
 
-```
-.github/workflows/   CI configuration
-schemas/             JSON schemas for result validation
-tools/               Python scripts (detect, generate, run, submit)
-tests/               pytest test suite
-corpus/              Generated test inputs (gitignored)
-results/             Benchmark output (gitignored)
+| Flag | Env Variable | Default | Description |
+|---|---|---|---|
+| `--hashcat-src` | `HASHCAT_SRC` | `../hashcat` | Path to hashcat source tree |
+| `--rockyou-path` | `ROCKYOU_PATH` | `~/wordlists/rockyou.txt` | Path to rockyou.txt wordlist |
+| `--trials` | `TRIALS` | `30` | Number of trials per benchmark run |
+| `--results-dir` | `RESULTS_DIR` | `results` | Output directory for results |
+
+## Cleanup
+
+```bash
+./bench clean
 ```
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Run `make setup` to verify your environment
-4. Run `make test` before submitting
-5. Open a pull request
+For all available commands, run `./bench --help`.
