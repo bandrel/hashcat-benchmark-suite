@@ -1,0 +1,295 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "pytest",
+# ]
+# ///
+"""hashcat-benchmark-suite CLI.
+
+Replaces the top-level Makefile with a single Python entry point.
+Usage: ./bench <command> [options]
+"""
+
+import argparse
+import hashlib
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+TOOLS = ROOT / "tools"
+ROCKYOU_SHA256 = "9076652d8ae75ce713e23ab09e10d9ee1323b0b4a6d592ba1a46f8e5e4b5a836"
+
+
+# ── Helpers ──────────────────────────────────────────────────────────────────
+
+
+def run(cmd, **kwargs):
+    """Run a command, exiting on failure."""
+    result = subprocess.run(cmd, **kwargs)
+    if result.returncode != 0:
+        sys.exit(result.returncode)
+
+
+def python():
+    return sys.executable
+
+
+def resolve_hashcat_bin(args):
+    return str(Path(args.hashcat_src) / "hashcat")
+
+
+def validate_rockyou(path):
+    """Validate rockyou.txt exists and has the expected SHA-256."""
+    if not os.path.isfile(path):
+        print(f"ERROR: rockyou.txt not found at {path}", file=sys.stderr)
+        sys.exit(1)
+    print("Validating rockyou.txt SHA-256...")
+    sha = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            sha.update(chunk)
+    actual = sha.hexdigest()
+    if actual != ROCKYOU_SHA256:
+        print(f"ERROR: SHA-256 mismatch", file=sys.stderr)
+        print(f"  expected: {ROCKYOU_SHA256}", file=sys.stderr)
+        print(f"  actual:   {actual}", file=sys.stderr)
+        sys.exit(1)
+    print("rockyou.txt validated.")
+
+
+# ── Commands ─────────────────────────────────────────────────────────────────
+
+
+def cmd_setup(args):
+    """Validate Python, hashcat binary, and gh CLI."""
+    print("--- Checking Python ---")
+    run([python(), "--version"])
+    print()
+
+    hashcat_bin = resolve_hashcat_bin(args)
+    print("--- Checking hashcat binary ---")
+    if not os.access(hashcat_bin, os.X_OK):
+        print(f"ERROR: hashcat not found at {hashcat_bin}", file=sys.stderr)
+        sys.exit(1)
+    run([hashcat_bin, "--version"])
+    print()
+
+    print("--- Checking gh CLI ---")
+    if not shutil.which("gh"):
+        print("ERROR: gh CLI not found", file=sys.stderr)
+        sys.exit(1)
+    run(["gh", "--version"])
+    print()
+
+    print("--- Checking Python dependencies ---")
+    run([python(), "-c", "import json, subprocess, hashlib, pathlib, pytest"])
+    print()
+    print("All prerequisites satisfied.")
+
+
+def cmd_detect(args):
+    """Detect system hardware and configuration."""
+    run([python(), str(TOOLS / "detect_system.py"),
+         "--hashcat-bin", resolve_hashcat_bin(args)])
+
+
+def cmd_test(args):
+    """Run pytest test suite."""
+    run([python(), "-m", "pytest", str(ROOT / "tests"), "-v"])
+
+
+def cmd_generate_corpus(args):
+    """Generate test corpus (deterministic + random + adversarial)."""
+    run([python(), str(TOOLS / "generate_corpus.py"),
+         "--output-dir", args.corpus_dir])
+
+
+def cmd_run_correctness(args):
+    """Generate corpus and run correctness build matrix."""
+    cmd_generate_corpus(args)
+    run(["make", "-f", "Makefile.correctness", "test-all",
+         f"PYTHON={python()}",
+         f"HASHCAT_SRC={args.hashcat_src}",
+         f"RESULTS_DIR={args.results_dir}"],
+        cwd=str(ROOT))
+
+
+def cmd_run_synthetic(args):
+    """Run synthetic benchmarks."""
+    cmd = [python(), str(TOOLS / "benchmark_regression.py"),
+           "--hashcat-bin", resolve_hashcat_bin(args),
+           "--trials", str(args.trials),
+           "--output", args.results_dir]
+    run(cmd)
+
+
+def cmd_run_real_world(args):
+    """Validate rockyou.txt and run real-world benchmarks."""
+    validate_rockyou(args.rockyou_path)
+    cmd = [python(), str(TOOLS / "benchmark_real_world.py"),
+           "--hashcat-bin", resolve_hashcat_bin(args),
+           "--wordlist", args.rockyou_path,
+           "--hashcat-src", args.hashcat_src,
+           "--trials", str(args.trials),
+           "--output", args.results_dir]
+    run(cmd)
+
+
+def cmd_run_all(args):
+    """Run correctness + synthetic; real-world if rockyou.txt is present."""
+    cmd_run_correctness(args)
+    cmd_run_synthetic(args)
+
+    if os.path.isfile(args.rockyou_path):
+        print()
+        print("=== rockyou.txt found — running real-world benchmarks ===")
+        cmd_run_real_world(args)
+    else:
+        print()
+        print(f"=== Skipping real-world benchmarks (rockyou.txt not found at {args.rockyou_path}) ===")
+
+
+def cmd_submit(args):
+    """Package and submit results."""
+    run([python(), str(TOOLS / "submit_results.py"),
+         "--results-dir", args.results_dir])
+
+
+def cmd_clean(args):
+    """Remove build artifacts and generated corpus."""
+    dirs_to_remove = [
+        ROOT / "build",
+        ROOT / "__pycache__",
+        ROOT / ".pytest_cache",
+        ROOT / "corpus" / "deterministic",
+        ROOT / "corpus" / "random",
+        ROOT / "corpus" / "adversarial",
+        ROOT / "corpus" / "real_world",
+    ]
+    for d in dirs_to_remove:
+        if d.exists():
+            shutil.rmtree(d)
+            print(f"  removed {d.relative_to(ROOT)}/")
+
+    results = ROOT / args.results_dir
+    if results.exists():
+        for f in results.glob("*.json"):
+            f.unlink()
+        for f in results.glob("*.csv"):
+            f.unlink()
+
+    # Remove .pyc files
+    for pyc in ROOT.rglob("*.pyc"):
+        pyc.unlink()
+    for pycache in ROOT.rglob("__pycache__"):
+        if pycache.is_dir():
+            shutil.rmtree(pycache)
+
+    print("Cleaned.")
+
+
+def cmd_default(args):
+    """Run full pipeline: setup, correctness, synthetic, real-world (if available)."""
+    cmd_setup(args)
+    print()
+    cmd_run_all(args)
+    print()
+    print("=" * 54)
+    print("  Benchmarks complete! Results saved to results/")
+    print()
+    print("  To submit your findings:")
+    print("    ./bench submit")
+    print()
+    print("  This will review your results for PII, then")
+    print("  create a GitHub PR on your behalf.")
+    print("=" * 54)
+
+
+# ── Argument parser ──────────────────────────────────────────────────────────
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(
+        prog="bench",
+        description="hashcat-benchmark-suite CLI",
+    )
+
+    # Global options (shared defaults matching the old Makefile)
+    parser.add_argument(
+        "--hashcat-src", default=os.environ.get("HASHCAT_SRC", "../hashcat"),
+        help="Path to hashcat source tree (default: ../hashcat)",
+    )
+    parser.add_argument(
+        "--rockyou-path",
+        default=os.environ.get("ROCKYOU_PATH", os.path.expanduser("~/wordlists/rockyou.txt")),
+        help="Path to rockyou.txt (default: ~/wordlists/rockyou.txt)",
+    )
+    parser.add_argument(
+        "--trials", type=int,
+        default=int(os.environ.get("TRIALS", "30")),
+        help="Number of trials for benchmark runs (default: 30)",
+    )
+    parser.add_argument(
+        "--results-dir", default=os.environ.get("RESULTS_DIR", "results"),
+        help="Output directory for results (default: results)",
+    )
+    parser.add_argument(
+        "--corpus-dir", default="corpus",
+        help="Directory for test corpus (default: corpus)",
+    )
+
+    sub = parser.add_subparsers(dest="command")
+
+    sub.add_parser("setup", help="Validate prerequisites")
+    sub.add_parser("detect", help="Detect system hardware")
+    sub.add_parser("test", help="Run pytest suite")
+    sub.add_parser("generate-corpus", help="Generate test corpus")
+    sub.add_parser("run-correctness", help="Run correctness build matrix")
+    sub.add_parser("run-synthetic", help="Run synthetic benchmarks")
+
+    quick_syn = sub.add_parser("quick-synthetic", help="Synthetic benchmarks (quick, 3 trials)")
+    quick_syn.set_defaults(trials=3)
+
+    sub.add_parser("run-real-world", help="Real-world benchmarks with rockyou.txt")
+
+    quick_rw = sub.add_parser("quick-real-world", help="Real-world benchmarks (quick, 3 trials)")
+    quick_rw.set_defaults(trials=3)
+
+    sub.add_parser("run-all", help="Correctness + synthetic + real-world")
+    sub.add_parser("submit", help="Package and submit results")
+    sub.add_parser("clean", help="Remove generated files")
+
+    return parser
+
+
+COMMANDS = {
+    "setup": cmd_setup,
+    "detect": cmd_detect,
+    "test": cmd_test,
+    "generate-corpus": cmd_generate_corpus,
+    "run-correctness": cmd_run_correctness,
+    "run-synthetic": cmd_run_synthetic,
+    "quick-synthetic": cmd_run_synthetic,
+    "run-real-world": cmd_run_real_world,
+    "quick-real-world": cmd_run_real_world,
+    "run-all": cmd_run_all,
+    "submit": cmd_submit,
+    "clean": cmd_clean,
+}
+
+
+def main():
+    parser = build_parser()
+    args = parser.parse_args()
+    if args.command is None:
+        cmd_default(args)
+    else:
+        COMMANDS[args.command](args)
+
+
+if __name__ == "__main__":
+    main()
