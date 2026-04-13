@@ -27,3 +27,7 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+# Metal PoC build artifacts
+metal-poc/*.air
+metal-poc/*.metallib
+metal-poc/ntlm_bench
