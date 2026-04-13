@@ -215,7 +215,9 @@ def cmd_default(args):
 def build_parser():
     parser = argparse.ArgumentParser(
         prog="bench",
-        description="hashcat-benchmark-suite CLI",
+        description="hashcat-benchmark-suite CLI — run './bench' with no arguments for the full pipeline.",
+        epilog="Run './bench' with no arguments to execute setup + all benchmarks. "
+               "Run './bench submit' to create a PR with your results.",
     )
 
     # Global options (shared defaults matching the old Makefile)
@@ -244,24 +246,36 @@ def build_parser():
 
     sub = parser.add_subparsers(dest="command")
 
-    sub.add_parser("setup", help="Validate prerequisites")
-    sub.add_parser("detect", help="Detect system hardware")
-    sub.add_parser("test", help="Run pytest suite")
-    sub.add_parser("generate-corpus", help="Generate test corpus")
-    sub.add_parser("run-correctness", help="Run correctness build matrix")
-    sub.add_parser("run-synthetic", help="Run synthetic benchmarks")
+    sub.add_parser("setup",
+        help="Validate prerequisites (Python, hashcat binary, gh CLI, dependencies)")
+    sub.add_parser("detect",
+        help="Detect and print system hardware info (GPU model, driver, OS, hashcat version)")
+    sub.add_parser("test",
+        help="Run the pytest test suite (corpus generation, NTLM reference, validation)")
+    sub.add_parser("generate-corpus",
+        help="Generate NTLM test corpus (deterministic, random, and adversarial tiers)")
+    sub.add_parser("run-correctness",
+        help="Generate corpus and run correctness build matrix (BITSELECT on/off x VEC 1/2/4)")
+    sub.add_parser("run-synthetic",
+        help="Run synthetic hashcat benchmarks (default 30 trials, all modes and vec widths)")
 
-    quick_syn = sub.add_parser("quick-synthetic", help="Synthetic benchmarks (quick, 3 trials)")
+    quick_syn = sub.add_parser("quick-synthetic",
+        help="Synthetic benchmarks with 3 trials (fast iteration, not for submission)")
     quick_syn.set_defaults(trials=3)
 
-    sub.add_parser("run-real-world", help="Real-world benchmarks with rockyou.txt")
+    sub.add_parser("run-real-world",
+        help="Run real-world benchmarks using rockyou.txt wordlist (requires rockyou.txt)")
 
-    quick_rw = sub.add_parser("quick-real-world", help="Real-world benchmarks (quick, 3 trials)")
+    quick_rw = sub.add_parser("quick-real-world",
+        help="Real-world benchmarks with 3 trials (fast iteration, not for submission)")
     quick_rw.set_defaults(trials=3)
 
-    sub.add_parser("run-all", help="Correctness + synthetic + real-world")
-    sub.add_parser("submit", help="Package and submit results")
-    sub.add_parser("clean", help="Remove generated files")
+    sub.add_parser("run-all",
+        help="Run correctness + synthetic + real-world (if rockyou.txt available)")
+    sub.add_parser("submit",
+        help="Validate results, review for PII, and create a GitHub PR")
+    sub.add_parser("clean",
+        help="Remove build artifacts, generated corpus, and cached files")
 
     return parser
 
