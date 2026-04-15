@@ -32,7 +32,7 @@ from stats import check_quality, compute_summary, welch_t_test
 
 # ── Constants ───────────────────────────────────────────────────────────────
 
-DEFAULT_MODES = [0, 10, 11, 20, 22, 30, 40, 60, 70, 900, 1000, 1100, 2600]
+DEFAULT_MODES = [0, 10, 11, 20, 22, 30, 40, 60, 70, 900, 1000, 1100, 2600, 18700]
 
 VEC_WIDTHS = [1, 2, 4]
 

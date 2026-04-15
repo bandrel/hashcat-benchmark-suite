@@ -159,6 +159,17 @@ def cmd_submit(args):
          "--results-dir", args.results_dir])
 
 
+def cmd_verify_tuning(args):
+    """Verify Apple Silicon tuning entries (alias matching + Vec defaults)."""
+    cmd = [python(), str(TOOLS / "verify_tuning.py"),
+           "--hashcat-src", args.hashcat_src]
+    if hasattr(args, "check") and args.check:
+        cmd.extend(["--check", args.check])
+    if hasattr(args, "unlisted_modes") and args.unlisted_modes:
+        cmd.extend(["--unlisted-modes", args.unlisted_modes])
+    run(cmd)
+
+
 def cmd_clean(args):
     """Remove build artifacts and generated corpus."""
     dirs_to_remove = [
@@ -274,6 +285,13 @@ def build_parser():
         help="Run correctness + synthetic + real-world (if rockyou.txt available)")
     sub.add_parser("submit",
         help="Validate results, review for PII, and create a GitHub PR")
+    vt = sub.add_parser("verify-tuning",
+        help="Verify Apple Silicon tuning (alias match + Vec defaults)")
+    vt.add_argument("--check", choices=["alias", "vec-default", "all"], default="all",
+        help="Which check to run (default: all)")
+    vt.add_argument("--unlisted-modes", type=str, default=None,
+        help="Comma-separated modes expected to be Vec:1 (default: 100,1400,1700)")
+
     sub.add_parser("clean",
         help="Remove build artifacts, generated corpus, and cached files")
 
@@ -292,6 +310,7 @@ COMMANDS = {
     "quick-real-world": cmd_run_real_world,
     "run-all": cmd_run_all,
     "submit": cmd_submit,
+    "verify-tuning": cmd_verify_tuning,
     "clean": cmd_clean,
 }
 

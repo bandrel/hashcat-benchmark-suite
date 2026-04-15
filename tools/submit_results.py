@@ -243,6 +243,78 @@ def _run_gh(args: list[str], check: bool = True) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, capture_output=True, text=True, check=check)
 
 
+def _resolve_push_remote() -> str:
+    """Determine which git remote to push to.
+
+    If the authenticated ``gh`` user owns the origin repo, pushes directly
+    to ``origin``.  Otherwise, ensures a fork exists (via ``gh repo fork``)
+    and returns the remote name pointing to the fork.
+    """
+    # Who owns origin?
+    result = _run_gh(
+        ["repo", "view", "--json", "owner", "-q", ".owner.login"], check=False
+    )
+    repo_owner = result.stdout.strip() if result.returncode == 0 else ""
+
+    # Who is the authenticated user?
+    result = _run_gh(["api", "user", "-q", ".login"], check=False)
+    gh_user = result.stdout.strip() if result.returncode == 0 else ""
+
+    if not repo_owner or not gh_user:
+        print("WARNING: Could not determine repo owner or GitHub user.")
+        print("  Falling back to 'origin'. Push may fail if you lack write access.")
+        return "origin"
+
+    if repo_owner == gh_user:
+        return "origin"
+
+    # External contributor — ensure a fork exists.
+    print(f"You ({gh_user}) don't own the upstream repo ({repo_owner}).")
+    print("Ensuring your fork exists...")
+
+    # Check if a remote already points to the user's fork.
+    result = _run_git(["remote", "-v"], check=False)
+    remotes = result.stdout if result.returncode == 0 else ""
+    for line in remotes.splitlines():
+        if gh_user.lower() in line.lower() and "(push)" in line:
+            remote_name = line.split()[0]
+            print(f"  Found existing fork remote: {remote_name}")
+            return remote_name
+
+    # No fork remote found — create one via gh.
+    result = _run_gh(
+        ["repo", "fork", "--remote", "--remote-name", "fork", "--clone=false"],
+        check=False,
+    )
+    if result.returncode != 0:
+        stderr = result.stderr.strip()
+        # gh prints to stderr even on success ("already exists" etc.)
+        if "already exists" in stderr.lower():
+            print("  Fork already exists.")
+        else:
+            print(f"  gh repo fork output: {stderr}")
+
+    # Verify the fork remote is present.
+    result = _run_git(["remote", "get-url", "fork"], check=False)
+    if result.returncode == 0:
+        print(f"  Fork remote URL: {result.stdout.strip()}")
+        return "fork"
+
+    # Last resort: try adding manually.
+    result = _run_gh(
+        ["repo", "view", f"{gh_user}/hashcat-benchmark-suite", "--json", "sshUrl", "-q", ".sshUrl"],
+        check=False,
+    )
+    if result.returncode == 0 and result.stdout.strip():
+        fork_url = result.stdout.strip()
+        _run_git(["remote", "add", "fork", fork_url], check=False)
+        print(f"  Added fork remote: {fork_url}")
+        return "fork"
+
+    print("WARNING: Could not set up fork remote. Falling back to 'origin'.")
+    return "origin"
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 
@@ -330,7 +402,10 @@ def main() -> None:
         print("\nNo changes made.")
         sys.exit(0)
 
-    # (f) Create git branch.
+    # (f) Determine push remote (origin for owners, fork for contributors).
+    push_remote = _resolve_push_remote()
+
+    # (g) Create git branch.
     branch_name = f"results/{device_id}/{timestamp_dir}"
     print(f"\nCreating branch: {branch_name}")
     result = _run_git(["checkout", "-b", branch_name], check=False)
@@ -338,14 +413,14 @@ def main() -> None:
         print(f"ERROR: Failed to create branch: {result.stderr.strip()}")
         sys.exit(1)
 
-    # (g) git add the results directory.
+    # (h) git add the results directory.
     print(f"Adding results: {latest}")
     result = _run_git(["add", latest], check=False)
     if result.returncode != 0:
         print(f"ERROR: git add failed: {result.stderr.strip()}")
         sys.exit(1)
 
-    # (h) git commit.
+    # (i) git commit.
     device_name = sys_info.get("gpu_model", device_id) if os.path.isfile(sys_info_path) else device_id
     commit_msg = f"data: add benchmark results for {device_name}\n\nDevice: {device_id}\nTimestamp: {timestamp_dir}"
     print("Committing...")
@@ -354,14 +429,14 @@ def main() -> None:
         print(f"ERROR: git commit failed: {result.stderr.strip()}")
         sys.exit(1)
 
-    # (i) git push.
-    print(f"Pushing branch: {branch_name}")
-    result = _run_git(["push", "-u", "origin", branch_name], check=False)
+    # (j) git push to the resolved remote.
+    print(f"Pushing branch to {push_remote}: {branch_name}")
+    result = _run_git(["push", "-u", push_remote, branch_name], check=False)
     if result.returncode != 0:
         print(f"ERROR: git push failed: {result.stderr.strip()}")
         sys.exit(1)
 
-    # (j) gh pr create.
+    # (k) gh pr create — targets upstream automatically for forks.
     pr_title = f"results: {device_id} ({timestamp_dir})"
     print("Creating pull request...")
     result = _run_gh(
@@ -381,10 +456,10 @@ def main() -> None:
 
     pr_url = result.stdout.strip()
 
-    # (k) git checkout main.
+    # (l) git checkout main.
     _run_git(["checkout", "main"], check=False)
 
-    # (l) Done!
+    # (m) Done!
     print(f"\nDone! PR created: {pr_url}")
 
 
