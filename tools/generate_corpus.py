@@ -61,7 +61,10 @@ def generate_deterministic_corpus() -> list[tuple[str, str]]:
     for pw in common:
         _add(pw)
 
-    # Single-bit differences from a fixed base password
+    # Single-bit differences from a fixed base password.
+    # Only keep ASCII results — multi-byte Unicode has encoding ambiguity
+    # between our reference (proper UTF-16LE) and hashcat's optimized kernel
+    # (byte-by-byte UTF-16LE expansion).
     base = "hashcat"
     base_bytes = base.encode("utf-16-le")
     for byte_idx in range(len(base_bytes)):
@@ -70,7 +73,8 @@ def generate_deterministic_corpus() -> list[tuple[str, str]]:
             mutated[byte_idx] ^= (1 << bit)
             try:
                 pw = mutated.decode("utf-16-le")
-                _add(pw)
+                if pw.isascii():
+                    _add(pw)
             except (UnicodeDecodeError, ValueError):
                 pass
 

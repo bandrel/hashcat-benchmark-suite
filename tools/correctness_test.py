@@ -9,10 +9,13 @@ the expected set.
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
 from datetime import datetime, timezone
+
+_HEX_RE = re.compile(r"^\$HEX\[([0-9a-fA-F]+)\]$")
 
 
 # ── Hashcat runner ──────────────────────────────────────────────────────────
@@ -63,12 +66,16 @@ def run_hashcat_crack(
         except subprocess.TimeoutExpired:
             return set()
 
-        # Parse recovered passwords from outfile
+        # Parse recovered passwords from outfile.
+        # hashcat hex-encodes passwords containing colons as $HEX[...].
         recovered: set[str] = set()
         if os.path.isfile(outfile):
             with open(outfile, "r") as f:
                 for line in f:
                     pw = line.rstrip("\n")
+                    m = _HEX_RE.match(pw)
+                    if m:
+                        pw = bytes.fromhex(m.group(1)).decode("utf-8", errors="replace")
                     recovered.add(pw)
 
         return recovered
