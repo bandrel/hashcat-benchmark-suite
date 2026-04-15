@@ -33,7 +33,7 @@ git clone https://github.com/hashcat/hashcat.git
 cd hashcat
 git fetch origin pull/4665/head:apple-silicon-vec2-tuning
 git checkout apple-silicon-vec2-tuning
-make -j
+make -j$(sysctl -n hw.ncpu)
 cd ..
 ```
 
