@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S python3 -u
 """Synthetic benchmark regression suite.
 
 Runs ``hashcat -b`` across multiple hash modes and Vec widths, collecting
@@ -32,9 +32,23 @@ from stats import check_quality, compute_summary, welch_t_test
 
 # ── Constants ───────────────────────────────────────────────────────────────
 
-DEFAULT_MODES = [0, 10, 11, 20, 22, 30, 40, 60, 70, 900, 1000, 1100, 2600, 18700]
+DEFAULT_MODES = [
+    # Modes already in the Apple Silicon PR
+    0, 11, 22, 900, 1000, 1100, 18700,
+    # Modes in previous DEFAULT_MODES (not yet Apple-tuned)
+    10, 20, 30, 40, 60, 70, 2600,
+    # Additional NVIDIA-tuned modes to evaluate on Apple Silicon
+    12, 21, 23, 24, 200, 400,
+    1300, 1400, 1410, 1411, 1420, 1421, 1430, 1440, 1441, 1470,
+    2400, 2410, 2611, 2612, 2711, 2811, 3711, 3800, 4800,
+    5100, 5300, 5400, 5500, 5600, 6100, 7300, 8700,
+    9720, 9900, 11000, 11100, 11900, 13300,
+    13711, 13712, 13713, 13751, 13752, 13753,
+    16400, 17300, 17400, 17500, 17600, 17700, 17800, 17900, 18000,
+    20710, 25400, 99999,
+]
 
-VEC_WIDTHS = [1, 2, 4]
+VEC_WIDTHS = [1, 2, 4, 8]
 
 # Speed unit -> MH/s multiplier
 _UNIT_MULTIPLIERS = {
@@ -351,7 +365,7 @@ def main() -> None:
         "--modes",
         type=str,
         default=None,
-        help="Comma-separated hash modes to test (default: all 13 default modes)",
+        help="Comma-separated hash modes to test (default: all 71 default modes)",
     )
     parser.add_argument(
         "--device",
@@ -405,6 +419,26 @@ def main() -> None:
         print(f"  Backend:  {system_info.get('backend', 'unknown')}")
         print(f"  Hashcat:  {system_info.get('hashcat_version', 'unknown')}")
         print()
+
+    # Sanity check: one quick run before committing to the full suite.
+    # Catches busted backends (e.g. OpenCL kernel build failures) in seconds
+    # instead of silently returning FAILED for every trial.
+    if not args.quiet:
+        print("Sanity check: running mode 0 @ vec=1 ...", flush=True)
+    probe = run_benchmark(args.hashcat_bin, mode=0, vec_width=1, device=args.device)
+    if probe is None:
+        print(
+            "ERROR: sanity-check benchmark (mode 0, vec 1) failed.\n"
+            "  Try running manually to see the hashcat error:\n"
+            f"    {args.hashcat_bin} -b -m 0 --backend-vector-width=1"
+            + (f" -d {args.device}" if args.device else "")
+            + "\n"
+            "  On macOS, if the default backend picks broken OpenCL, pass --device 1 to force Metal.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    if not args.quiet:
+        print(f"  OK: {probe:.1f} MH/s\n", flush=True)
 
     # Run the benchmark suite.
     results = run_benchmark_suite(
