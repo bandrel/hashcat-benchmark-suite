@@ -13,6 +13,7 @@ Usage:
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 
@@ -315,6 +316,71 @@ def _resolve_push_remote() -> str:
     return "origin"
 
 
+# ── Manual submission (no gh CLI) ────────────────────────────────────────────
+
+
+def _manual_submit(
+    results_dir: str, device_id: str, timestamp_dir: str, summary: str
+) -> None:
+    """Write a Markdown file with PR contents and manual submission instructions."""
+    pr_title = f"results: {device_id} ({timestamp_dir})"
+    md_path = os.path.join(results_dir, "SUBMIT_PR.md")
+
+    content = f"""\
+# Benchmark Results — Manual Submission
+
+The `gh` CLI was not found, so results could not be submitted automatically.
+Follow the steps below to create a pull request manually.
+
+## PR Title
+
+```
+{pr_title}
+```
+
+## PR Body
+
+Paste everything between the `---` lines into the PR description:
+
+---
+
+{summary}
+---
+
+## Steps
+
+1. Fork this repo on GitHub:
+   https://github.com/bandrel/hashcat-benchmark-suite
+
+2. Create a branch and commit your results:
+   ```bash
+   git checkout -b results/{device_id}/{timestamp_dir}
+   git add {results_dir}
+   git commit -m "data: add benchmark results for {device_id}"
+   git remote add fork https://github.com/<YOUR_USERNAME>/hashcat-benchmark-suite.git
+   git push -u fork results/{device_id}/{timestamp_dir}
+   ```
+
+3. Open a pull request:
+   - Go to https://github.com/bandrel/hashcat-benchmark-suite/pulls
+   - Click "New pull request" → "compare across forks"
+   - Select your fork and branch
+   - Use the PR title and body above
+
+Alternatively, install the GitHub CLI (https://cli.github.com/) and re-run:
+```bash
+./bench submit
+```
+"""
+
+    with open(md_path, "w") as f:
+        f.write(content)
+
+    print(f"\ngh CLI not found — wrote manual submission instructions to:")
+    print(f"  {md_path}")
+    print(f"\nFollow the steps in that file to create your PR.")
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 
@@ -402,10 +468,15 @@ def main() -> None:
         print("\nNo changes made.")
         sys.exit(0)
 
-    # (f) Determine push remote (origin for owners, fork for contributors).
+    # (f) Check for gh CLI — fall back to manual submission if missing.
+    if not shutil.which("gh"):
+        _manual_submit(latest, device_id, timestamp_dir, summary)
+        sys.exit(0)
+
+    # (g) Determine push remote (origin for owners, fork for contributors).
     push_remote = _resolve_push_remote()
 
-    # (g) Create git branch.
+    # (h) Create git branch.
     branch_name = f"results/{device_id}/{timestamp_dir}"
     print(f"\nCreating branch: {branch_name}")
     result = _run_git(["checkout", "-b", branch_name], check=False)
@@ -413,14 +484,14 @@ def main() -> None:
         print(f"ERROR: Failed to create branch: {result.stderr.strip()}")
         sys.exit(1)
 
-    # (h) git add the results directory.
+    # (i) git add the results directory.
     print(f"Adding results: {latest}")
     result = _run_git(["add", latest], check=False)
     if result.returncode != 0:
         print(f"ERROR: git add failed: {result.stderr.strip()}")
         sys.exit(1)
 
-    # (i) git commit.
+    # (j) git commit.
     device_name = sys_info.get("gpu_model", device_id) if os.path.isfile(sys_info_path) else device_id
     commit_msg = f"data: add benchmark results for {device_name}\n\nDevice: {device_id}\nTimestamp: {timestamp_dir}"
     print("Committing...")
@@ -429,14 +500,14 @@ def main() -> None:
         print(f"ERROR: git commit failed: {result.stderr.strip()}")
         sys.exit(1)
 
-    # (j) git push to the resolved remote.
+    # (k) git push to the resolved remote.
     print(f"Pushing branch to {push_remote}: {branch_name}")
     result = _run_git(["push", "-u", push_remote, branch_name], check=False)
     if result.returncode != 0:
         print(f"ERROR: git push failed: {result.stderr.strip()}")
         sys.exit(1)
 
-    # (k) gh pr create — targets upstream automatically for forks.
+    # (l) gh pr create — targets upstream automatically for forks.
     pr_title = f"results: {device_id} ({timestamp_dir})"
     print("Creating pull request...")
     result = _run_gh(
@@ -456,10 +527,10 @@ def main() -> None:
 
     pr_url = result.stdout.strip()
 
-    # (l) git checkout main.
+    # (m) git checkout main.
     _run_git(["checkout", "main"], check=False)
 
-    # (m) Done!
+    # (n) Done!
     print(f"\nDone! PR created: {pr_url}")
 
 

@@ -13,13 +13,13 @@ cd hashcat-benchmark-suite
 ./bench
 ```
 
-This validates your environment, then runs correctness tests, synthetic benchmarks (30 trials across 14 hash modes and Vec widths 1/2/4), and real-world benchmarks (if rockyou.txt is available). Expect ~20-45 minutes depending on your GPU.
+This validates your environment, then runs correctness tests, synthetic benchmarks (30 trials across 71 hash modes and Vec widths 1/2/4/8), and real-world benchmarks (if rockyou.txt is available). Expect ~20-45 minutes depending on your GPU.
 
 ## Requirements
 
 - [uv](https://docs.astral.sh/uv/) (Python dependencies are managed automatically)
 - A built hashcat binary with Apple Silicon tuning entries (default: `../hashcat/hashcat`)
-- GitHub CLI (`gh`) — [install](https://cli.github.com/) and authenticate with `gh auth login`
+- (Optional) GitHub CLI (`gh`) — [install](https://cli.github.com/) and `gh auth login` for automatic PR submission. Without it, `./bench submit` generates a Markdown file with manual instructions.
 - (Optional) `rockyou.txt` for real-world benchmarks
 
 ## Contributing Benchmark Results

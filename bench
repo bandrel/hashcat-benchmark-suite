@@ -80,9 +80,9 @@ def cmd_setup(args):
 
     print("--- Checking gh CLI ---")
     if not shutil.which("gh"):
-        print("ERROR: gh CLI not found", file=sys.stderr)
-        sys.exit(1)
-    run(["gh", "--version"])
+        print("WARNING: gh CLI not found — submit will generate a manual PR template instead")
+    else:
+        run(["gh", "--version"])
     print()
 
     print("--- Checking Python dependencies ---")
