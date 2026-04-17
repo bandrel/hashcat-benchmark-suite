@@ -1,0 +1,325 @@
+Hashcat synthetic benchmark suite
+  Modes:    20
+  Vec widths: [1, 2, 4, 8]
+  Trials:   3
+  Total runs: 240
+  Est. time:  ~40 minutes
+  GPU:      Apple M3 Max
+  Backend:  Metal
+  Hashcat:  v7.1.2-386-g8000b3e60+
+
+Sanity check: running mode 0 @ vec=1 ...
+  OK: 18391.9 MH/s
+
+
+--- Mode 22: Juniper NetScreen/SSG (ScreenOS) ---
+  Vec:1 trial 1/3: 10710.1 MH/s
+  Vec:1 trial 2/3: 10417.3 MH/s
+  Vec:1 trial 3/3: 10572.3 MH/s
+  Vec:2 trial 1/3: 12063.2 MH/s
+  Vec:2 trial 2/3: 12039.9 MH/s
+  Vec:2 trial 3/3: 11993.3 MH/s
+  Vec:4 trial 1/3: 10767.8 MH/s
+  Vec:4 trial 2/3: 10781.3 MH/s
+  Vec:4 trial 3/3: 10646.8 MH/s
+  Vec:8 trial 1/3: 10561.7 MH/s
+  Vec:8 trial 2/3: 10773.9 MH/s
+  Vec:8 trial 3/3: 10616.4 MH/s
+
+--- Mode 900: MD4 ---
+  Vec:1 trial 1/3: 32969.9 MH/s
+  Vec:1 trial 2/3: 33008.1 MH/s
+  Vec:1 trial 3/3: 32948.2 MH/s
+  Vec:2 trial 1/3: 34282.2 MH/s
+  Vec:2 trial 2/3: 34725.8 MH/s
+  Vec:2 trial 3/3: 34724.1 MH/s
+  Vec:4 trial 1/3: 32845.4 MH/s
+  Vec:4 trial 2/3: 32834.3 MH/s
+  Vec:4 trial 3/3: 32860.4 MH/s
+  Vec:8 trial 1/3: 32754.7 MH/s
+  Vec:8 trial 2/3: 32793.1 MH/s
+  Vec:8 trial 3/3: 32808.3 MH/s
+
+--- Mode 1000: NTLM ---
+  Vec:1 trial 1/3: 32787.4 MH/s
+  Vec:1 trial 2/3: 32725.8 MH/s
+  Vec:1 trial 3/3: 32453.2 MH/s
+  Vec:2 trial 1/3: 34591.2 MH/s
+  Vec:2 trial 2/3: 34603.1 MH/s
+  Vec:2 trial 3/3: 34592.1 MH/s
+  Vec:4 trial 1/3: 32708.8 MH/s
+  Vec:4 trial 2/3: 32696.9 MH/s
+  Vec:4 trial 3/3: 32735.9 MH/s
+  Vec:8 trial 1/3: 32613.8 MH/s
+  Vec:8 trial 2/3: 32713.5 MH/s
+  Vec:8 trial 3/3: 32770.1 MH/s
+
+--- Mode 10: md5($pass.$salt) ---
+  Vec:1 trial 1/3: 18784.7 MH/s
+  Vec:1 trial 2/3: 18775.3 MH/s
+  Vec:1 trial 3/3: 18801.0 MH/s
+  Vec:2 trial 1/3: 20659.0 MH/s
+  Vec:2 trial 2/3: 20633.7 MH/s
+  Vec:2 trial 3/3: 20668.0 MH/s
+  Vec:4 trial 1/3: 19966.2 MH/s
+  Vec:4 trial 2/3: 19985.2 MH/s
+  Vec:4 trial 3/3: 19767.8 MH/s
+  Vec:8 trial 1/3: 19942.7 MH/s
+  Vec:8 trial 2/3: 19958.7 MH/s
+  Vec:8 trial 3/3: 19957.0 MH/s
+
+--- Mode 20: md5($salt.$pass) ---
+  Vec:1 trial 1/3: 11660.4 MH/s
+  Vec:1 trial 2/3: 11771.1 MH/s
+  Vec:1 trial 3/3: 11780.5 MH/s
+  Vec:2 trial 1/3: 12717.8 MH/s
+  Vec:2 trial 2/3: 12718.7 MH/s
+  Vec:2 trial 3/3: 12724.3 MH/s
+  Vec:4 trial 1/3: 11277.6 MH/s
+  Vec:4 trial 2/3: 11098.4 MH/s
+  Vec:4 trial 3/3: 11271.0 MH/s
+  Vec:8 trial 1/3: 11097.8 MH/s
+  Vec:8 trial 2/3: 11043.0 MH/s
+  Vec:8 trial 3/3: 11094.1 MH/s
+
+--- Mode 30: md5(utf16le($pass).$salt) ---
+  Vec:1 trial 1/3: 18762.8 MH/s
+  Vec:1 trial 2/3: 18769.8 MH/s
+  Vec:1 trial 3/3: 18768.8 MH/s
+  Vec:2 trial 1/3: 20903.8 MH/s
+  Vec:2 trial 2/3: 20916.6 MH/s
+  Vec:2 trial 3/3: 20894.0 MH/s
+  Vec:4 trial 1/3: 19379.1 MH/s
+  Vec:4 trial 2/3: 19817.2 MH/s
+  Vec:4 trial 3/3: 19590.6 MH/s
+  Vec:8 trial 1/3: 19680.1 MH/s
+  Vec:8 trial 2/3: 19856.2 MH/s
+  Vec:8 trial 3/3: 19845.9 MH/s
+
+--- Mode 2600: md5(md5($pass)) ---
+  Vec:1 trial 1/3: 6372.3 MH/s
+  Vec:1 trial 2/3: 6247.0 MH/s
+  Vec:1 trial 3/3: 6234.5 MH/s
+  Vec:2 trial 1/3: 6795.9 MH/s
+  Vec:2 trial 2/3: 6728.3 MH/s
+  Vec:2 trial 3/3: 6811.0 MH/s
+  Vec:4 trial 1/3: 6261.0 MH/s
+  Vec:4 trial 2/3: 6260.5 MH/s
+  Vec:4 trial 3/3: 6241.2 MH/s
+  Vec:8 trial 1/3: 6263.4 MH/s
+  Vec:8 trial 2/3: 6249.7 MH/s
+  Vec:8 trial 3/3: 6259.2 MH/s
+
+--- Mode 200: MySQL323 ---
+  Vec:1 trial 1/3: 64887.3 MH/s
+  Vec:1 trial 2/3: 64791.5 MH/s
+  Vec:1 trial 3/3: 64343.0 MH/s
+  Vec:2 trial 1/3: 73744.9 MH/s
+  Vec:2 trial 2/3: 73736.9 MH/s
+  Vec:2 trial 3/3: 73706.4 MH/s
+  Vec:4 trial 1/3: 78347.9 MH/s
+  Vec:4 trial 2/3: 78354.6 MH/s
+  Vec:4 trial 3/3: 78277.5 MH/s
+  Vec:8 trial 1/3: 78215.8 MH/s
+  Vec:8 trial 2/3: 78297.0 MH/s
+  Vec:8 trial 3/3: 76982.0 MH/s
+
+--- Mode 400: phpass ---
+  Vec:1 trial 1/3: 5.9 MH/s
+  Vec:1 trial 2/3: 5.9 MH/s
+  Vec:1 trial 3/3: 5.9 MH/s
+  Vec:2 trial 1/3: 6.1 MH/s
+  Vec:2 trial 2/3: 6.1 MH/s
+  Vec:2 trial 3/3: 6.1 MH/s
+  Vec:4 trial 1/3: 5.4 MH/s
+  Vec:4 trial 2/3: 5.3 MH/s
+  Vec:4 trial 3/3: 5.4 MH/s
+  Vec:8 trial 1/3: 5.4 MH/s
+  Vec:8 trial 2/3: 5.3 MH/s
+  Vec:8 trial 3/3: 5.4 MH/s
+
+--- Mode 1400: SHA2-256 ---
+  Vec:1 trial 1/3: 2969.0 MH/s
+  Vec:1 trial 2/3: 2972.7 MH/s
+  Vec:1 trial 3/3: 2975.5 MH/s
+  Vec:2 trial 1/3: 2941.9 MH/s
+  Vec:2 trial 2/3: 2925.2 MH/s
+  Vec:2 trial 3/3: 2945.0 MH/s
+  Vec:4 trial 1/3: 2396.9 MH/s
+  Vec:4 trial 2/3: 2396.6 MH/s
+  Vec:4 trial 3/3: 2396.9 MH/s
+  Vec:8 trial 1/3: 2393.4 MH/s
+  Vec:8 trial 2/3: 2395.1 MH/s
+  Vec:8 trial 3/3: 2395.0 MH/s
+
+--- Mode 1440: sha256($salt.utf16le($pass)) ---
+  Vec:1 trial 1/3: 2751.5 MH/s
+  Vec:1 trial 2/3: 2725.0 MH/s
+  Vec:1 trial 3/3: 2750.7 MH/s
+  Vec:2 trial 1/3: 2584.5 MH/s
+  Vec:2 trial 2/3: 2601.3 MH/s
+  Vec:2 trial 3/3: 2607.2 MH/s
+  Vec:4 trial 1/3: 2072.5 MH/s
+  Vec:4 trial 2/3: 2042.7 MH/s
+  Vec:4 trial 3/3: 2068.1 MH/s
+  Vec:8 trial 1/3: 2037.9 MH/s
+  Vec:8 trial 2/3: 2072.4 MH/s
+  Vec:8 trial 3/3: 2074.5 MH/s
+
+--- Mode 2711: vBulletin >= v3.8.5 ---
+  Vec:1 trial 1/3: 4268.0 MH/s
+  Vec:1 trial 2/3: 4272.7 MH/s
+  Vec:1 trial 3/3: 4276.7 MH/s
+  Vec:2 trial 1/3: 4456.3 MH/s
+  Vec:2 trial 2/3: 4501.8 MH/s
+  Vec:2 trial 3/3: 4501.7 MH/s
+  Vec:4 trial 1/3: 4165.7 MH/s
+  Vec:4 trial 2/3: 4167.6 MH/s
+  Vec:4 trial 3/3: 4173.3 MH/s
+  Vec:8 trial 1/3: 4106.8 MH/s
+  Vec:8 trial 2/3: 4160.3 MH/s
+  Vec:8 trial 3/3: 4103.8 MH/s
+
+--- Mode 3800: md5($salt.$pass.$salt) ---
+  Vec:1 trial 1/3: 10879.9 MH/s
+  Vec:1 trial 2/3: 10888.6 MH/s
+  Vec:1 trial 3/3: 10877.8 MH/s
+  Vec:2 trial 1/3: 12191.4 MH/s
+  Vec:2 trial 2/3: 12183.1 MH/s
+  Vec:2 trial 3/3: 12171.9 MH/s
+  Vec:4 trial 1/3: 10801.1 MH/s
+  Vec:4 trial 2/3: 10672.8 MH/s
+  Vec:4 trial 3/3: 10788.4 MH/s
+  Vec:8 trial 1/3: 10785.5 MH/s
+  Vec:8 trial 2/3: 10785.5 MH/s
+  Vec:8 trial 3/3: 10544.7 MH/s
+
+--- Mode 5300: IKE-PSK MD5 ---
+  Vec:1 trial 1/3: 779.9 MH/s
+  Vec:1 trial 2/3: 780.4 MH/s
+  Vec:1 trial 3/3: 781.3 MH/s
+  Vec:2 trial 1/3: 802.2 MH/s
+  Vec:2 trial 2/3: 814.5 MH/s
+  Vec:2 trial 3/3: 817.7 MH/s
+  Vec:4 trial 1/3: 778.9 MH/s
+  Vec:4 trial 2/3: 766.7 MH/s
+  Vec:4 trial 3/3: 772.4 MH/s
+  Vec:8 trial 1/3: 782.7 MH/s
+  Vec:8 trial 2/3: 783.0 MH/s
+  Vec:8 trial 3/3: 783.2 MH/s
+
+--- Mode 5400: IKE-PSK SHA1 ---
+  Vec:1 trial 1/3: 393.8 MH/s
+  Vec:1 trial 2/3: 393.0 MH/s
+  Vec:1 trial 3/3: 388.7 MH/s
+  Vec:2 trial 1/3: 298.1 MH/s
+  Vec:2 trial 2/3: 298.6 MH/s
+  Vec:2 trial 3/3: 299.8 MH/s
+  Vec:4 trial 1/3: 226.5 MH/s
+  Vec:4 trial 2/3: 226.3 MH/s
+  Vec:4 trial 3/3: 226.4 MH/s
+  Vec:8 trial 1/3: 226.2 MH/s
+  Vec:8 trial 2/3: 225.9 MH/s
+  Vec:8 trial 3/3: 225.2 MH/s
+
+--- Mode 11900: PBKDF2-HMAC-MD5 ---
+  Vec:1 trial 1/3: 6.6 MH/s
+  Vec:1 trial 2/3: 6.6 MH/s
+  Vec:1 trial 3/3: 6.6 MH/s
+  Vec:2 trial 1/3: 6.6 MH/s
+  Vec:2 trial 2/3: 6.6 MH/s
+  Vec:2 trial 3/3: 6.6 MH/s
+  Vec:4 trial 1/3: 6.6 MH/s
+  Vec:4 trial 2/3: 6.6 MH/s
+  Vec:4 trial 3/3: 6.6 MH/s
+  Vec:8 trial 1/3: 6.5 MH/s
+  Vec:8 trial 2/3: 6.6 MH/s
+  Vec:8 trial 3/3: 6.6 MH/s
+
+--- Mode 13713: VeraCrypt RIPEMD160 + XTS 1536 bit (legacy) ---
+  Vec:1 trial 1/3: 0.0 MH/s
+  Vec:1 trial 2/3: 0.0 MH/s
+  Vec:1 trial 3/3: 0.0 MH/s
+  Vec:2 trial 1/3: 0.0 MH/s
+  Vec:2 trial 2/3: 0.0 MH/s
+  Vec:2 trial 3/3: 0.0 MH/s
+  Vec:4 trial 1/3: 0.0 MH/s
+  Vec:4 trial 2/3: 0.0 MH/s
+  Vec:4 trial 3/3: 0.0 MH/s
+  Vec:8 trial 1/3: 0.0 MH/s
+  Vec:8 trial 2/3: 0.0 MH/s
+  Vec:8 trial 3/3: 0.0 MH/s
+
+--- Mode 17300: SHA3-224 ---
+  Vec:1 trial 1/3: 642.2 MH/s
+  Vec:1 trial 2/3: 641.4 MH/s
+  Vec:1 trial 3/3: 643.3 MH/s
+  Vec:2 trial 1/3: 529.3 MH/s
+  Vec:2 trial 2/3: 526.7 MH/s
+  Vec:2 trial 3/3: 523.4 MH/s
+  Vec:4 trial 1/3: 114.0 MH/s
+  Vec:4 trial 2/3: 112.5 MH/s
+  Vec:4 trial 3/3: 110.4 MH/s
+  Vec:8 trial 1/3: 113.4 MH/s
+  Vec:8 trial 2/3: 114.7 MH/s
+  Vec:8 trial 3/3: 112.0 MH/s
+
+--- Mode 17500: SHA3-384 ---
+  Vec:1 trial 1/3: 648.6 MH/s
+  Vec:1 trial 2/3: 648.9 MH/s
+  Vec:1 trial 3/3: 648.5 MH/s
+  Vec:2 trial 1/3: 517.5 MH/s
+  Vec:2 trial 2/3: 513.7 MH/s
+  Vec:2 trial 3/3: 502.6 MH/s
+  Vec:4 trial 1/3: 112.5 MH/s
+  Vec:4 trial 2/3: 112.0 MH/s
+  Vec:4 trial 3/3: 114.3 MH/s
+  Vec:8 trial 1/3: 112.1 MH/s
+  Vec:8 trial 2/3: 114.5 MH/s
+  Vec:8 trial 3/3: 114.7 MH/s
+
+--- Mode 17800: Keccak-256 ---
+  Vec:1 trial 1/3: 650.8 MH/s
+  Vec:1 trial 2/3: 643.7 MH/s
+  Vec:1 trial 3/3: 648.7 MH/s
+  Vec:2 trial 1/3: 521.0 MH/s
+  Vec:2 trial 2/3: 520.9 MH/s
+  Vec:2 trial 3/3: 520.9 MH/s
+  Vec:4 trial 1/3: 111.9 MH/s
+  Vec:4 trial 2/3: 114.4 MH/s
+  Vec:4 trial 3/3: 111.7 MH/s
+  Vec:8 trial 1/3: 113.3 MH/s
+  Vec:8 trial 2/3: 111.4 MH/s
+  Vec:8 trial 3/3: 113.2 MH/s
+
+===================================================================================================================
+BENCHMARK RESULTS - v7.1.2-386-g8000b3e60+
+GPU: Apple M3 Max
+Backend: Metal
+Timestamp: 2026-04-16T22:49:20Z
+===================================================================================================================
+
+Mode    Name                                   Vec1 MH/s    Vec2 MH/s   V2vs1%    Vec4 MH/s   V4vs1%  Best
+-------------------------------------------------------------------------------------------------------------------
+10      md5($pass.$salt)                         18787.0      20653.6    +9.9%      19906.4    +6.0% Vec:2
+20      md5($salt.$pass)                         11737.3      12720.3    +8.4%      11215.7    -4.4% Vec:2
+22      Juniper NetScreen/SSG (ScreenOS)         10566.6      12032.1   +13.9%      10732.0    +1.6% Vec:2
+30      md5(utf16le($pass).$salt)                18767.1      20904.8   +11.4%      19595.6    +4.4% Vec:2
+200     MySQL323                                 64673.9      73729.4   +14.0%      78326.7   +21.1% Vec:4
+400     phpass                                       5.9          6.1    +3.1%          5.4    -9.7% Vec:2
+900     MD4                                      32975.4      34577.4    +4.9%      32846.7    -0.4% Vec:2
+1000    NTLM                                     32655.5      34595.5    +5.9%      32713.9    +0.2% Vec:2
+1400    SHA2-256                                  2972.4       2937.4    -1.2%       2396.8   -19.4% Vec:1
+1440    sha256($salt.utf16le($pass))              2742.4       2597.7    -5.3%       2061.1   -24.8% Vec:1
+2600    md5(md5($pass))                           6284.6       6778.4    +7.9%       6254.2    -0.5% Vec:2
+2711    vBulletin >= v3.8.5                       4272.5       4486.6    +5.0%       4168.9    -2.4% Vec:2
+3800    md5($salt.$pass.$salt)                   10882.1      12182.1   +11.9%      10754.1    -1.2% Vec:2
+5300    IKE-PSK MD5                                780.5        811.5    +4.0%        772.7    -1.0% Vec:2
+5400    IKE-PSK SHA1                               391.8        298.8   -23.7%        226.4   -42.2% Vec:1
+11900   PBKDF2-HMAC-MD5                              6.6          6.6    -0.0%          6.6    +0.1% Vec:4
+13713   VeraCrypt RIPEMD160 + XTS 1536 bit           0.0          0.0    +1.0%          0.0    +0.4% Vec:2
+17300   SHA3-224                                   642.3        526.5   -18.0%        112.3   -82.5% Vec:1
+17500   SHA3-384                                   648.7        511.3   -21.2%        112.9   -82.6% Vec:1
+17800   Keccak-256                                 647.7        520.9   -19.6%        112.7   -82.6% Vec:1
+
+Results saved to: results/apple-m3-max/targeted-rerun-2/apple-m3-max/20260416T224921Z/

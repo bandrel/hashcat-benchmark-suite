@@ -1,0 +1,5556 @@
+{
+  "system_info": {
+    "os_name": "macOS",
+    "os_version": "26.5",
+    "hashcat_version": "v7.1.2-386-g8000b3e60+",
+    "hashcat_binary": "../hashcat/hashcat",
+    "hashcat_binary_sha256": "7ee6da5180266ec528789227813813720af32c0841beaa6f66f836f3d4b59359",
+    "hashcat_commit": "665110b54",
+    "suite_commit": "8991dec",
+    "backend": "Metal",
+    "timestamp": "2026-04-15T18:36:52Z",
+    "gpu_model": "Apple M3 Max",
+    "gpu_core_count": "40",
+    "device_id": "apple-m3-max"
+  },
+  "modes": {
+    "0": {
+      "name": "MD5",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.09889837218055822,
+          "df": 2.373070530286651,
+          "significant": false,
+          "pct_change": 1.6757706476126333
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.1451201990535105,
+          "df": 2.5367945595219528,
+          "significant": false,
+          "pct_change": -2.5063995479402474
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -0.7829379252046199,
+          "df": 2.1783767695155687,
+          "significant": false,
+          "pct_change": -12.963368956711571
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 10795.033333333333,
+          "stdev": 3028.8854919480423,
+          "min": 8995.9,
+          "max": 14292.0,
+          "n": 3,
+          "ci_95": [
+            7218.88487165639,
+            14371.181795010276
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2806 > 0.05"
+        },
+        "2": {
+          "mean": 10975.933333333332,
+          "stdev": 929.0998672550406,
+          "min": 9916.8,
+          "max": 11653.5,
+          "n": 3,
+          "ci_95": [
+            9878.962493774978,
+            12072.904172891687
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0846 > 0.05"
+        },
+        "4": {
+          "mean": 10524.466666666667,
+          "stdev": 1119.8959073652043,
+          "min": 9241.3,
+          "max": 11304.9,
+          "n": 3,
+          "ci_95": [
+            9202.22651034217,
+            11846.706822991164
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1064 > 0.05"
+        },
+        "8": {
+          "mean": 9395.633333333333,
+          "stdev": 640.2581692827772,
+          "min": 8980.6,
+          "max": 10133.0,
+          "n": 3,
+          "ci_95": [
+            8639.692485373414,
+            10151.574181293252
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0681 > 0.05"
+        }
+      }
+    },
+    "11": {
+      "name": "Joomla < 2.5.18",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 1.1543796795568668,
+          "df": 2.1978636510346106,
+          "significant": false,
+          "pct_change": 2.986359110625312
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.2959369514978094,
+          "df": 3.546484673817829,
+          "significant": false,
+          "pct_change": -1.3185460187636915
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -6.325561711953935,
+          "df": 2.1529249174889182,
+          "significant": false,
+          "pct_change": -16.275782788545808
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 10612.7,
+          "stdev": 464.1630209312242,
+          "min": 10112.6,
+          "max": 11029.7,
+          "n": 3,
+          "ci_95": [
+            10064.671400806263,
+            11160.728599193739
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 10929.633333333333,
+          "stdev": 103.36103392155718,
+          "min": 10832.0,
+          "max": 11037.9,
+          "n": 3,
+          "ci_95": [
+            10807.59689338255,
+            11051.669773284117
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 10472.766666666666,
+          "stdev": 674.7664064943757,
+          "min": 9694.0,
+          "max": 10883.4,
+          "n": 3,
+          "ci_95": [
+            9676.082588318044,
+            11269.450745015289
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0644 > 0.05"
+        },
+        "8": {
+          "mean": 8885.4,
+          "stdev": 90.82340006848442,
+          "min": 8799.7,
+          "max": 8980.6,
+          "n": 3,
+          "ci_95": [
+            8778.166509891966,
+            8992.633490108034
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "22": {
+      "name": "Juniper NetScreen/SSG (ScreenOS)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.9925347839497407,
+          "df": 3.9542094438662363,
+          "significant": false,
+          "pct_change": 4.741617066879602
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.499245618751643,
+          "df": 2.2205180678587673,
+          "significant": false,
+          "pct_change": -9.127586587307011
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -10.190760684063184,
+          "df": 2.648675161930503,
+          "significant": false,
+          "pct_change": -39.13278734167906
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 6345.233333333334,
+          "stdev": 390.7218234669432,
+          "min": 6119.5,
+          "max": 6796.4,
+          "n": 3,
+          "ci_95": [
+            5883.915382671471,
+            6806.551283995196
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0616 > 0.05"
+        },
+        "2": {
+          "mean": 6646.1,
+          "stdev": 350.71228949097303,
+          "min": 6279.2,
+          "max": 6978.0,
+          "n": 3,
+          "ci_95": [
+            6232.020557944997,
+            7060.179442055004
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0528 > 0.05"
+        },
+        "4": {
+          "mean": 5766.066666666667,
+          "stdev": 91.88037512621123,
+          "min": 5665.3,
+          "max": 5845.2,
+          "n": 3,
+          "ci_95": [
+            5657.585225872886,
+            5874.548107460447
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 3862.1666666666665,
+          "stdev": 159.51496272554925,
+          "min": 3687.2,
+          "max": 3999.5,
+          "n": 3,
+          "ci_95": [
+            3673.830333027807,
+            4050.5030003055263
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "900": {
+      "name": "MD4",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.15774893824638184,
+          "df": 2.279320749667559,
+          "significant": false,
+          "pct_change": -1.0671702703135415
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.4810562849648186,
+          "df": 2.988591533954576,
+          "significant": false,
+          "pct_change": -18.244162412176124
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -2.4126258953804904,
+          "df": 2.6239707871524907,
+          "significant": false,
+          "pct_change": -16.992461949650313
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 20827.666666666668,
+          "stdev": 2359.0726151039394,
+          "min": 18584.8,
+          "max": 23287.9,
+          "n": 3,
+          "ci_95": [
+            18042.353743508833,
+            23612.979589824503
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1133 > 0.05"
+        },
+        "2": {
+          "mean": 20605.399999999998,
+          "stdev": 624.9274597903342,
+          "min": 19883.8,
+          "max": 20968.3,
+          "n": 3,
+          "ci_95": [
+            19867.559834061092,
+            21343.240165938903
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 17027.833333333332,
+          "stdev": 1213.0982414187788,
+          "min": 15738.4,
+          "max": 18146.5,
+          "n": 3,
+          "ci_95": [
+            15595.550924029498,
+            18460.115742637165
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0712 > 0.05"
+        },
+        "8": {
+          "mean": 17288.533333333333,
+          "stdev": 943.5859332002213,
+          "min": 16199.0,
+          "max": 17839.8,
+          "n": 3,
+          "ci_95": [
+            16174.459066595799,
+            18402.607600070867
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0546 > 0.05"
+        }
+      }
+    },
+    "1000": {
+      "name": "NTLM",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.12907579746280778,
+          "df": 3.033292924866324,
+          "significant": false,
+          "pct_change": -0.627828120726886
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.8464075322875386,
+          "df": 2.3310131263509613,
+          "significant": false,
+          "pct_change": -12.745313519780282
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -1.108054625858063,
+          "df": 3.314133319907557,
+          "significant": false,
+          "pct_change": -9.131023467215202
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 19867.433333333334,
+          "stdev": 1480.389085116927,
+          "min": 18248.0,
+          "max": 21151.1,
+          "n": 3,
+          "ci_95": [
+            18119.56562308216,
+            21615.30104358451
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0745 > 0.05"
+        },
+        "2": {
+          "mean": 19742.7,
+          "stdev": 781.0167667854514,
+          "min": 18847.2,
+          "max": 20282.9,
+          "n": 3,
+          "ci_95": [
+            18820.568108085085,
+            20664.831891914917
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 17335.266666666666,
+          "stdev": 427.3375402809056,
+          "min": 16952.6,
+          "max": 17796.4,
+          "n": 3,
+          "ci_95": [
+            16830.71722385842,
+            17839.816109474912
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 18053.333333333332,
+          "stdev": 2418.606483769804,
+          "min": 15631.5,
+          "max": 20468.7,
+          "n": 3,
+          "ci_95": [
+            15197.729884695718,
+            20908.936781970944
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1340 > 0.05"
+        }
+      }
+    },
+    "1100": {
+      "name": "Domain Cached Credentials (DCC), MS Cache",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.7298558532641094,
+          "df": 2.764656011136606,
+          "significant": false,
+          "pct_change": 2.493226771644637
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.795701715379576,
+          "df": 3.911747075840648,
+          "significant": false,
+          "pct_change": -11.502327501852387
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -4.711440255402874,
+          "df": 2.474784903387881,
+          "significant": false,
+          "pct_change": -15.560042760422851
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 5893.3,
+          "stdev": 318.4830764734604,
+          "min": 5636.0,
+          "max": 6249.5,
+          "n": 3,
+          "ci_95": [
+            5517.272987084372,
+            6269.327012915628
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0540 > 0.05"
+        },
+        "2": {
+          "mean": 6040.233333333334,
+          "stdev": 141.97074816078577,
+          "min": 5950.3,
+          "max": 6203.9,
+          "n": 3,
+          "ci_95": [
+            5872.611125762924,
+            6207.8555409037435
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 5215.433333333333,
+          "stdev": 273.75157229381085,
+          "min": 4899.9,
+          "max": 5389.6,
+          "n": 3,
+          "ci_95": [
+            4892.219970945533,
+            5538.646695721134
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0525 > 0.05"
+        },
+        "8": {
+          "mean": 4976.3,
+          "stdev": 110.5174646831892,
+          "min": 4876.2,
+          "max": 5094.9,
+          "n": 3,
+          "ci_95": [
+            4845.814096070687,
+            5106.7859039293135
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "18700": {
+      "name": "Java Object hashCode()",
+      "optimal_vec": 8,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 6.443495110393728,
+          "df": 3.6827379498001642,
+          "significant": false,
+          "pct_change": 38.51574074030538
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 9.377682236540082,
+          "df": 2.9378055953945577,
+          "significant": false,
+          "pct_change": 74.61763017452827
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 11.091289888884207,
+          "df": 2.964799643062899,
+          "significant": false,
+          "pct_change": 87.12390094093227
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 70897.76666666668,
+          "stdev": 4362.624047902057,
+          "min": 67770.6,
+          "max": 75881.6,
+          "n": 3,
+          "ci_95": [
+            65746.89803222858,
+            76048.63530110478
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0615 > 0.05"
+        },
+        "2": {
+          "mean": 98204.56666666667,
+          "stdev": 5903.096955271304,
+          "min": 93167.0,
+          "max": 104700.0,
+          "n": 3,
+          "ci_95": [
+            91234.89047658195,
+            105174.24285675139
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0601 > 0.05"
+        },
+        "4": {
+          "mean": 123800.0,
+          "stdev": 8742.997197757762,
+          "min": 114000.0,
+          "max": 130800.00000000001,
+          "n": 3,
+          "ci_95": [
+            113477.3066983466,
+            134122.6933016534
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0706 > 0.05"
+        },
+        "8": {
+          "mean": 132666.66666666666,
+          "stdev": 8603.100216394863,
+          "min": 122800.0,
+          "max": 138600.0,
+          "n": 3,
+          "ci_95": [
+            122509.14711490381,
+            142824.1862184295
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0648 > 0.05"
+        }
+      }
+    },
+    "10": {
+      "name": "md5($pass.$salt)",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.6612968019614855,
+          "df": 2.0348757803417827,
+          "significant": false,
+          "pct_change": -3.230291737226941
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.4211791017125286,
+          "df": 2.367885449869991,
+          "significant": false,
+          "pct_change": -12.309770450207578
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -4.772726800124553,
+          "df": 2.6315497100844256,
+          "significant": false,
+          "pct_change": -25.022796395620837
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 11770.866666666667,
+          "stdev": 991.5832004089883,
+          "min": 11147.6,
+          "max": 12914.3,
+          "n": 3,
+          "ci_95": [
+            10600.122924060985,
+            12941.610409272349
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0842 > 0.05"
+        },
+        "2": {
+          "mean": 11390.633333333333,
+          "stdev": 92.59289029581831,
+          "min": 11284.8,
+          "max": 11456.7,
+          "n": 3,
+          "ci_95": [
+            11281.31063920248,
+            11499.956027464186
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 10321.9,
+          "stdev": 302.0063078811431,
+          "min": 9989.0,
+          "max": 10578.3,
+          "n": 3,
+          "ci_95": [
+            9965.326799653867,
+            10678.473200346132
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 8825.466666666665,
+          "stdev": 399.14481498991483,
+          "min": 8520.8,
+          "max": 9277.3,
+          "n": 3,
+          "ci_95": [
+            8354.203847419421,
+            9296.72948591391
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "20": {
+      "name": "md5($salt.$pass)",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.2794163058782419,
+          "df": 3.9185362492695206,
+          "significant": false,
+          "pct_change": -1.4082635213707744
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -4.694835992641235,
+          "df": 3.276469712179332,
+          "significant": false,
+          "pct_change": -18.05491610698437
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -10.73535281293436,
+          "df": 2.3170733487640627,
+          "significant": false,
+          "pct_change": -36.77812848565395
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 7022.833333333334,
+          "stdev": 401.0329953175093,
+          "min": 6559.8,
+          "max": 7259.6,
+          "n": 3,
+          "ci_95": [
+            6549.3411748813405,
+            7496.325491785327
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0571 > 0.05"
+        },
+        "2": {
+          "mean": 6923.933333333333,
+          "stdev": 463.7012975325102,
+          "min": 6496.0,
+          "max": 7416.6,
+          "n": 3,
+          "ci_95": [
+            6376.449882322458,
+            7471.416784344209
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0670 > 0.05"
+        },
+        "4": {
+          "mean": 5754.866666666667,
+          "stdev": 240.82587762392427,
+          "min": 5497.9,
+          "max": 5975.4,
+          "n": 3,
+          "ci_95": [
+            5470.528056281336,
+            6039.205277051998
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 4439.966666666666,
+          "stdev": 113.26805963436159,
+          "min": 4324.5,
+          "max": 4550.9,
+          "n": 3,
+          "ci_95": [
+            4306.233186713274,
+            4573.700146620058
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "30": {
+      "name": "md5(utf16le($pass).$salt)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 1.2171065273192971,
+          "df": 3.2487962364106173,
+          "significant": false,
+          "pct_change": 5.123841986600705
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.2390405107394753,
+          "df": 3.94551955118149,
+          "significant": false,
+          "pct_change": -7.229636594826204
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -6.49175018783328,
+          "df": 3.7485927184438093,
+          "significant": false,
+          "pct_change": -17.549445970059946
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 12478.266666666666,
+          "stdev": 463.5640444785742,
+          "min": 11947.9,
+          "max": 12806.1,
+          "n": 3,
+          "ci_95": [
+            11930.945267770008,
+            13025.588065563325
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 13117.633333333333,
+          "stdev": 782.9316785858994,
+          "min": 12465.9,
+          "max": 13986.1,
+          "n": 3,
+          "ci_95": [
+            12193.240540863535,
+            14042.026125803131
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0597 > 0.05"
+        },
+        "4": {
+          "mean": 11576.133333333333,
+          "stdev": 521.6506717462688,
+          "min": 11060.5,
+          "max": 12103.6,
+          "n": 3,
+          "ci_95": [
+            10960.230139813013,
+            12192.036526853653
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 10288.4,
+          "stdev": 355.6464395997798,
+          "min": 9915.7,
+          "max": 10624.1,
+          "n": 3,
+          "ci_95": [
+            9868.494899177704,
+            10708.305100822296
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "40": {
+      "name": "md5($salt.utf16le($pass))",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 2.304699318151571,
+          "df": 3.640709341352406,
+          "significant": false,
+          "pct_change": 4.3532054289474775
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -11.924180608667998,
+          "df": 3.4683345006112725,
+          "significant": false,
+          "pct_change": -21.887676089962092
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -22.909577974519397,
+          "df": 3.0064990377315297,
+          "significant": false,
+          "pct_change": -39.528849068119264
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 8028.566666666667,
+          "stdev": 212.91200842914753,
+          "min": 7784.2,
+          "max": 8174.1,
+          "n": 3,
+          "ci_95": [
+            7777.18543966401,
+            8279.947893669323
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 8378.066666666668,
+          "stdev": 153.8135993120675,
+          "min": 8206.6,
+          "max": 8503.9,
+          "n": 3,
+          "ci_95": [
+            8196.46182619742,
+            8559.671507135916
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 6271.3,
+          "stdev": 140.79147701476822,
+          "min": 6178.5,
+          "max": 6433.3,
+          "n": 3,
+          "ci_95": [
+            6105.070135819904,
+            6437.529864180096
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 4854.966666666666,
+          "stdev": 110.62478625214739,
+          "min": 4766.2,
+          "max": 4978.9,
+          "n": 3,
+          "ci_95": [
+            4724.354050167744,
+            4985.579283165588
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "60": {
+      "name": "HMAC-MD5 (key = $salt)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.6218447601035025,
+          "df": 3.876066962234422,
+          "significant": false,
+          "pct_change": 2.183592200196904
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.9769903080378622,
+          "df": 3.799660161297361,
+          "significant": false,
+          "pct_change": -4.243751193922393
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -1.8883327042938223,
+          "df": 3.0908613186147336,
+          "significant": false,
+          "pct_change": -5.796952375354502
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4536.866666666667,
+          "stdev": 211.8427325478343,
+          "min": 4292.6,
+          "max": 4670.3,
+          "n": 3,
+          "ci_95": [
+            4286.747913702145,
+            4786.985419631189
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 4635.933333333333,
+          "stdev": 176.81225447726598,
+          "min": 4432.4,
+          "max": 4751.6,
+          "n": 3,
+          "ci_95": [
+            4427.174410774054,
+            4844.692255892613
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 4344.333333333333,
+          "stdev": 267.6374662362002,
+          "min": 4095.4,
+          "max": 4627.4,
+          "n": 3,
+          "ci_95": [
+            4028.3387816369823,
+            4660.327885029684
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0616 > 0.05"
+        },
+        "8": {
+          "mean": 4273.866666666667,
+          "stdev": 115.3963748708481,
+          "min": 4144.5,
+          "max": 4366.2,
+          "n": 3,
+          "ci_95": [
+            4137.620324712001,
+            4410.1130086213325
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "70": {
+      "name": "md5(utf16le($pass))",
+      "optimal_vec": 4,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.06263713333758525,
+          "df": 2.651078421073745,
+          "significant": false,
+          "pct_change": 0.34386626370227513
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 11.796142253280292,
+          "df": 3.829305916995271,
+          "significant": false,
+          "pct_change": 31.506777581615243
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 4.718737939660494,
+          "df": 3.0738630162622353,
+          "significant": false,
+          "pct_change": 20.651425835602506
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 13367.6,
+          "stdev": 481.2362933113006,
+          "min": 12818.4,
+          "max": 13715.5,
+          "n": 3,
+          "ci_95": [
+            12799.413307368886,
+            13935.786692631114
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 13413.566666666666,
+          "stdev": 1176.455550938212,
+          "min": 12105.6,
+          "max": 14385.3,
+          "n": 3,
+          "ci_95": [
+            12024.547596812983,
+            14802.585736520348
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0877 > 0.05"
+        },
+        "4": {
+          "mean": 17579.3,
+          "stdev": 388.3880662430293,
+          "min": 17183.3,
+          "max": 17959.6,
+          "n": 3,
+          "ci_95": [
+            17120.737472852303,
+            18037.862527147696
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 16128.2,
+          "stdev": 891.7339906048211,
+          "min": 15172.1,
+          "max": 16937.3,
+          "n": 3,
+          "ci_95": [
+            15075.34635227908,
+            17181.05364772092
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0553 > 0.05"
+        }
+      }
+    },
+    "2600": {
+      "name": "md5(md5($pass))",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.977164629909475,
+          "df": 2.3980497276153043,
+          "significant": false,
+          "pct_change": -20.036818718780534
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -10.738564610928462,
+          "df": 2.462256893279833,
+          "significant": false,
+          "pct_change": -34.76250727079748
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -7.618605359457847,
+          "df": 3.4845244854919684,
+          "significant": false,
+          "pct_change": -42.06568603347265
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 5558.766666666666,
+          "stdev": 294.88191421878264,
+          "min": 5319.2,
+          "max": 5888.1,
+          "n": 3,
+          "ci_95": [
+            5210.605104695032,
+            5906.9282286383
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0530 > 0.05"
+        },
+        "2": {
+          "mean": 4444.966666666667,
+          "stdev": 930.0931691681932,
+          "min": 3681.9,
+          "max": 5481.0,
+          "n": 3,
+          "ci_95": [
+            3346.823054113709,
+            5543.110279219625
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2092 > 0.05"
+        },
+        "4": {
+          "mean": 3626.4,
+          "stdev": 100.92987664710571,
+          "min": 3513.4,
+          "max": 3707.6,
+          "n": 3,
+          "ci_95": [
+            3507.233981981719,
+            3745.5660180182813
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 3220.4333333333334,
+          "stdev": 442.32544956551317,
+          "min": 2782.9,
+          "max": 3667.4,
+          "n": 3,
+          "ci_95": [
+            2698.1879462992674,
+            3742.6787203673994
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1373 > 0.05"
+        }
+      }
+    },
+    "12": {
+      "name": "PostgreSQL",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 4.455604014880886,
+          "df": 3.713848606667002,
+          "significant": false,
+          "pct_change": 10.941564342542646
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -1.5539709222778888,
+          "df": 2.066067789961082,
+          "significant": false,
+          "pct_change": -17.989958783719096
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -19.805377702475386,
+          "df": 3.942450210193101,
+          "significant": false,
+          "pct_change": -39.046612115515025
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 17056.36666666667,
+          "stdev": 436.0138797484926,
+          "min": 16565.4,
+          "max": 17398.4,
+          "n": 3,
+          "ci_95": [
+            16541.573232092313,
+            17571.160101241025
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 18922.6,
+          "stdev": 579.8274657171748,
+          "min": 18278.1,
+          "max": 19401.9,
+          "n": 3,
+          "ci_95": [
+            18238.00855371561,
+            19607.19144628439
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 13987.933333333332,
+          "stdev": 3392.1586539154277,
+          "min": 11176.6,
+          "max": 17755.6,
+          "n": 3,
+          "ci_95": [
+            9982.875042350612,
+            17992.991624316055
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2425 > 0.05"
+        },
+        "8": {
+          "mean": 10396.433333333334,
+          "stdev": 386.1635577489586,
+          "min": 9953.1,
+          "max": 10659.5,
+          "n": 3,
+          "ci_95": [
+            9940.497241767373,
+            10852.369424899296
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "21": {
+      "name": "osCommerce, xt:Commerce",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 2.1153572296793244,
+          "df": 3.9467995037857535,
+          "significant": false,
+          "pct_change": 5.478766705108205
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -8.12063179558517,
+          "df": 2.314450679996936,
+          "significant": false,
+          "pct_change": -16.321399497998783
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -18.37873268004912,
+          "df": 2.4883620806861604,
+          "significant": false,
+          "pct_change": -37.698850145851715
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 7861.866666666667,
+          "stdev": 263.4645010875909,
+          "min": 7685.3,
+          "max": 8164.7,
+          "n": 3,
+          "ci_95": [
+            7550.799056888887,
+            8172.934276444446
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 8292.6,
+          "stdev": 234.46161732786882,
+          "min": 8052.6,
+          "max": 8521.1,
+          "n": 3,
+          "ci_95": [
+            8015.77555273769,
+            8569.42444726231
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 6578.7,
+          "stdev": 74.10080971217512,
+          "min": 6504.8,
+          "max": 6653.0,
+          "n": 3,
+          "ci_95": [
+            6491.210559621461,
+            6666.189440378539
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 4898.033333333333,
+          "stdev": 92.76299549568972,
+          "min": 4800.9,
+          "max": 4985.7,
+          "n": 3,
+          "ci_95": [
+            4788.509799173876,
+            5007.55686749279
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "23": {
+      "name": "Skype",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.8425632470521421,
+          "df": 2.571497427352168,
+          "significant": false,
+          "pct_change": 3.3222445171964696
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.8457125083185195,
+          "df": 3.7913437489838118,
+          "significant": false,
+          "pct_change": -16.943887070088355
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -9.169909722092365,
+          "df": 2.097175173849975,
+          "significant": false,
+          "pct_change": -34.18479600098567
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 7575.2,
+          "stdev": 483.289488815968,
+          "min": 7081.1,
+          "max": 8046.9,
+          "n": 3,
+          "ci_95": [
+            7004.5891378302695,
+            8145.81086216973
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0638 > 0.05"
+        },
+        "2": {
+          "mean": 7826.866666666667,
+          "stdev": 184.61176379996314,
+          "min": 7615.4,
+          "max": 7955.9,
+          "n": 3,
+          "ci_95": [
+            7608.89900929706,
+            8044.834324036274
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 6291.666666666667,
+          "stdev": 613.7959948821216,
+          "min": 5783.2,
+          "max": 6973.5,
+          "n": 3,
+          "ci_95": [
+            5566.969213191981,
+            7016.364120141353
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0976 > 0.05"
+        },
+        "8": {
+          "mean": 4985.633333333333,
+          "stdev": 75.35000552974977,
+          "min": 4910.3,
+          "max": 5061.0,
+          "n": 3,
+          "ci_95": [
+            4896.66899081233,
+            5074.597675854337
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "24": {
+      "name": "SolarWinds Serv-U",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 1.2738491781545942,
+          "df": 3.8779893468149,
+          "significant": false,
+          "pct_change": 3.247680376967371
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -10.54930045836634,
+          "df": 2.059750399412645,
+          "significant": false,
+          "pct_change": -20.789400290551256
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -22.039120078454722,
+          "df": 2.250659043315061,
+          "significant": false,
+          "pct_change": -44.446849516927315
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 8007.766666666666,
+          "stdev": 271.31259339244315,
+          "min": 7694.6,
+          "max": 8171.8,
+          "n": 3,
+          "ci_95": [
+            7687.432961060006,
+            8328.100372273326
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 8267.833333333334,
+          "stdev": 226.78426606211795,
+          "min": 8136.2,
+          "max": 8529.7,
+          "n": 3,
+          "ci_95": [
+            8000.073391147811,
+            8535.593275518857
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 6343.0,
+          "stdev": 33.16338342208141,
+          "min": 6314.5,
+          "max": 6379.4,
+          "n": 3,
+          "ci_95": [
+            6303.844613332476,
+            6382.155386667524
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 4448.566666666667,
+          "stdev": 68.05176950920011,
+          "min": 4374.8,
+          "max": 4508.9,
+          "n": 3,
+          "ci_95": [
+            4368.219214941709,
+            4528.9141183916245
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "200": {
+      "name": "MySQL323",
+      "optimal_vec": 8,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 2.9466857853355277,
+          "df": 3.997004091962328,
+          "significant": false,
+          "pct_change": 7.866474805550448
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 1.4521167126692724,
+          "df": 2.6111927804538757,
+          "significant": false,
+          "pct_change": 7.348006060106625
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 3.12858082250335,
+          "df": 3.1968171524420943,
+          "significant": false,
+          "pct_change": 11.66329641908553
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 52584.333333333336,
+          "stdev": 1695.5884180228802,
+          "min": 51152.0,
+          "max": 54456.5,
+          "n": 3,
+          "ci_95": [
+            50582.383794841575,
+            54586.2828718251
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 56720.86666666667,
+          "stdev": 1742.662945991946,
+          "min": 55215.8,
+          "max": 58630.1,
+          "n": 3,
+          "ci_95": [
+            54663.33711327231,
+            58778.396220061026
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 56448.23333333334,
+          "stdev": 4285.526290122759,
+          "min": 52171.4,
+          "max": 60742.4,
+          "n": 3,
+          "ci_95": [
+            51388.392579815176,
+            61508.0740868515
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0759 > 0.05"
+        },
+        "8": {
+          "mean": 58717.4,
+          "stdev": 2941.720675047172,
+          "min": 55577.8,
+          "max": 61410.1,
+          "n": 3,
+          "ci_95": [
+            55244.16540769879,
+            62190.63459230121
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0501 > 0.05"
+        }
+      }
+    },
+    "400": {
+      "name": "phpass",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.0723164638004972,
+          "df": 3.200686032493906,
+          "significant": false,
+          "pct_change": -6.774809942839337
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -3.778358615015545,
+          "df": 2.022551929072919,
+          "significant": false,
+          "pct_change": -20.729557066353944
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -7.456279023829043,
+          "df": 2.005462910207946,
+          "significant": false,
+          "pct_change": -40.82107973789743
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4.064566666666667,
+          "stdev": 0.38515971146179534,
+          "min": 3.6592,
+          "max": 4.4257,
+          "n": 3,
+          "ci_95": [
+            3.6098157976405285,
+            4.519317535692805
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0948 > 0.05"
+        },
+        "2": {
+          "mean": 3.7892,
+          "stdev": 0.22245152280890323,
+          "min": 3.5324,
+          "max": 3.9226,
+          "n": 3,
+          "ci_95": [
+            3.526555646753384,
+            4.051844353246616
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0587 > 0.05"
+        },
+        "4": {
+          "mean": 3.222,
+          "stdev": 0.028920753793772364,
+          "min": 3.1895000000000002,
+          "max": 3.2449000000000003,
+          "n": 3,
+          "ci_95": [
+            3.187853806799537,
+            3.256146193200463
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 2.405366666666667,
+          "stdev": 0.014233879770931417,
+          "min": 2.3893000000000004,
+          "max": 2.4164000000000003,
+          "n": 3,
+          "ci_95": [
+            2.3885609909876657,
+            2.4221723423456685
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "1300": {
+      "name": "SHA2-224",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -10.913042720150466,
+          "df": 3.1425471922982697,
+          "significant": false,
+          "pct_change": -13.039187810466816
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -20.66167056479339,
+          "df": 2.387319746475245,
+          "significant": false,
+          "pct_change": -40.42884142568031
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -71.65100896304611,
+          "df": 3.761125954832274,
+          "significant": false,
+          "pct_change": -68.41224974493636
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1992.9666666666667,
+          "stdev": 20.15597512732476,
+          "min": 1972.0,
+          "max": 2012.2,
+          "n": 3,
+          "ci_95": [
+            1969.1688837406366,
+            2016.7644495926968
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 1733.1,
+          "stdev": 35.9838852821648,
+          "min": 1703.9,
+          "max": 1773.3,
+          "n": 3,
+          "ci_95": [
+            1690.6144995282705,
+            1775.5855004717293
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 1187.2333333333333,
+          "stdev": 64.46645122335606,
+          "min": 1116.6,
+          "max": 1242.9,
+          "n": 3,
+          "ci_95": [
+            1111.1189998647867,
+            1263.34766680188
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0543 > 0.05"
+        },
+        "8": {
+          "mean": 629.5333333333333,
+          "stdev": 26.077257013216162,
+          "min": 601.7,
+          "max": 653.4,
+          "n": 3,
+          "ci_95": [
+            598.7444036096847,
+            660.3222630569819
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "1400": {
+      "name": "SHA2-256",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -2.049984844491745,
+          "df": 3.9590831106922733,
+          "significant": false,
+          "pct_change": -12.592372079991598
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -4.949022635958672,
+          "df": 3.2250666858088457,
+          "significant": false,
+          "pct_change": -23.60347424088537
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -14.84018734525532,
+          "df": 2.0092759086156518,
+          "significant": false,
+          "pct_change": -61.16520155500298
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1903.5333333333333,
+          "stdev": 135.73228552313319,
+          "min": 1751.8,
+          "max": 2013.4,
+          "n": 3,
+          "ci_95": [
+            1743.2767619430224,
+            2063.789904723644
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0713 > 0.05"
+        },
+        "2": {
+          "mean": 1663.8333333333333,
+          "stdev": 150.3096914152023,
+          "min": 1494.3,
+          "max": 1780.8,
+          "n": 3,
+          "ci_95": [
+            1486.365491396563,
+            1841.3011752701036
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0903 > 0.05"
+        },
+        "4": {
+          "mean": 1454.2333333333333,
+          "stdev": 79.39032266802623,
+          "min": 1395.7,
+          "max": 1544.6,
+          "n": 3,
+          "ci_95": [
+            1360.4986639191063,
+            1547.9680027475604
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0546 > 0.05"
+        },
+        "8": {
+          "mean": 739.2333333333333,
+          "stdev": 6.536308846232174,
+          "min": 731.7,
+          "max": 743.4,
+          "n": 3,
+          "ci_95": [
+            731.5160357043414,
+            746.9506309623252
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "1410": {
+      "name": "sha256($pass.$salt)",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -4.0674341155416895,
+          "df": 2.761715417391642,
+          "significant": false,
+          "pct_change": -11.24403045061233
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -3.849560919656731,
+          "df": 2.4665718491020643,
+          "significant": false,
+          "pct_change": -29.897394675871208
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -23.591204014974714,
+          "df": 2.3038069135001167,
+          "significant": false,
+          "pct_change": -61.820101817264806
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 2114.9,
+          "stdev": 92.52183526065615,
+          "min": 2056.9,
+          "max": 2221.6,
+          "n": 3,
+          "ci_95": [
+            2005.6611992204694,
+            2224.138800779531
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 1877.1,
+          "stdev": 41.15774532211411,
+          "min": 1830.1,
+          "max": 1906.7,
+          "n": 3,
+          "ci_95": [
+            1828.5058197277353,
+            1925.6941802722645
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 1482.6,
+          "stdev": 269.02854867095425,
+          "min": 1172.0,
+          "max": 1642.6,
+          "n": 3,
+          "ci_95": [
+            1164.963023285491,
+            1800.2369767145087
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1815 > 0.05"
+        },
+        "8": {
+          "mean": 807.4666666666667,
+          "stdev": 25.572706804977305,
+          "min": 778.2,
+          "max": 825.5,
+          "n": 3,
+          "ci_95": [
+            777.2734499390453,
+            837.659883394288
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "1411": {
+      "name": "SSHA-256(Base64), LDAP {SSHA256}",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -2.4114230593120083,
+          "df": 3.993310893473507,
+          "significant": false,
+          "pct_change": -12.30357845064883
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -3.9113969758859737,
+          "df": 3.9660888472439253,
+          "significant": false,
+          "pct_change": -21.373181281950444
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -3.158897068187267,
+          "df": 1.0748285254220034,
+          "significant": false,
+          "pct_change": -61.480141565080615
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 2119.1666666666665,
+          "stdev": 135.107377050009,
+          "min": 1975.2,
+          "max": 2243.2,
+          "n": 3,
+          "ci_95": [
+            1959.6479130250927,
+            2278.6854203082403
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0638 > 0.05"
+        },
+        "2": {
+          "mean": 1858.4333333333334,
+          "stdev": 129.68640381062824,
+          "min": 1744.0,
+          "max": 1999.3,
+          "n": 3,
+          "ci_95": [
+            1705.3150214259686,
+            2011.5516452406982
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0698 > 0.05"
+        },
+        "4": {
+          "mean": 1666.2333333333333,
+          "stdev": 148.23553330201673,
+          "min": 1498.9,
+          "max": 1781.1,
+          "n": 3,
+          "ci_95": [
+            1491.2144110950667,
+            1841.2522555716
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0890 > 0.05"
+        },
+        "8": {
+          "mean": 816.3,
+          "stdev": 572.7564927611035,
+          "min": 411.3,
+          "max": 1221.3,
+          "n": 2,
+          "ci_95": [
+            -11.924999999999955,
+            1644.5249999999999
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        }
+      }
+    },
+    "1420": {
+      "name": "sha256($salt.$pass)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.0019440397782806852,
+          "df": 2.082397073259017,
+          "significant": false,
+          "pct_change": 0.015050526768437872
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.626450599520915,
+          "df": 2.021200638700502,
+          "significant": false,
+          "pct_change": -20.180606321221237
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -8.665853262576723,
+          "df": 2.199320921820382,
+          "significant": false,
+          "pct_change": -68.04773167060848
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1550.3333333333333,
+          "stdev": 205.77981760448068,
+          "min": 1319.0,
+          "max": 1713.0,
+          "n": 3,
+          "ci_95": [
+            1307.372950668907,
+            1793.2937159977596
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1327 > 0.05"
+        },
+        "2": {
+          "mean": 1550.5666666666666,
+          "stdev": 29.540706378374406,
+          "min": 1516.5,
+          "max": 1569.1,
+          "n": 3,
+          "ci_95": [
+            1515.688507042372,
+            1585.4448262909611
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 1237.4666666666667,
+          "stdev": 14.981432953270332,
+          "min": 1225.3,
+          "max": 1254.2,
+          "n": 3,
+          "ci_95": [
+            1219.778368924154,
+            1255.1549644091795
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 495.3666666666667,
+          "stdev": 45.99286176498843,
+          "min": 442.8,
+          "max": 528.2,
+          "n": 3,
+          "ci_95": [
+            441.06375482459526,
+            549.6695785087381
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0928 > 0.05"
+        }
+      }
+    },
+    "1421": {
+      "name": "hMailServer",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -10.200801686366383,
+          "df": 2.848985922406559,
+          "significant": false,
+          "pct_change": -12.794362337280996
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -26.76463169778908,
+          "df": 3.1699971777094054,
+          "significant": false,
+          "pct_change": -28.99872761084467
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -94.8304228476036,
+          "df": 3.998947642406342,
+          "significant": false,
+          "pct_change": -71.22247235000489
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1702.8333333333333,
+          "stdev": 15.789975723012747,
+          "min": 1685.7,
+          "max": 1716.8,
+          "n": 3,
+          "ci_95": [
+            1684.1904042619371,
+            1721.4762624047294
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 1484.9666666666667,
+          "stdev": 33.45359970665842,
+          "min": 1451.8,
+          "max": 1518.7,
+          "n": 3,
+          "ci_95": [
+            1445.4686270588443,
+            1524.4647062744891
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 1209.0333333333333,
+          "stdev": 27.782248529111815,
+          "min": 1185.1,
+          "max": 1239.5,
+          "n": 3,
+          "ci_95": [
+            1176.2313520093678,
+            1241.8353146572988
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 490.03333333333336,
+          "stdev": 15.535872467722337,
+          "min": 472.1,
+          "max": 499.4,
+          "n": 3,
+          "ci_95": [
+            471.6904192238529,
+            508.3762474428138
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "1430": {
+      "name": "sha256(utf16le($pass).$salt)",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -4.607582263449318,
+          "df": 3.2731284313125077,
+          "significant": false,
+          "pct_change": -10.066630650099041
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -15.747196004202488,
+          "df": 3.9284406763239716,
+          "significant": false,
+          "pct_change": -23.482802088960927
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -28.97944641397008,
+          "df": 3.034035271363062,
+          "significant": false,
+          "pct_change": -69.74428236989016
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1851.0,
+          "stdev": 36.01555219623871,
+          "min": 1820.2,
+          "max": 1890.6,
+          "n": 3,
+          "ci_95": [
+            1808.477110994979,
+            1893.522889005021
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 1664.6666666666667,
+          "stdev": 60.07664549001822,
+          "min": 1598.2,
+          "max": 1715.1,
+          "n": 3,
+          "ci_95": [
+            1593.735294740268,
+            1735.5980385930654
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 1416.3333333333333,
+          "stdev": 31.442381165130225,
+          "min": 1380.3,
+          "max": 1438.2,
+          "n": 3,
+          "ci_95": [
+            1379.2099018486974,
+            1453.456764817969
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 560.0333333333333,
+          "stdev": 68.23755075714053,
+          "min": 506.6,
+          "max": 636.9,
+          "n": 3,
+          "ci_95": [
+            479.4665331629502,
+            640.6001335037164
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1218 > 0.05"
+        }
+      }
+    },
+    "1440": {
+      "name": "sha256($salt.utf16le($pass))",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.2727087627563014,
+          "df": 1.8602309258431642,
+          "significant": false,
+          "pct_change": -9.222468421777393
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.9110621905048966,
+          "df": 1.23243457818914,
+          "significant": false,
+          "pct_change": -18.656501546049743
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -10.663754280018487,
+          "df": 1.0843228657319173,
+          "significant": false,
+          "pct_change": -66.09706939071869
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1331.35,
+          "stdev": 114.33916651786477,
+          "min": 1250.5,
+          "max": 1412.2,
+          "n": 2,
+          "ci_95": [
+            1166.01175,
+            1496.68825
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        },
+        "2": {
+          "mean": 1208.5666666666666,
+          "stdev": 91.16766605180449,
+          "min": 1110.3,
+          "max": 1290.4,
+          "n": 3,
+          "ci_95": [
+            1100.92670814973,
+            1316.2066251836031
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0754 > 0.05"
+        },
+        "4": {
+          "mean": 1082.9666666666667,
+          "stdev": 47.226722661363375,
+          "min": 1031.2,
+          "max": 1123.7,
+          "n": 3,
+          "ci_95": [
+            1027.2069583368361,
+            1138.7263749964973
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 451.3666666666667,
+          "stdev": 28.617535416826776,
+          "min": 419.4,
+          "max": 474.6,
+          "n": 3,
+          "ci_95": [
+            417.5784777338293,
+            485.15485559950406
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0634 > 0.05"
+        }
+      }
+    },
+    "1441": {
+      "name": "Episerver 6.x >= .NET 4",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -3.706588260111559,
+          "df": 2.6925554863747,
+          "significant": false,
+          "pct_change": -12.751450312664813
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -10.340361131981222,
+          "df": 3.41898984898396,
+          "significant": false,
+          "pct_change": -25.548105175921048
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -15.98887703770717,
+          "df": 2.4440403824242813,
+          "significant": false,
+          "pct_change": -67.36796504181422
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1769.7333333333333,
+          "stdev": 41.05622161540604,
+          "min": 1723.0,
+          "max": 1800.0,
+          "n": 3,
+          "ci_95": [
+            1721.2590202031358,
+            1818.2076464635309
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 1544.0666666666666,
+          "stdev": 97.1311141361682,
+          "min": 1456.6,
+          "max": 1648.6,
+          "n": 3,
+          "ci_95": [
+            1429.3857765100624,
+            1658.7475568232708
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0629 > 0.05"
+        },
+        "4": {
+          "mean": 1317.6,
+          "stdev": 63.63992457569389,
+          "min": 1247.8,
+          "max": 1372.4,
+          "n": 3,
+          "ci_95": [
+            1242.461531088707,
+            1392.7384689112928
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 577.5,
+          "stdev": 122.4534197154167,
+          "min": 478.7,
+          "max": 714.5,
+          "n": 3,
+          "ci_95": [
+            432.921537160613,
+            722.0784628393869
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2120 > 0.05"
+        }
+      }
+    },
+    "1470": {
+      "name": "sha256(utf16le($pass))",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.6005796382915,
+          "df": 3.7152902075244993,
+          "significant": false,
+          "pct_change": -11.92897252997421
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -1.7366724321632114,
+          "df": 3.857681917178899,
+          "significant": false,
+          "pct_change": -26.867092537148697
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -4.322477136397186,
+          "df": 3.213469669377384,
+          "significant": false,
+          "pct_change": -59.71798727907394
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 2415.9666666666667,
+          "stdev": 499.7937207822175,
+          "min": 2023.4,
+          "max": 2978.6,
+          "n": 3,
+          "ci_95": [
+            1825.8695664353904,
+            3006.063766897943
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2069 > 0.05"
+        },
+        "2": {
+          "mean": 2127.7666666666664,
+          "stdev": 664.1017718191492,
+          "min": 1667.0,
+          "max": 2889.0,
+          "n": 3,
+          "ci_95": [
+            1343.6741230556706,
+            2911.859210277662
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.3121 > 0.05"
+        },
+        "4": {
+          "mean": 1766.8666666666666,
+          "stdev": 411.4578269195195,
+          "min": 1339.8,
+          "max": 2160.7,
+          "n": 3,
+          "ci_95": [
+            1281.0661044813933,
+            2252.66722885194
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2329 > 0.05"
+        },
+        "8": {
+          "mean": 973.2,
+          "stdev": 290.58260443460824,
+          "min": 801.2,
+          "max": 1308.7,
+          "n": 3,
+          "ci_95": [
+            630.1145526955663,
+            1316.2854473044338
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2986 > 0.05"
+        }
+      }
+    },
+    "2400": {
+      "name": "Cisco-PIX MD5",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.7590942044853461,
+          "df": 2.054373970766136,
+          "significant": false,
+          "pct_change": -1.6362043186933735
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -3.8317492061381526,
+          "df": 2.041786670607707,
+          "significant": false,
+          "pct_change": -9.407116169529399
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -8.73121875212594,
+          "df": 2.064896277311089,
+          "significant": false,
+          "pct_change": -17.248388389236162
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 10233.033333333333,
+          "stdev": 44.246619456556665,
+          "min": 10193.1,
+          "max": 10280.6,
+          "n": 3,
+          "ci_95": [
+            10180.792177130956,
+            10285.27448953571
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 10065.6,
+          "stdev": 379.4673635505436,
+          "min": 9661.4,
+          "max": 10414.2,
+          "n": 3,
+          "ci_95": [
+            9617.569979708576,
+            10513.630020291424
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 9270.4,
+          "stdev": 432.8799833672151,
+          "min": 8799.8,
+          "max": 9651.6,
+          "n": 3,
+          "ci_95": [
+            8759.306698280701,
+            9781.493301719298
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 8468.0,
+          "stdev": 347.33057740429376,
+          "min": 8166.1,
+          "max": 8847.6,
+          "n": 3,
+          "ci_95": [
+            8057.913282169388,
+            8878.08671783061
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "2410": {
+      "name": "Cisco-ASA MD5",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.974788247881443,
+          "df": 2.570832381140871,
+          "significant": false,
+          "pct_change": 6.825785843120516
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -1.3892276817794584,
+          "df": 2.058566757268072,
+          "significant": false,
+          "pct_change": -9.154401134533037
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -3.1042778933995665,
+          "df": 2.066834169639866,
+          "significant": false,
+          "pct_change": -20.476669099120187
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 9683.866666666667,
+          "stdev": 1097.258403172805,
+          "min": 8633.8,
+          "max": 10822.9,
+          "n": 3,
+          "ci_95": [
+            8388.354188231962,
+            10979.379145101371
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1133 > 0.05"
+        },
+        "2": {
+          "mean": 10344.866666666667,
+          "stdev": 418.8872203031903,
+          "min": 9969.8,
+          "max": 10796.9,
+          "n": 3,
+          "ci_95": [
+            9850.294358639288,
+            10839.438974694045
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 8797.366666666667,
+          "stdev": 132.7856292425256,
+          "min": 8650.4,
+          "max": 8908.7,
+          "n": 3,
+          "ci_95": [
+            8640.58915724585,
+            8954.144176087484
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 7700.933333333333,
+          "stdev": 141.85310477156779,
+          "min": 7573.9,
+          "max": 7854.0,
+          "n": 3,
+          "ci_95": [
+            7533.450025112699,
+            7868.416641553968
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "2611": {
+      "name": "vBulletin < v3.8.5",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -8.425100672527895,
+          "df": 2.6766659149049743,
+          "significant": false,
+          "pct_change": -8.585208017052334
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -10.046490660105894,
+          "df": 3.3347603100809855,
+          "significant": false,
+          "pct_change": -17.960160095689375
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -22.27107610625214,
+          "df": 3.8874835090391104,
+          "significant": false,
+          "pct_change": -32.51138611583934
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4347.4,
+          "stdev": 70.80684995111727,
+          "min": 4284.9,
+          "max": 4424.3,
+          "n": 3,
+          "ci_95": [
+            4263.799676315917,
+            4431.000323684082
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 3974.1666666666665,
+          "stdev": 29.561856053592617,
+          "min": 3942.6,
+          "max": 4001.2,
+          "n": 3,
+          "ci_95": [
+            3939.2635360163304,
+            4009.0697973170027
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 3566.6,
+          "stdev": 114.48567595992067,
+          "min": 3453.8,
+          "max": 3682.7,
+          "n": 3,
+          "ci_95": [
+            3431.4289032198453,
+            3701.7710967801545
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 2934.0,
+          "stdev": 84.07871312050392,
+          "min": 2852.1,
+          "max": 3020.1,
+          "n": 3,
+          "ci_95": [
+            2834.7298356491237,
+            3033.2701643508763
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "2612": {
+      "name": "PHPS",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.5118749206483169,
+          "df": 2.588874128419858,
+          "significant": false,
+          "pct_change": -6.0506963695821785
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -6.638295095248307,
+          "df": 3.8841608684297433,
+          "significant": false,
+          "pct_change": -14.942481034511376
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -14.377226189779922,
+          "df": 3.9971313626221563,
+          "significant": false,
+          "pct_change": -29.049152570508458
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4016.0666666666666,
+          "stdev": 100.7037404138162,
+          "min": 3942.8,
+          "max": 4130.9,
+          "n": 3,
+          "ci_95": [
+            3897.167643470394,
+            4134.965689862939
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 3773.0666666666666,
+          "stdev": 259.5357843021524,
+          "min": 3481.2,
+          "max": 3977.9,
+          "n": 3,
+          "ci_95": [
+            3466.6376193323863,
+            4079.495714000947
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0688 > 0.05"
+        },
+        "4": {
+          "mean": 3415.9666666666667,
+          "stdev": 119.89613560633777,
+          "min": 3292.8,
+          "max": 3532.3,
+          "n": 3,
+          "ci_95": [
+            3274.4075413549167,
+            3557.5257919784167
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 2849.4333333333334,
+          "stdev": 98.04113082443166,
+          "min": 2788.0,
+          "max": 2962.5,
+          "n": 3,
+          "ci_95": [
+            2733.67800348976,
+            2965.1886631769066
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "2711": {
+      "name": "vBulletin >= v3.8.5",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.6274062421165036,
+          "df": 3.400821406040307,
+          "significant": false,
+          "pct_change": -10.57327377026742
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.684836117348347,
+          "df": 2.0334224780324033,
+          "significant": false,
+          "pct_change": -14.758035414307583
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -4.179744702982521,
+          "df": 2.401178516137189,
+          "significant": false,
+          "pct_change": -24.01104986125456
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 2678.766666666667,
+          "stdev": 253.97986796857225,
+          "min": 2405.1,
+          "max": 2906.9,
+          "n": 3,
+          "ci_95": [
+            2378.8973858545473,
+            2978.6359474787864
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0948 > 0.05"
+        },
+        "2": {
+          "mean": 2395.5333333333333,
+          "stdev": 162.3690344041417,
+          "min": 2283.9,
+          "max": 2581.8,
+          "n": 3,
+          "ci_95": [
+            2203.8272506332937,
+            2587.239416033373
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0678 > 0.05"
+        },
+        "4": {
+          "mean": 2283.4333333333334,
+          "stdev": 23.21687604595689,
+          "min": 2261.3,
+          "max": 2307.6,
+          "n": 3,
+          "ci_95": [
+            2256.0216019300133,
+            2310.8450647366535
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 2035.5666666666668,
+          "stdev": 80.84555234107405,
+          "min": 1967.2,
+          "max": 2124.8,
+          "n": 3,
+          "ci_95": [
+            1940.11383478955,
+            2131.019498543784
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "2811": {
+      "name": "MyBB 1.2+, IPB2+ (Invision Power Board)",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -3.1350174634235177,
+          "df": 3.7239842907850695,
+          "significant": false,
+          "pct_change": -4.252213222829162
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -14.06141077031305,
+          "df": 2.7307828708814346,
+          "significant": false,
+          "pct_change": -16.588576003013745
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -10.446482022690473,
+          "df": 2.665066606316672,
+          "significant": false,
+          "pct_change": -29.563006215859865
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 2831.4666666666667,
+          "stdev": 53.05396623564866,
+          "min": 2792.1,
+          "max": 2891.8,
+          "n": 3,
+          "ci_95": [
+            2768.8268408152608,
+            2894.1064925180726
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 2711.0666666666666,
+          "stdev": 40.12584370867899,
+          "min": 2687.9,
+          "max": 2757.4,
+          "n": 3,
+          "ci_95": [
+            2663.690833333333,
+            2758.4425
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 2361.766666666667,
+          "stdev": 23.07928363995146,
+          "min": 2342.9,
+          "max": 2387.5,
+          "n": 3,
+          "ci_95": [
+            2334.517388044207,
+            2389.0159452891266
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 1994.3999999999999,
+          "stdev": 128.24691029416644,
+          "min": 1877.7,
+          "max": 2131.7,
+          "n": 3,
+          "ci_95": [
+            1842.9812711697018,
+            2145.818728830298
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0643 > 0.05"
+        }
+      }
+    },
+    "3711": {
+      "name": "MediaWiki B type",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.1844701465145118,
+          "df": 2.99513556605567,
+          "significant": false,
+          "pct_change": -1.268993800114139
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -11.474362764216215,
+          "df": 2.3098887201112164,
+          "significant": false,
+          "pct_change": -20.96934877017865
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -22.3349006003802,
+          "df": 2.388873662228802,
+          "significant": false,
+          "pct_change": -36.71183588196037
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 3446.3,
+          "stdev": 29.333257575659818,
+          "min": 3414.1,
+          "max": 3471.5,
+          "n": 3,
+          "ci_95": [
+            3411.66677129788,
+            3480.9332287021202
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 3402.5666666666666,
+          "stdev": 56.827135536936396,
+          "min": 3338.1,
+          "max": 3445.4,
+          "n": 3,
+          "ci_95": [
+            3335.471930377637,
+            3469.6614029556963
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 2723.633333333333,
+          "stdev": 105.06842215115493,
+          "min": 2615.3,
+          "max": 2825.1,
+          "n": 3,
+          "ci_95": [
+            2599.5810120271826,
+            2847.685654639484
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 2181.1,
+          "stdev": 93.62761344817034,
+          "min": 2073.5,
+          "max": 2244.0,
+          "n": 3,
+          "ci_95": [
+            2070.5556275919785,
+            2291.6443724080214
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "3800": {
+      "name": "md5($salt.$pass.$salt)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.15694157814270604,
+          "df": 2.7521311155327224,
+          "significant": false,
+          "pct_change": 0.6137654881324798
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -3.0679066952361835,
+          "df": 2.2164229544268856,
+          "significant": false,
+          "pct_change": -21.37166449329789
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -19.074890212673033,
+          "df": 3.9345780972878206,
+          "significant": false,
+          "pct_change": -40.12560996401271
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 7234.033333333334,
+          "stdev": 198.02616830442747,
+          "min": 7100.9,
+          "max": 7461.6,
+          "n": 3,
+          "ci_95": [
+            7000.227539408059,
+            7467.839127258609
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 7278.433333333333,
+          "stdev": 448.21439438435397,
+          "min": 6875.5,
+          "max": 7761.2,
+          "n": 3,
+          "ci_95": [
+            6749.234979272029,
+            7807.631687394638
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0616 > 0.05"
+        },
+        "4": {
+          "mean": 5688.0,
+          "stdev": 850.0851427945321,
+          "min": 4706.5,
+          "max": 6190.5,
+          "n": 3,
+          "ci_95": [
+            4684.320368075757,
+            6691.679631924243
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1495 > 0.05"
+        },
+        "8": {
+          "mean": 4331.333333333333,
+          "stdev": 173.9433911746388,
+          "min": 4136.7,
+          "max": 4471.6,
+          "n": 3,
+          "ci_95": [
+            4125.961624029135,
+            4536.705042637531
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "4800": {
+      "name": "iSCSI CHAP authentication, MD5(CHAP)",
+      "optimal_vec": 4,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 1.1547015499058426,
+          "df": 2.335298904569414,
+          "significant": false,
+          "pct_change": 5.710394754936092
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 1.401805385513941,
+          "df": 2.35605549172566,
+          "significant": false,
+          "pct_change": 6.949354791488302
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -0.9572377223444795,
+          "df": 3.2397026879063717,
+          "significant": false,
+          "pct_change": -5.276559124521472
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 7514.366666666667,
+          "stdev": 618.0878443500843,
+          "min": 7113.7,
+          "max": 8226.2,
+          "n": 3,
+          "ci_95": [
+            6784.601906780627,
+            8244.131426552707
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0823 > 0.05"
+        },
+        "2": {
+          "mean": 7943.466666666666,
+          "stdev": 179.58845545672855,
+          "min": 7740.4,
+          "max": 8081.4,
+          "n": 3,
+          "ci_95": [
+            7731.429935524526,
+            8155.503397808807
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 8036.566666666667,
+          "stdev": 185.14859797830837,
+          "min": 7830.8,
+          "max": 8189.7,
+          "n": 3,
+          "ci_95": [
+            7817.965179221222,
+            8255.16815411211
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 7117.866666666667,
+          "stdev": 364.25793516865696,
+          "min": 6852.2,
+          "max": 7533.1,
+          "n": 3,
+          "ci_95": [
+            6687.7941340569205,
+            7547.939199276413
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0512 > 0.05"
+        }
+      }
+    },
+    "5100": {
+      "name": "Half MD5",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 1.5191767374690988,
+          "df": 3.994664276959676,
+          "significant": false,
+          "pct_change": 1.4906375628016642
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -3.9259706536955563,
+          "df": 3.8727177028637563,
+          "significant": false,
+          "pct_change": -3.478944892659076
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -1.3664694903437342,
+          "df": 2.1282331122980582,
+          "significant": false,
+          "pct_change": -5.277513153265692
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 8432.633333333333,
+          "stdev": 99.46900689829639,
+          "min": 8318.8,
+          "max": 8502.8,
+          "n": 3,
+          "ci_95": [
+            8315.192136909927,
+            8550.07452975674
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 8558.333333333334,
+          "stdev": 103.17326850174653,
+          "min": 8459.3,
+          "max": 8665.2,
+          "n": 3,
+          "ci_95": [
+            8436.5185845026,
+            8680.148082164067
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 8139.266666666666,
+          "stdev": 82.80835304082106,
+          "min": 8082.6,
+          "max": 8234.3,
+          "n": 3,
+          "ci_95": [
+            8041.496392706764,
+            8237.036940626569
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 7987.599999999999,
+          "stdev": 555.2571656448927,
+          "min": 7437.0,
+          "max": 8547.4,
+          "n": 3,
+          "ci_95": [
+            7332.01824755845,
+            8643.18175244155
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0695 > 0.05"
+        }
+      }
+    },
+    "5300": {
+      "name": "IKE-PSK MD5",
+      "optimal_vec": 8,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.11014258675131683,
+          "df": 2.366454278426107,
+          "significant": false,
+          "pct_change": 0.4993589311019698
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.2073419377736267,
+          "df": 2.3478605216765573,
+          "significant": false,
+          "pct_change": -0.9379850192320655
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 1.230214402387086,
+          "df": 2.295362767824577,
+          "significant": false,
+          "pct_change": 20.298265739928482
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 493.96666666666664,
+          "stdev": 37.11298065816502,
+          "min": 463.5,
+          "max": 535.3,
+          "n": 3,
+          "ci_95": [
+            450.1480643980208,
+            537.7852689353125
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0751 > 0.05"
+        },
+        "2": {
+          "mean": 496.43333333333334,
+          "stdev": 11.28110514680779,
+          "min": 483.8,
+          "max": 505.5,
+          "n": 3,
+          "ci_95": [
+            483.11394343760446,
+            509.7527232290622
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 489.3333333333333,
+          "stdev": 10.986506875860666,
+          "min": 478.9,
+          "max": 500.8,
+          "n": 3,
+          "ci_95": [
+            476.3617701072692,
+            502.30489655939743
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 594.2333333333333,
+          "stdev": 136.20221486206944,
+          "min": 437.0,
+          "max": 675.9,
+          "n": 3,
+          "ci_95": [
+            433.4219251599875,
+            755.0447415066792
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2292 > 0.05"
+        }
+      }
+    },
+    "5400": {
+      "name": "IKE-PSK SHA1",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -13.565319372587815,
+          "df": 1.7876228444850388,
+          "significant": false,
+          "pct_change": -14.792982456140347
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -14.290911494438085,
+          "df": 2.47356312345698,
+          "significant": false,
+          "pct_change": -38.891228070175444
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -36.20324151818335,
+          "df": 2.975887623191153,
+          "significant": false,
+          "pct_change": -62.177684210526316
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 237.5,
+          "stdev": 3.111269837220793,
+          "min": 235.3,
+          "max": 239.7,
+          "n": 2,
+          "ci_95": [
+            233.00100000000003,
+            241.99899999999997
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        },
+        "2": {
+          "mean": 202.36666666666667,
+          "stdev": 2.3671361036774625,
+          "min": 201.0,
+          "max": 205.1,
+          "n": 3,
+          "ci_95": [
+            199.57183333333333,
+            205.16150000000002
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 145.13333333333333,
+          "stdev": 10.52631622807017,
+          "min": 133.2,
+          "max": 153.1,
+          "n": 3,
+          "ci_95": [
+            132.70510859977713,
+            157.56155806688952
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0725 > 0.05"
+        },
+        "8": {
+          "mean": 89.828,
+          "stdev": 5.949288361644603,
+          "min": 83.1495,
+          "max": 94.56089999999999,
+          "n": 3,
+          "ci_95": [
+            82.80378648016686,
+            96.85221351983314
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0662 > 0.05"
+        }
+      }
+    },
+    "5500": {
+      "name": "NetNTLMv1 / NetNTLMv1+ESS",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.14639181782586794,
+          "df": 3.430181489806559,
+          "significant": false,
+          "pct_change": 0.8057426845614163
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -1.5529261379500012,
+          "df": 3.3065731315845612,
+          "significant": false,
+          "pct_change": -8.398393301651963
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -3.1170457852434503,
+          "df": 3.102435103814102,
+          "significant": false,
+          "pct_change": -16.41338973314534
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 15319.2,
+          "stdev": 1225.1728735162233,
+          "min": 14541.6,
+          "max": 16731.5,
+          "n": 3,
+          "ci_95": [
+            13872.661298368384,
+            16765.738701631617
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0800 > 0.05"
+        },
+        "2": {
+          "mean": 15442.633333333333,
+          "stdev": 794.8354316041357,
+          "min": 14526.6,
+          "max": 15949.9,
+          "n": 3,
+          "ci_95": [
+            14504.186002269218,
+            16381.080664397448
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0515 > 0.05"
+        },
+        "4": {
+          "mean": 14032.633333333333,
+          "stdev": 747.0500005577492,
+          "min": 13499.0,
+          "max": 14886.4,
+          "n": 3,
+          "ci_95": [
+            13150.605367141674,
+            14914.661299524993
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0532 > 0.05"
+        },
+        "8": {
+          "mean": 12804.8,
+          "stdev": 671.6088668265184,
+          "min": 12235.5,
+          "max": 13545.5,
+          "n": 3,
+          "ci_95": [
+            12011.84396969278,
+            13597.756030307219
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0524 > 0.05"
+        }
+      }
+    },
+    "5600": {
+      "name": "NetNTLMv2",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.8010447549693629,
+          "df": 2.382751111510997,
+          "significant": false,
+          "pct_change": -5.49915078316664
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -7.124519078114656,
+          "df": 3.5255756933109117,
+          "significant": false,
+          "pct_change": -17.5580298169466
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -10.290150891290823,
+          "df": 2.2644427043681272,
+          "significant": false,
+          "pct_change": -21.649367805246275
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 883.1666666666667,
+          "stdev": 31.16493756344354,
+          "min": 848.1,
+          "max": 907.7,
+          "n": 3,
+          "ci_95": [
+            846.3708076544838,
+            919.9625256788497
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 834.6,
+          "stdev": 100.28175307602073,
+          "min": 723.7,
+          "max": 918.9,
+          "n": 3,
+          "ci_95": [
+            716.1992093625075,
+            953.0007906374925
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1202 > 0.05"
+        },
+        "4": {
+          "mean": 728.1,
+          "stdev": 21.211317733700525,
+          "min": 709.7,
+          "max": 751.3,
+          "n": 3,
+          "ci_95": [
+            703.0561937930088,
+            753.1438062069913
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 691.9666666666667,
+          "stdev": 8.030774142841645,
+          "min": 684.9,
+          "max": 700.7,
+          "n": 3,
+          "ci_95": [
+            682.4848818077326,
+            701.4484515256008
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "6100": {
+      "name": "Whirlpool",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.7956901394202034,
+          "df": 3.959526720960983,
+          "significant": false,
+          "pct_change": -6.182732343467675
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.425227546303988,
+          "df": 3.9656159807202527,
+          "significant": false,
+          "pct_change": -1.3276769581271095
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -0.03045046662348164,
+          "df": 2.941809337291725,
+          "significant": false,
+          "pct_change": -0.15712153350617147
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 424.3,
+          "stdev": 16.963784955015186,
+          "min": 405.6,
+          "max": 438.7,
+          "n": 3,
+          "ci_95": [
+            404.27117631803276,
+            444.32882368196726
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 398.06666666666666,
+          "stdev": 18.77507212591562,
+          "min": 383.0,
+          "max": 419.1,
+          "n": 3,
+          "ci_95": [
+            375.89929009219475,
+            420.2340432411386
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 418.6666666666667,
+          "stdev": 15.451321410589214,
+          "min": 408.1,
+          "max": 436.4,
+          "n": 3,
+          "ci_95": [
+            400.4235804092802,
+            436.9097529240532
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 423.6333333333333,
+          "stdev": 33.914647769560176,
+          "min": 385.0,
+          "max": 448.5,
+          "n": 3,
+          "ci_95": [
+            383.5909428990143,
+            463.67572376765236
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0801 > 0.05"
+        }
+      }
+    },
+    "7300": {
+      "name": "IPMI2 RAKP HMAC-SHA1",
+      "optimal_vec": 4,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.09303354766116612,
+          "df": 2.1757530204366553,
+          "significant": false,
+          "pct_change": 1.0649770827716334
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 0.14214213886193994,
+          "df": 2.7108593370949525,
+          "significant": false,
+          "pct_change": 2.5343758425451544
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -1.9349144653411607,
+          "df": 3.7612656212904567,
+          "significant": false,
+          "pct_change": -22.222971151253713
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 494.53333333333336,
+          "stdev": 60.16596490818818,
+          "min": 425.1,
+          "max": 531.3,
+          "n": 3,
+          "ci_95": [
+            423.49650364013047,
+            565.5701630265362
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1217 > 0.05"
+        },
+        "2": {
+          "mean": 499.8,
+          "stdev": 63.21534623807733,
+          "min": 455.1,
+          "max": 544.5,
+          "n": 2,
+          "ci_95": [
+            408.3885,
+            591.2115
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        },
+        "4": {
+          "mean": 507.06666666666666,
+          "stdev": 140.3722313469916,
+          "min": 385.3,
+          "max": 660.6,
+          "n": 3,
+          "ci_95": [
+            341.3317980068266,
+            672.8015353265067
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2768 > 0.05"
+        },
+        "8": {
+          "mean": 384.6333333333333,
+          "stdev": 77.83458956873439,
+          "min": 323.0,
+          "max": 472.1,
+          "n": 3,
+          "ci_95": [
+            292.73548889799787,
+            476.5311777686688
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2024 > 0.05"
+        }
+      }
+    },
+    "8700": {
+      "name": "Lotus Notes/Domino 6",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -2.3752535332140448,
+          "df": 3.1855906441244892,
+          "significant": false,
+          "pct_change": -10.20265059519836
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -6.323278190408179,
+          "df": 3.234518220696262,
+          "significant": false,
+          "pct_change": -15.663742279456613
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -23.43067574186731,
+          "df": 2.0638018881766995,
+          "significant": false,
+          "pct_change": -50.43584956479501
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 72.39883333333333,
+          "stdev": 2.6779939158506907,
+          "min": 69.5599,
+          "max": 74.87989999999999,
+          "n": 3,
+          "ci_95": [
+            69.23697599405497,
+            75.56069067261168
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 65.01223333333333,
+          "stdev": 4.673457384349759,
+          "min": 59.8087,
+          "max": 68.85239999999999,
+          "n": 3,
+          "ci_95": [
+            59.49436959098165,
+            70.530097075685
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0719 > 0.05"
+        },
+        "4": {
+          "mean": 61.05846666666667,
+          "stdev": 1.5740199691660002,
+          "min": 59.3195,
+          "max": 62.3857,
+          "n": 3,
+          "ci_95": [
+            59.200050722470145,
+            62.91688261086319
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 35.88386666666667,
+          "stdev": 0.33826076233185853,
+          "min": 35.627300000000005,
+          "max": 36.267199999999995,
+          "n": 3,
+          "ci_95": [
+            35.48448850989101,
+            36.28324482344233
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "9720": {
+      "name": "MS Office <= 2003 $0/$1, MD5 + RC4, collider #2",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -32.634465393401015,
+          "df": 3.7473033341921154,
+          "significant": false,
+          "pct_change": -24.112771421900543
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -63.97895100505064,
+          "df": 2.913922015201262,
+          "significant": false,
+          "pct_change": -41.80772822787766
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -47.8866976472262,
+          "df": 1.8582607310955235,
+          "significant": false,
+          "pct_change": -51.511790800840544
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1142.1333333333334,
+          "stdev": 11.60014367727115,
+          "min": 1130.5,
+          "max": 1153.7,
+          "n": 3,
+          "ci_95": [
+            1128.4372606105499,
+            1155.829406056117
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 866.7333333333333,
+          "stdev": 8.8928810479694,
+          "min": 860.4,
+          "max": 876.9,
+          "n": 3,
+          "ci_95": [
+            856.2336749724892,
+            877.2329916941775
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 664.6333333333333,
+          "stdev": 5.704676444228353,
+          "min": 658.8,
+          "max": 670.2,
+          "n": 3,
+          "ci_95": [
+            657.8979285302712,
+            671.3687381363955
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 553.8,
+          "stdev": 14.566399692442895,
+          "min": 543.5,
+          "max": 564.1,
+          "n": 2,
+          "ci_95": [
+            532.7365,
+            574.8634999999999
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        }
+      }
+    },
+    "9900": {
+      "name": "Radmin2",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -7.921362261957788,
+          "df": 2.350467292124666,
+          "significant": false,
+          "pct_change": -14.791983432978546
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -9.226336036717166,
+          "df": 2.1344195112829603,
+          "significant": false,
+          "pct_change": -16.790621194504254
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -13.416760331348133,
+          "df": 2.073428831948502,
+          "significant": false,
+          "pct_change": -24.23546085628384
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4844.966666666666,
+          "stdev": 150.2116617754203,
+          "min": 4684.8,
+          "max": 4982.7,
+          "n": 3,
+          "ci_95": [
+            4667.614566492481,
+            5022.318766840852
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 4128.3,
+          "stdev": 44.63586002308003,
+          "min": 4099.3,
+          "max": 4179.7,
+          "n": 3,
+          "ci_95": [
+            4075.599274739336,
+            4181.000725260664
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 4031.4666666666667,
+          "stdev": 27.551829945274708,
+          "min": 4011.5,
+          "max": 4062.9,
+          "n": 3,
+          "ci_95": [
+            3998.9367362559237,
+            4063.9965970774097
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 3670.7666666666664,
+          "stdev": 20.355425157272734,
+          "min": 3649.6,
+          "max": 3690.2,
+          "n": 3,
+          "ci_95": [
+            3646.733396819894,
+            3694.7999365134388
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "11000": {
+      "name": "PrestaShop",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 1.5503717832457853,
+          "df": 2.192340428587874,
+          "significant": false,
+          "pct_change": 5.0206866516658195
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.4375446687718214,
+          "df": 2.1918706093383893,
+          "significant": false,
+          "pct_change": -1.4168541772519405
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -1.0053565322392677,
+          "df": 3.360619879723347,
+          "significant": false,
+          "pct_change": -3.7526311969224007
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4592.333333333333,
+          "stdev": 251.59376648345923,
+          "min": 4302.2,
+          "max": 4750.3,
+          "n": 3,
+          "ci_95": [
+            4295.281277925765,
+            4889.385388740901
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0548 > 0.05"
+        },
+        "2": {
+          "mean": 4822.9,
+          "stdev": 55.234319041697155,
+          "min": 4777.0,
+          "max": 4884.2,
+          "n": 3,
+          "ci_95": [
+            4757.685872362015,
+            4888.114127637984
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 4527.266666666666,
+          "stdev": 55.16650553853624,
+          "min": 4466.2,
+          "max": 4573.5,
+          "n": 3,
+          "ci_95": [
+            4462.132605163785,
+            4592.400728169548
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 4420.0,
+          "stdev": 157.63892285853777,
+          "min": 4302.3,
+          "max": 4599.1,
+          "n": 3,
+          "ci_95": [
+            4233.8786715511,
+            4606.1213284489
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "11100": {
+      "name": "PostgreSQL CRAM (MD5)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.06740396215611714,
+          "df": 2.183332499873347,
+          "significant": false,
+          "pct_change": 0.22380972044432648
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -2.7258551802805004,
+          "df": 2.058380308106948,
+          "significant": false,
+          "pct_change": -8.914398975925995
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -7.199820316458333,
+          "df": 2.57627447067755,
+          "significant": false,
+          "pct_change": -25.03695750918776
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4036.1666666666665,
+          "stdev": 226.97183378854132,
+          "min": 3777.9,
+          "max": 4203.9,
+          "n": 3,
+          "ci_95": [
+            3768.1852667739795,
+            4304.1480665593535
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0562 > 0.05"
+        },
+        "2": {
+          "mean": 4045.2000000000003,
+          "stdev": 48.64288231591537,
+          "min": 3992.3,
+          "max": 4088.0,
+          "n": 3,
+          "ci_95": [
+            3987.768258447528,
+            4102.631741552473
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 3676.366666666667,
+          "stdev": 27.423408492259707,
+          "min": 3645.2,
+          "max": 3696.8,
+          "n": 3,
+          "ci_95": [
+            3643.988361064081,
+            3708.7449722692527
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 3025.633333333333,
+          "stdev": 87.07848949845967,
+          "min": 2970.2,
+          "max": 3126.0,
+          "n": 3,
+          "ci_95": [
+            2922.8213891073447,
+            3128.4452775593218
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "11900": {
+      "name": "PBKDF2-HMAC-MD5",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.66975987269047,
+          "df": 2.3748016958051537,
+          "significant": false,
+          "pct_change": -7.647587152833392
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.5326358785110993,
+          "df": 2.14927128622262,
+          "significant": false,
+          "pct_change": -5.920892311334217
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -0.41330903987084405,
+          "df": 2.0001302423580434,
+          "significant": false,
+          "pct_change": -4.5109902734165575
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4.787566666666667,
+          "stdev": 0.9050350066894283,
+          "min": 4.1632,
+          "max": 5.8255,
+          "n": 3,
+          "ci_95": [
+            3.7190087579770967,
+            5.856124575356237
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1890 > 0.05"
+        },
+        "2": {
+          "mean": 4.421433333333333,
+          "stdev": 0.27827120464276117,
+          "min": 4.1004,
+          "max": 4.5937,
+          "n": 3,
+          "ci_95": [
+            4.092883725546024,
+            4.749982941120642
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0629 > 0.05"
+        },
+        "4": {
+          "mean": 4.5041,
+          "stdev": 0.17495507994911164,
+          "min": 4.3145,
+          "max": 4.6593,
+          "n": 3,
+          "ci_95": [
+            4.297533808677864,
+            4.710666191322137
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 4.5716,
+          "stdev": 0.005164300533470541,
+          "min": 4.5657,
+          "max": 4.5753,
+          "n": 3,
+          "ci_95": [
+            4.565502606930006,
+            4.577697393069994
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "13300": {
+      "name": "AxCrypt 1 in-memory SHA1",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.2509643331790998,
+          "df": 3.0088318897249873,
+          "significant": false,
+          "pct_change": -2.197514276116905
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -5.019316769578525,
+          "df": 2.772596095980049,
+          "significant": false,
+          "pct_change": -19.12193483372523
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -6.320712928014864,
+          "df": 3.8334821435160245,
+          "significant": false,
+          "pct_change": -15.656701377225406
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 4961.666666666667,
+          "stdev": 133.9231247146415,
+          "min": 4812.4,
+          "max": 5071.3,
+          "n": 3,
+          "ci_95": [
+            4803.546137612527,
+            5119.787195720807
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 4852.633333333333,
+          "stdev": 69.67706461478781,
+          "min": 4788.7,
+          "max": 4926.9,
+          "n": 3,
+          "ci_95": [
+            4770.366926069426,
+            4934.89974059724
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 4012.9,
+          "stdev": 298.7536778016295,
+          "min": 3818.5,
+          "max": 4356.9,
+          "n": 3,
+          "ci_95": [
+            3660.16711916617,
+            4365.63288083383
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0744 > 0.05"
+        },
+        "8": {
+          "mean": 4184.833333333333,
+          "stdev": 165.46870801856576,
+          "min": 4001.5,
+          "max": 4323.1,
+          "n": 3,
+          "ci_95": [
+            3989.467523959112,
+            4380.1991427075545
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "13711": {
+      "name": "VeraCrypt RIPEMD160 + XTS 512 bit (legacy)",
+      "optimal_vec": 4,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 23.430666600399068,
+          "df": 2.1292400759465173,
+          "significant": false,
+          "pct_change": 87.00000000000003
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 24.136344017717974,
+          "df": 2.0443011662767825,
+          "significant": false,
+          "pct_change": 88.6923076923077
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 23.91660415497568,
+          "df": 2.0336706311427624,
+          "significant": false,
+          "pct_change": 87.76923076923077
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 0.0004333333333333333,
+          "stdev": 2.7428695436227602e-05,
+          "min": 0.000417,
+          "max": 0.00046499999999999997,
+          "n": 3,
+          "ci_95": [
+            0.0004009487855348676,
+            0.000465717881131799
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0633 > 0.05"
+        },
+        "2": {
+          "mean": 0.0008103333333333334,
+          "stdev": 4.932882862316243e-06,
+          "min": 0.000807,
+          "max": 0.000816,
+          "n": 3,
+          "ci_95": [
+            0.0008045091707802752,
+            0.0008161574958863915
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 0.0008176666666666666,
+          "stdev": 2.8867513459481365e-06,
+          "min": 0.000816,
+          "max": 0.000821,
+          "n": 3,
+          "ci_95": [
+            0.0008142583333333333,
+            0.000821075
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 0.0008136666666666666,
+          "stdev": 2.516611478423587e-06,
+          "min": 0.000811,
+          "max": 0.000816,
+          "n": 3,
+          "ci_95": [
+            0.0008106953505534864,
+            0.0008166379827798469
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "13712": {
+      "name": "VeraCrypt RIPEMD160 + XTS 1024 bit (legacy)",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.4780914437337571,
+          "df": 2.8671737858396664,
+          "significant": false,
+          "pct_change": -0.286123032904148
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.10660035817781349,
+          "df": 3.6788598574821973,
+          "significant": false,
+          "pct_change": -0.07153075822604281
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -1.0384402770285968,
+          "df": 3.0070755704416974,
+          "significant": false,
+          "pct_change": -1.2160228898426348
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 0.000466,
+          "stdev": 4.358898943540668e-06,
+          "min": 0.000461,
+          "max": 0.00046899999999999996,
+          "n": 3,
+          "ci_95": [
+            0.0004608535295266238,
+            0.0004711464704733762
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 0.00046466666666666667,
+          "stdev": 2.0816659994661226e-06,
+          "min": 0.000463,
+          "max": 0.00046699999999999997,
+          "n": 3,
+          "ci_95": [
+            0.0004622088825472254,
+            0.00046712445078610795
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 0.00046566666666666664,
+          "stdev": 3.2145502536643347e-06,
+          "min": 0.00046199999999999995,
+          "max": 0.000468,
+          "n": 3,
+          "ci_95": [
+            0.00046187130729267084,
+            0.00046946202604066244
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 0.0004603333333333333,
+          "stdev": 8.386497083606082e-06,
+          "min": 0.000455,
+          "max": 0.00047,
+          "n": 3,
+          "ci_95": [
+            0.00045043155305008234,
+            0.0004702351136165843
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "13713": {
+      "name": "VeraCrypt RIPEMD160 + XTS 1536 bit (legacy)",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.5121475197315599,
+          "df": 2.5966503838101813,
+          "significant": false,
+          "pct_change": -0.40650406504063286
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.49999999999996103,
+          "df": 2.426540284360174,
+          "significant": false,
+          "pct_change": -0.20325203252030813
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -2.749999999999966,
+          "df": 2.4265402843602124,
+          "significant": false,
+          "pct_change": -1.1178861788617773
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 0.00032799999999999995,
+          "stdev": 1.4142135623730911e-06,
+          "min": 0.000327,
+          "max": 0.000329,
+          "n": 2,
+          "ci_95": [
+            0.00032595499999999995,
+            0.00033004499999999995
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        },
+        "2": {
+          "mean": 0.0003266666666666667,
+          "stdev": 4.163331998932284e-06,
+          "min": 0.00032199999999999997,
+          "max": 0.00033,
+          "n": 3,
+          "ci_95": [
+            0.0003217510984277841,
+            0.00033158223490554925
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 0.00032733333333333334,
+          "stdev": 1.5275252316519305e-06,
+          "min": 0.000326,
+          "max": 0.000329,
+          "n": 3,
+          "ci_95": [
+            0.000325529812856291,
+            0.0003291368538103757
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 0.0003243333333333333,
+          "stdev": 1.5275252316519601e-06,
+          "min": 0.000323,
+          "max": 0.000326,
+          "n": 3,
+          "ci_95": [
+            0.00032252981285629096,
+            0.0003261368538103757
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "13751": {
+      "name": "VeraCrypt SHA256 + XTS 512 bit (legacy)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 1.50969527081645,
+          "df": 2.2667266080351065,
+          "significant": false,
+          "pct_change": 2.456647398843931
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 0.43979358978027316,
+          "df": 2.009424383899652,
+          "significant": false,
+          "pct_change": 0.6936416184971079
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 0.5296417155945474,
+          "df": 2.036348394858381,
+          "significant": false,
+          "pct_change": 0.8381502890173458
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 0.0011533333333333333,
+          "stdev": 3.146956201368764e-05,
+          "min": 0.001117,
+          "max": 0.0011719999999999999,
+          "n": 3,
+          "ci_95": [
+            0.0011161778099290742,
+            0.0011904888567375923
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 0.0011816666666666666,
+          "stdev": 8.14452781524709e-06,
+          "min": 0.001176,
+          "max": 0.001191,
+          "n": 3,
+          "ci_95": [
+            0.001172050574973861,
+            0.0011912827583594721
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 0.0011613333333333332,
+          "stdev": 1.5275252316519364e-06,
+          "min": 0.00116,
+          "max": 0.001163,
+          "n": 3,
+          "ci_95": [
+            0.0011595298128562908,
+            0.0011631368538103756
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 0.001163,
+          "stdev": 2.9999999999999645e-06,
+          "min": 0.00116,
+          "max": 0.001166,
+          "n": 3,
+          "ci_95": [
+            0.0011594579560985216,
+            0.0011665420439014784
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "13752": {
+      "name": "VeraCrypt SHA256 + XTS 1024 bit (legacy)",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.2773500981126345,
+          "df": 2.243983402489608,
+          "significant": false,
+          "pct_change": -0.11223344556678772
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -1.2247448713915956,
+          "df": 2.081598667776848,
+          "significant": false,
+          "pct_change": -0.841750841750844
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -1.8371173070873879,
+          "df": 2.12889812889812,
+          "significant": false,
+          "pct_change": -1.0101010101010164
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 0.000594,
+          "stdev": 9.9999999999997e-07,
+          "min": 0.000593,
+          "max": 0.0005949999999999999,
+          "n": 3,
+          "ci_95": [
+            0.0005928193186995073,
+            0.0005951806813004928
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 0.0005933333333333333,
+          "stdev": 4.041451884327416e-06,
+          "min": 0.0005909999999999999,
+          "max": 0.000598,
+          "n": 3,
+          "ci_95": [
+            0.0005885616666666666,
+            0.000598105
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 0.000589,
+          "stdev": 6.999999999999985e-06,
+          "min": 0.000581,
+          "max": 0.000594,
+          "n": 3,
+          "ci_95": [
+            0.0005807352308965506,
+            0.0005972647691034495
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 0.000588,
+          "stdev": 5.56776436283005e-06,
+          "min": 0.0005819999999999999,
+          "max": 0.000593,
+          "n": 3,
+          "ci_95": [
+            0.0005814262447312564,
+            0.0005945737552687435
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "13753": {
+      "name": "VeraCrypt SHA256 + XTS 1536 bit (legacy)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.294883912309792,
+          "df": 3.8825688073394446,
+          "significant": false,
+          "pct_change": 0.1683501683501679
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 0.37796447300922353,
+          "df": 2.147945205479458,
+          "significant": false,
+          "pct_change": 0.1683501683501679
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 0.15811388300843074,
+          "df": 3.5634743875278265,
+          "significant": false,
+          "pct_change": 0.08417508417509079
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 0.000396,
+          "stdev": 3.0000000000000187e-06,
+          "min": 0.00039299999999999996,
+          "max": 0.000399,
+          "n": 3,
+          "ci_95": [
+            0.0003924579560985216,
+            0.00039954204390147834
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 0.00039666666666666664,
+          "stdev": 2.5166114784235907e-06,
+          "min": 0.000394,
+          "max": 0.000399,
+          "n": 3,
+          "ci_95": [
+            0.0003936953505534864,
+            0.00039963798277984687
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 0.00039666666666666664,
+          "stdev": 5.773502691896398e-07,
+          "min": 0.000396,
+          "max": 0.000397,
+          "n": 3,
+          "ci_95": [
+            0.00039598499999999996,
+            0.0003973483333333333
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 0.00039633333333333334,
+          "stdev": 2.081665999466131e-06,
+          "min": 0.000394,
+          "max": 0.00039799999999999997,
+          "n": 3,
+          "ci_95": [
+            0.00039387554921389205,
+            0.0003987911174527746
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "16400": {
+      "name": "CRAM-MD5 Dovecot",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 19.07928071952452,
+          "df": 2.1040294219948095,
+          "significant": false,
+          "pct_change": 8.594186745611223
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 3.6168495781601333,
+          "df": 2.070238518849053,
+          "significant": false,
+          "pct_change": 1.974903223764941
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -7.620882343877392,
+          "df": 2.0604330725831588,
+          "significant": false,
+          "pct_change": -4.480889110783747
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 18961.266666666666,
+          "stdev": 23.560631004565728,
+          "min": 18935.4,
+          "max": 18981.5,
+          "n": 3,
+          "ci_95": [
+            18933.449070211766,
+            18989.084263121567
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 20590.833333333332,
+          "stdev": 146.04671627028435,
+          "min": 20424.4,
+          "max": 20697.6,
+          "n": 3,
+          "ci_95": [
+            20418.398706434633,
+            20763.26796023203
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 19335.733333333334,
+          "stdev": 177.77154815474233,
+          "min": 19132.6,
+          "max": 19462.9,
+          "n": 3,
+          "ci_95": [
+            19125.841790667375,
+            19545.624875999292
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 18111.63333333333,
+          "stdev": 191.65934188902355,
+          "min": 17891.6,
+          "max": 18242.2,
+          "n": 3,
+          "ci_95": [
+            17885.344732300207,
+            18337.921934366455
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "17300": {
+      "name": "SHA3-224",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -29.42438244629802,
+          "df": 1.0263324398865927,
+          "significant": false,
+          "pct_change": -44.19799396558754
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -58.39864889557692,
+          "df": 1.0034338835521566,
+          "significant": false,
+          "pct_change": -87.2226970018212
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -65.14584307336946,
+          "df": 1.005435009346265,
+          "significant": false,
+          "pct_change": -97.34865856641932
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 613.15,
+          "stdev": 12.940054095713787,
+          "min": 604.0,
+          "max": 622.3,
+          "n": 2,
+          "ci_95": [
+            594.43825,
+            631.8617499999999
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        },
+        "2": {
+          "mean": 342.15,
+          "stdev": 1.4849242404917258,
+          "min": 341.1,
+          "max": 343.2,
+          "n": 2,
+          "ci_95": [
+            340.00275,
+            344.29724999999996
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        },
+        "4": {
+          "mean": 78.34403333333334,
+          "stdev": 0.6565482947455792,
+          "min": 77.7386,
+          "max": 79.0419,
+          "n": 3,
+          "ci_95": [
+            77.56885903885681,
+            79.11920762780987
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 16.256700000000002,
+          "stdev": 0.8258863662756524,
+          "min": 15.393,
+          "max": 17.038700000000002,
+          "n": 3,
+          "ci_95": [
+            15.281591411006405,
+            17.2318085889936
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0508 > 0.05"
+        }
+      }
+    },
+    "17400": {
+      "name": "SHA3-256",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -19.14111500242427,
+          "df": 2.5429714758988196,
+          "significant": false,
+          "pct_change": -27.951807228915666
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -146.3738178224069,
+          "df": 2.7733041815789425,
+          "significant": false,
+          "pct_change": -81.66636947791164
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -188.07553206457746,
+          "df": 2.023566288738766,
+          "significant": false,
+          "pct_change": -96.02614457831325
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 415.0,
+          "stdev": 3.6592348927063885,
+          "min": 412.5,
+          "max": 419.2,
+          "n": 3,
+          "ci_95": [
+            410.6796097880708,
+            419.3203902119292
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 299.0,
+          "stdev": 9.838190890605865,
+          "min": 288.7,
+          "max": 308.3,
+          "n": 3,
+          "ci_95": [
+            287.3842319847832,
+            310.6157680152168
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 76.08456666666667,
+          "stdev": 1.641150030720324,
+          "min": 74.9572,
+          "max": 77.9674,
+          "n": 3,
+          "ci_95": [
+            74.14689151409203,
+            78.02224181924132
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 16.491500000000002,
+          "stdev": 0.28087522140623106,
+          "min": 16.174200000000003,
+          "max": 16.7083,
+          "n": 3,
+          "ci_95": [
+            16.159875878313894,
+            16.82312412168611
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "17500": {
+      "name": "SHA3-384",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -5.713591219308262,
+          "df": 2.8495335381501756,
+          "significant": false,
+          "pct_change": -29.85280588776449
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -17.287784901662576,
+          "df": 2.0178235311921866,
+          "significant": false,
+          "pct_change": -81.861246550138
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -20.28699432461001,
+          "df": 2.000671066308664,
+          "significant": false,
+          "pct_change": -95.85785035265256
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 434.8,
+          "stdev": 35.58145584430182,
+          "min": 393.8,
+          "max": 457.6,
+          "n": 3,
+          "ci_95": [
+            392.7896404403231,
+            476.8103595596769
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0818 > 0.05"
+        },
+        "2": {
+          "mean": 305.0,
+          "stdev": 16.80029761641144,
+          "min": 289.0,
+          "max": 322.5,
+          "n": 3,
+          "ci_95": [
+            285.16420276158954,
+            324.83579723841046
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0551 > 0.05"
+        },
+        "4": {
+          "mean": 78.8673,
+          "stdev": 2.375171124361361,
+          "min": 77.2935,
+          "max": 81.5994,
+          "n": 3,
+          "ci_95": [
+            76.06297986799612,
+            81.67162013200388
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 18.010066666666667,
+          "stdev": 0.46086788056159,
+          "min": 17.717200000000002,
+          "max": 18.5413,
+          "n": 3,
+          "ci_95": [
+            17.465928578089855,
+            18.55420475524348
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "17600": {
+      "name": "SHA3-512",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -9.118750028877082,
+          "df": 2.0068491215606827,
+          "significant": false,
+          "pct_change": -39.71817900278725
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -199.0708123161702,
+          "df": 2.8043576952475755,
+          "significant": false,
+          "pct_change": -86.05991793124807
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -433.6605650935354,
+          "df": 3.652780218236938,
+          "significant": false,
+          "pct_change": -96.5561319293899
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 430.53333333333336,
+          "stdev": 1.3428824718989172,
+          "min": 429.0,
+          "max": 431.5,
+          "n": 3,
+          "ci_95": [
+            428.9478171100028,
+            432.1188495566639
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 259.5333333333333,
+          "stdev": 32.452632147998926,
+          "min": 240.2,
+          "max": 297.0,
+          "n": 3,
+          "ci_95": [
+            221.21711740441998,
+            297.8495492622466
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1250 > 0.05"
+        },
+        "4": {
+          "mean": 60.0167,
+          "stdev": 2.9307339814456017,
+          "min": 57.288000000000004,
+          "max": 63.1145,
+          "n": 3,
+          "ci_95": [
+            56.55643719138841,
+            63.47696280861159
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 14.827,
+          "stdev": 0.9764217684996584,
+          "min": 14.164299999999999,
+          "max": 15.9483,
+          "n": 3,
+          "ci_95": [
+            13.674157076538359,
+            15.979842923461641
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0659 > 0.05"
+        }
+      }
+    },
+    "17700": {
+      "name": "Keccak-224",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -19.48915961827862,
+          "df": 2.7237847442392122,
+          "significant": false,
+          "pct_change": -27.616256040560877
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -139.34929476856612,
+          "df": 2.355756276713976,
+          "significant": false,
+          "pct_change": -81.86591935356095
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -166.13070089355114,
+          "df": 2.2325046545967417,
+          "significant": false,
+          "pct_change": -96.18631070268557
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 420.76666666666665,
+          "stdev": 4.101625693957597,
+          "min": 417.6,
+          "max": 425.4,
+          "n": 3,
+          "ci_95": [
+            415.9239539081902,
+            425.6093794251431
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 304.56666666666666,
+          "stdev": 9.477517255765543,
+          "min": 294.7,
+          "max": 313.6,
+          "n": 3,
+          "ci_95": [
+            293.3767392676866,
+            315.7565940656467
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 76.30216666666666,
+          "stdev": 1.2281197919312827,
+          "min": 75.246,
+          "max": 77.6498,
+          "n": 3,
+          "ci_95": [
+            74.85214859356832,
+            77.75218473976501
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 16.046733333333332,
+          "stdev": 0.9905565321239034,
+          "min": 15.1988,
+          "max": 17.1355,
+          "n": 3,
+          "ci_95": [
+            14.877201758773658,
+            17.216264907893006
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0617 > 0.05"
+        }
+      }
+    },
+    "17800": {
+      "name": "Keccak-256",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -0.2822643082867762,
+          "df": 2.0010987490451635,
+          "significant": false,
+          "pct_change": -3.00663034202061
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -7.955147144111889,
+          "df": 2.018161534803217,
+          "significant": false,
+          "pct_change": -84.91733735967964
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -9.091602335676896,
+          "df": 2.0001151398875376,
+          "significant": false,
+          "pct_change": -96.8302632442723
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 507.76666666666665,
+          "stdev": 93.66756820443953,
+          "min": 451.7,
+          "max": 615.9,
+          "n": 3,
+          "ci_95": [
+            397.17512042505234,
+            618.358212908281
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1845 > 0.05"
+        },
+        "2": {
+          "mean": 492.5,
+          "stdev": 1.552417469626015,
+          "min": 490.9,
+          "max": 494.0,
+          "n": 3,
+          "ci_95": [
+            490.66708972305423,
+            494.33291027694577
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 76.58473333333333,
+          "stdev": 6.311607736807902,
+          "min": 70.17389999999999,
+          "max": 82.7922,
+          "n": 3,
+          "ci_95": [
+            69.13273610243866,
+            84.03673056422801
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0824 > 0.05"
+        },
+        "8": {
+          "mean": 16.094866666666668,
+          "stdev": 0.5025417528259046,
+          "min": 15.684600000000001,
+          "max": 16.6554,
+          "n": 3,
+          "ci_95": [
+            15.501525016388255,
+            16.68820831694508
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "17900": {
+      "name": "Keccak-384",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -7.045500214803275,
+          "df": 2.3190941579957496,
+          "significant": false,
+          "pct_change": -36.07805806758685
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -58.79316642586441,
+          "df": 2.075421658740086,
+          "significant": false,
+          "pct_change": -82.84586704743772
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -68.8539608958685,
+          "df": 2.008330641511131,
+          "significant": false,
+          "pct_change": -96.22036331905443
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 420.2,
+          "stdev": 10.160216533125633,
+          "min": 413.6,
+          "max": 431.9,
+          "n": 3,
+          "ci_95": [
+            408.20402233038095,
+            432.195977669619
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 268.6,
+          "stdev": 35.85735628849401,
+          "min": 227.6,
+          "max": 294.1,
+          "n": 3,
+          "ci_95": [
+            226.26388994506777,
+            310.93611005493227
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1335 > 0.05"
+        },
+        "4": {
+          "mean": 72.08166666666666,
+          "stdev": 1.3953984962487744,
+          "min": 70.8972,
+          "max": 73.6199,
+          "n": 3,
+          "ci_95": [
+            70.43414575540999,
+            73.72918757792334
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 15.882033333333332,
+          "stdev": 0.4636744152240156,
+          "min": 15.574,
+          "max": 16.4153,
+          "n": 3,
+          "ci_95": [
+            15.33458162176141,
+            16.429485044905256
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "18000": {
+      "name": "Keccak-512",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -27.86524883610296,
+          "df": 2.932658882008364,
+          "significant": false,
+          "pct_change": -46.64565147106369
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -53.77470176278038,
+          "df": 1.5613108080129194,
+          "significant": false,
+          "pct_change": -86.63445683802134
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -127.91230648641707,
+          "df": 2.0637134874051224,
+          "significant": false,
+          "pct_change": -96.12106369220821
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 412.4,
+          "stdev": 5.325410782277749,
+          "min": 407.4,
+          "max": 418.0,
+          "n": 3,
+          "ci_95": [
+            406.112387071922,
+            418.68761292807795
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 220.03333333333333,
+          "stdev": 10.705761688611114,
+          "min": 211.1,
+          "max": 231.9,
+          "n": 3,
+          "ci_95": [
+            207.39324070005813,
+            232.67342596660853
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 55.1195,
+          "stdev": 8.329435039665057,
+          "min": 49.2297,
+          "max": 61.0093,
+          "n": 2,
+          "ci_95": [
+            43.074859000000004,
+            67.164141
+          ],
+          "quality_passed": false,
+          "quality_reason": "Too few trials: 2 < 3"
+        },
+        "8": {
+          "mean": 15.996733333333333,
+          "stdev": 0.6721928989013007,
+          "min": 15.3634,
+          "max": 16.702,
+          "n": 3,
+          "ci_95": [
+            15.20308774727653,
+            16.790378919390136
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "20710": {
+      "name": "sha256(sha256($pass).$salt)",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 17.289243850773538,
+          "df": 2.0122445429391256,
+          "significant": false,
+          "pct_change": 37.59365359189072
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -0.21825514883275868,
+          "df": 2.084546186439337,
+          "significant": false,
+          "pct_change": -3.2928288106780736
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -9.200304467070264,
+          "df": 3.0023437244024196,
+          "significant": false,
+          "pct_change": -43.40489831895737
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 529.4333333333333,
+          "stdev": 19.90887574257605,
+          "min": 507.0,
+          "max": 545.0,
+          "n": 3,
+          "ci_95": [
+            505.92729603023935,
+            552.9393706364273
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 728.4666666666667,
+          "stdev": 1.1015141094572094,
+          "min": 727.2,
+          "max": 729.2,
+          "n": 3,
+          "ci_95": [
+            727.1661295554017,
+            729.7672037779317
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 512.0,
+          "stdev": 136.90920348902776,
+          "min": 418.9,
+          "max": 669.2,
+          "n": 3,
+          "ci_95": [
+            350.3538635751434,
+            673.6461364248566
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.2674 > 0.05"
+        },
+        "8": {
+          "mean": 299.6333333333333,
+          "stdev": 38.40902671681923,
+          "min": 255.5,
+          "max": 325.5,
+          "n": 3,
+          "ci_95": [
+            254.28451371865708,
+            344.98215294800957
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.1282 > 0.05"
+        }
+      }
+    },
+    "25400": {
+      "name": "PDF 1.4 - 1.6 (Acrobat 5 - 8) - user and owner pass",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 0.93664452323415,
+          "df": 2.0232004672584774,
+          "significant": false,
+          "pct_change": 2.6480731510774875
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 0.8277138792434917,
+          "df": 2.1402021781047202,
+          "significant": false,
+          "pct_change": 2.3739379853397184
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 0.43659735184991116,
+          "df": 2.125332768535498,
+          "significant": false,
+          "pct_change": 1.2499319844224759
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 12.864700000000001,
+          "stdev": 0.6281445375070934,
+          "min": 12.1461,
+          "max": 13.3093,
+          "n": 3,
+          "ci_95": [
+            12.123061490558687,
+            13.606338509441315
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 13.205366666666666,
+          "stdev": 0.04783934921519431,
+          "min": 13.1506,
+          "max": 13.239,
+          "n": 3,
+          "ci_95": [
+            13.148883641620543,
+            13.26184969171279
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 13.1701,
+          "stdev": 0.11767229920418755,
+          "min": 13.058200000000001,
+          "max": 13.2928,
+          "n": 3,
+          "ci_95": [
+            13.031166516743623,
+            13.309033483256377
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 13.0255,
+          "stdev": 0.11124369645063072,
+          "min": 12.9049,
+          "max": 13.1241,
+          "n": 3,
+          "ci_95": [
+            12.894156647803044,
+            13.156843352196955
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "99999": {
+      "name": "Plaintext",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -1.2779540513791816,
+          "df": 3.747859851962795,
+          "significant": false,
+          "pct_change": -3.624302416670188
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -5.885880977970055,
+          "df": 3.792388847029692,
+          "significant": false,
+          "pct_change": -16.8634020980853
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -2.4651378015408802,
+          "df": 3.165707681309831,
+          "significant": false,
+          "pct_change": -11.246698180117397
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 26084.100000000002,
+          "stdev": 1016.7363129150059,
+          "min": 25461.7,
+          "max": 27257.4,
+          "n": 3,
+          "ci_95": [
+            24883.658447809274,
+            27284.54155219073
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 25138.733333333334,
+          "stdev": 779.7037920475522,
+          "min": 24544.5,
+          "max": 26021.6,
+          "n": 3,
+          "ci_95": [
+            24218.151646139475,
+            26059.315020527192
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 21685.433333333334,
+          "stdev": 801.0816084103635,
+          "min": 21056.1,
+          "max": 22587.2,
+          "n": 3,
+          "ci_95": [
+            20739.611258114535,
+            22631.255408552133
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 23150.5,
+          "stdev": 1792.9853345747133,
+          "min": 21670.0,
+          "max": 25144.1,
+          "n": 3,
+          "ci_95": [
+            21033.555743409837,
+            25267.444256590163
+          ],
+          "quality_passed": false,
+          "quality_reason": "Coefficient of variation too high: 0.0774 > 0.05"
+        }
+      }
+    }
+  }
+}

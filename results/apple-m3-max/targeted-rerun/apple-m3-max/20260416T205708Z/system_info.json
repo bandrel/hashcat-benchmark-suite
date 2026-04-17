@@ -1,0 +1,14 @@
+{
+  "os_name": "macOS",
+  "os_version": "26.5",
+  "hashcat_version": "v7.1.2-386-g8000b3e60+",
+  "hashcat_binary": "../hashcat/hashcat",
+  "hashcat_binary_sha256": "7ee6da5180266ec528789227813813720af32c0841beaa6f66f836f3d4b59359",
+  "hashcat_commit": "665110b54",
+  "suite_commit": "8991dec",
+  "backend": "Metal",
+  "timestamp": "2026-04-16T20:57:07Z",
+  "gpu_model": "Apple M3 Max",
+  "gpu_core_count": "40",
+  "device_id": "apple-m3-max"
+}

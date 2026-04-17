@@ -1,0 +1,486 @@
+{
+  "system_info": {
+    "os_name": "macOS",
+    "os_version": "26.5",
+    "hashcat_version": "v7.1.2-386-g8000b3e60+",
+    "hashcat_binary": "../hashcat/hashcat",
+    "hashcat_binary_sha256": "7ee6da5180266ec528789227813813720af32c0841beaa6f66f836f3d4b59359",
+    "hashcat_commit": "665110b54",
+    "suite_commit": "8991dec",
+    "backend": "Metal",
+    "timestamp": "2026-04-16T20:57:07Z",
+    "gpu_model": "Apple M3 Max",
+    "gpu_core_count": "40",
+    "device_id": "apple-m3-max"
+  },
+  "modes": {
+    "0": {
+      "name": "MD5",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 23.708113049005885,
+          "df": 14.94947280175049,
+          "significant": false,
+          "pct_change": 9.694327264772676
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 19.460720318228194,
+          "df": 10.339714788853131,
+          "significant": false,
+          "pct_change": 7.028778660169892
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 18.597488807217378,
+          "df": 10.919039437240697,
+          "significant": false,
+          "pct_change": 6.819356485224646
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 18651.32,
+          "stdev": 205.47429577010934,
+          "min": 18278.0,
+          "max": 18862.9,
+          "n": 10,
+          "ci_95": [
+            18518.442694460835,
+            18784.197305539165
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 20459.44,
+          "stdev": 126.27411276883116,
+          "min": 20305.5,
+          "max": 20744.1,
+          "n": 10,
+          "ci_95": [
+            20377.780326700307,
+            20541.09967329969
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 19962.28,
+          "stdev": 56.21347802005402,
+          "min": 19814.2,
+          "max": 20014.5,
+          "n": 10,
+          "ci_95": [
+            19925.92754303552,
+            19998.63245696448
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 19923.22,
+          "stdev": 67.47991964692574,
+          "min": 19821.7,
+          "max": 20053.4,
+          "n": 10,
+          "ci_95": [
+            19879.581695427274,
+            19966.85830457273
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "1411": {
+      "name": "SSHA-256(Base64), LDAP {SSHA256}",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -6.335945181283315,
+          "df": 17.3680777273365,
+          "significant": false,
+          "pct_change": -1.622120434220907
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -81.46363364236079,
+          "df": 17.656324031569568,
+          "significant": false,
+          "pct_change": -20.225835136994352
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -82.05455342189607,
+          "df": 17.781451780004968,
+          "significant": false,
+          "pct_change": -20.041610040099997
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 2980.05,
+          "stdev": 15.346968575078451,
+          "min": 2952.5,
+          "max": 2998.3,
+          "n": 10,
+          "ci_95": [
+            2970.1253336333016,
+            2989.974666366699
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 2931.71,
+          "stdev": 18.616148903572906,
+          "min": 2895.5,
+          "max": 2949.0,
+          "n": 10,
+          "ci_95": [
+            2919.67120119769,
+            2943.74879880231
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 2377.31,
+          "stdev": 17.66084495273216,
+          "min": 2331.5,
+          "max": 2391.4,
+          "n": 10,
+          "ci_95": [
+            2365.8889826797135,
+            2388.7310173202864
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 2382.8,
+          "stdev": 17.154137822824076,
+          "min": 2344.9,
+          "max": 2396.1,
+          "n": 10,
+          "ci_95": [
+            2371.7066629760125,
+            2393.893337023988
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "1470": {
+      "name": "sha256(utf16le($pass))",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -5.230043446339893,
+          "df": 17.85305883217464,
+          "significant": false,
+          "pct_change": -1.9127997257345628
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -60.6523777579835,
+          "df": 17.956361651713213,
+          "significant": false,
+          "pct_change": -20.649565410288982
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -71.0826929935951,
+          "df": 14.795339247128819,
+          "significant": false,
+          "pct_change": -20.47848562459246
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 2975.22,
+          "stdev": 23.201522938519858,
+          "min": 2922.3,
+          "max": 2998.9,
+          "n": 10,
+          "ci_95": [
+            2960.21590500641,
+            2990.2240949935895
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 2918.31,
+          "stdev": 25.411215808947276,
+          "min": 2876.5,
+          "max": 2949.3,
+          "n": 10,
+          "ci_95": [
+            2901.876928045613,
+            2934.743071954387
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 2360.85,
+          "stdev": 22.084597448095845,
+          "min": 2322.3,
+          "max": 2384.6,
+          "n": 10,
+          "ci_95": [
+            2346.568204840067,
+            2375.1317951599326
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 2365.94,
+          "stdev": 14.013660002535556,
+          "min": 2338.9,
+          "max": 2382.3,
+          "n": 10,
+          "ci_95": [
+            2356.877565329523,
+            2375.002434670477
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "5500": {
+      "name": "NetNTLMv1 / NetNTLMv1+ESS",
+      "optimal_vec": 2,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 25.84702978463066,
+          "df": 16.798393020482997,
+          "significant": false,
+          "pct_change": 5.77082165952357
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 0.7402309730009287,
+          "df": 17.978924060364157,
+          "significant": false,
+          "pct_change": 0.1390918659417519
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -0.2841084994372062,
+          "df": 14.022137801086563,
+          "significant": false,
+          "pct_change": -0.07941345731549782
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 21129.92,
+          "stdev": 90.28750128832266,
+          "min": 20989.5,
+          "max": 21201.7,
+          "n": 10,
+          "ci_95": [
+            21071.532356669275,
+            21188.30764333072
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 22349.29,
+          "stdev": 118.76152996656762,
+          "min": 22139.2,
+          "max": 22456.3,
+          "n": 10,
+          "ci_95": [
+            22272.48860718091,
+            22426.091392819093
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 21159.309999999998,
+          "stdev": 87.24736799595867,
+          "min": 21002.6,
+          "max": 21269.7,
+          "n": 10,
+          "ci_95": [
+            21102.888367643325,
+            21215.73163235667
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 21113.14,
+          "stdev": 163.4970893386866,
+          "min": 20705.6,
+          "max": 21238.7,
+          "n": 10,
+          "ci_95": [
+            21007.40875700731,
+            21218.87124299269
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "7300": {
+      "name": "IPMI2 RAKP HMAC-SHA1",
+      "optimal_vec": 1,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": -25.297883378709248,
+          "df": 10.559675666261231,
+          "significant": false,
+          "pct_change": -21.432716861409883
+        },
+        "vec4_vs_vec1": {
+          "t_stat": -118.69007525426744,
+          "df": 15.950303895643877,
+          "significant": false,
+          "pct_change": -34.57401532151977
+        },
+        "vec8_vs_vec1": {
+          "t_stat": -102.61937872940041,
+          "df": 17.944456316488203,
+          "significant": false,
+          "pct_change": -33.91046970517681
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 1033.84,
+          "stdev": 7.848736628698086,
+          "min": 1015.6,
+          "max": 1042.0,
+          "n": 10,
+          "ci_95": [
+            1028.7643336194478,
+            1038.915666380552
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 812.26,
+          "stdev": 26.56255509798207,
+          "min": 756.1,
+          "max": 839.7,
+          "n": 10,
+          "ci_95": [
+            795.0823732977069,
+            829.4376267022931
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 676.4,
+          "stdev": 5.3936176274473935,
+          "min": 666.8,
+          "max": 683.2,
+          "n": 10,
+          "ci_95": [
+            672.912024169458,
+            679.8879758305419
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 683.26,
+          "stdev": 7.4235660792730345,
+          "min": 665.2,
+          "max": 689.7,
+          "n": 10,
+          "ci_95": [
+            678.4592853684755,
+            688.0607146315244
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    },
+    "18700": {
+      "name": "Java Object hashCode()",
+      "optimal_vec": 8,
+      "comparisons": {
+        "vec2_vs_vec1": {
+          "t_stat": 68.27590888801045,
+          "df": 11.48241512988237,
+          "significant": false,
+          "pct_change": 29.090217701302407
+        },
+        "vec4_vs_vec1": {
+          "t_stat": 255.69302833306827,
+          "df": 15.262509954992646,
+          "significant": false,
+          "pct_change": 71.25202015400703
+        },
+        "vec8_vs_vec1": {
+          "t_stat": 169.26524237328346,
+          "df": 11.546155718737939,
+          "significant": false,
+          "pct_change": 71.29004658237476
+        }
+      },
+      "vec_results": {
+        "1": {
+          "mean": 105190.0,
+          "stdev": 497.6611966656298,
+          "min": 104100.0,
+          "max": 105600.0,
+          "n": 10,
+          "ci_95": [
+            104868.16958010985,
+            105511.83041989015
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "2": {
+          "mean": 135790.0,
+          "stdev": 1327.0267518026906,
+          "min": 132100.0,
+          "max": 136600.0,
+          "n": 10,
+          "ci_95": [
+            134931.8306679332,
+            136648.1693320668
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "4": {
+          "mean": 180140.0,
+          "stdev": 782.020175926143,
+          "min": 178500.0,
+          "max": 181200.0,
+          "n": 10,
+          "ci_95": [
+            179634.27867137897,
+            180645.72132862103
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        },
+        "8": {
+          "mean": 180180.0,
+          "stdev": 1309.622507103139,
+          "min": 177100.0,
+          "max": 181700.0,
+          "n": 10,
+          "ci_95": [
+            179333.0857455182,
+            181026.9142544818
+          ],
+          "quality_passed": true,
+          "quality_reason": ""
+        }
+      }
+    }
+  }
+}

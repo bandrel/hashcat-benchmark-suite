@@ -1,0 +1,34 @@
+{
+  "total_passed": 21173,
+  "total_failed": 0,
+  "tiers": [
+    {
+      "tier": "deterministic",
+      "attack_mode": 0,
+      "total_tested": 10173,
+      "passed": 10173,
+      "failed": 0,
+      "failures": [],
+      "timestamp": "2026-04-15T16:39:19Z"
+    },
+    {
+      "tier": "random",
+      "attack_mode": 0,
+      "total_tested": 10000,
+      "passed": 10000,
+      "failed": 0,
+      "failures": [],
+      "timestamp": "2026-04-15T16:39:37Z"
+    },
+    {
+      "tier": "adversarial",
+      "attack_mode": 0,
+      "total_tested": 1000,
+      "passed": 1000,
+      "failed": 0,
+      "failures": [],
+      "timestamp": "2026-04-15T16:39:46Z"
+    }
+  ],
+  "timestamp": "2026-04-15T16:39:46Z"
+}

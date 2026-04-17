@@ -1,0 +1,280 @@
+Hashcat synthetic benchmark suite
+  Modes:    6
+  Vec widths: [1, 2, 4, 8]
+  Trials:   10
+  Total runs: 240
+  Est. time:  ~40 minutes
+  GPU:      Apple M3 Max
+  Backend:  Metal
+  Hashcat:  v7.1.2-386-g8000b3e60+
+
+
+--- Mode 0: MD5 ---
+  Vec:1 trial 1/10: 18635.7 MH/s
+  Vec:1 trial 2/10: 18399.6 MH/s
+  Vec:1 trial 3/10: 18789.6 MH/s
+  Vec:1 trial 4/10: 18826.7 MH/s
+  Vec:1 trial 5/10: 18278.0 MH/s
+  Vec:1 trial 6/10: 18814.3 MH/s
+  Vec:1 trial 7/10: 18862.9 MH/s
+  Vec:1 trial 8/10: 18447.6 MH/s
+  Vec:1 trial 9/10: 18761.8 MH/s
+  Vec:1 trial 10/10: 18697.0 MH/s
+  Vec:2 trial 1/10: 20744.1 MH/s
+  Vec:2 trial 2/10: 20368.5 MH/s
+  Vec:2 trial 3/10: 20511.5 MH/s
+  Vec:2 trial 4/10: 20446.2 MH/s
+  Vec:2 trial 5/10: 20379.1 MH/s
+  Vec:2 trial 6/10: 20364.4 MH/s
+  Vec:2 trial 7/10: 20305.5 MH/s
+  Vec:2 trial 8/10: 20421.6 MH/s
+  Vec:2 trial 9/10: 20498.1 MH/s
+  Vec:2 trial 10/10: 20555.4 MH/s
+  Vec:4 trial 1/10: 19949.1 MH/s
+  Vec:4 trial 2/10: 19952.7 MH/s
+  Vec:4 trial 3/10: 19966.4 MH/s
+  Vec:4 trial 4/10: 19977.7 MH/s
+  Vec:4 trial 5/10: 19814.2 MH/s
+  Vec:4 trial 6/10: 19975.5 MH/s
+  Vec:4 trial 7/10: 19984.5 MH/s
+  Vec:4 trial 8/10: 20014.5 MH/s
+  Vec:4 trial 9/10: 19977.2 MH/s
+  Vec:4 trial 10/10: 20011.0 MH/s
+  Vec:8 trial 1/10: 19860.5 MH/s
+  Vec:8 trial 2/10: 19852.4 MH/s
+  Vec:8 trial 3/10: 19907.7 MH/s
+  Vec:8 trial 4/10: 19950.0 MH/s
+  Vec:8 trial 5/10: 20053.4 MH/s
+  Vec:8 trial 6/10: 19944.9 MH/s
+  Vec:8 trial 7/10: 19821.7 MH/s
+  Vec:8 trial 8/10: 19924.8 MH/s
+  Vec:8 trial 9/10: 19979.3 MH/s
+  Vec:8 trial 10/10: 19937.5 MH/s
+
+--- Mode 1411: SSHA-256(Base64), LDAP {SSHA256} ---
+  Vec:1 trial 1/10: 2980.4 MH/s
+  Vec:1 trial 2/10: 2978.6 MH/s
+  Vec:1 trial 3/10: 2998.3 MH/s
+  Vec:1 trial 4/10: 2990.2 MH/s
+  Vec:1 trial 5/10: 2985.8 MH/s
+  Vec:1 trial 6/10: 2987.3 MH/s
+  Vec:1 trial 7/10: 2953.0 MH/s
+  Vec:1 trial 8/10: 2988.4 MH/s
+  Vec:1 trial 9/10: 2986.0 MH/s
+  Vec:1 trial 10/10: 2952.5 MH/s
+  Vec:2 trial 1/10: 2944.8 MH/s
+  Vec:2 trial 2/10: 2914.8 MH/s
+  Vec:2 trial 3/10: 2941.6 MH/s
+  Vec:2 trial 4/10: 2949.0 MH/s
+  Vec:2 trial 5/10: 2948.5 MH/s
+  Vec:2 trial 6/10: 2910.9 MH/s
+  Vec:2 trial 7/10: 2943.7 MH/s
+  Vec:2 trial 8/10: 2940.6 MH/s
+  Vec:2 trial 9/10: 2895.5 MH/s
+  Vec:2 trial 10/10: 2927.7 MH/s
+  Vec:4 trial 1/10: 2388.0 MH/s
+  Vec:4 trial 2/10: 2391.4 MH/s
+  Vec:4 trial 3/10: 2331.5 MH/s
+  Vec:4 trial 4/10: 2371.8 MH/s
+  Vec:4 trial 5/10: 2373.6 MH/s
+  Vec:4 trial 6/10: 2388.4 MH/s
+  Vec:4 trial 7/10: 2372.0 MH/s
+  Vec:4 trial 8/10: 2385.8 MH/s
+  Vec:4 trial 9/10: 2385.9 MH/s
+  Vec:4 trial 10/10: 2384.7 MH/s
+  Vec:8 trial 1/10: 2393.3 MH/s
+  Vec:8 trial 2/10: 2389.6 MH/s
+  Vec:8 trial 3/10: 2389.8 MH/s
+  Vec:8 trial 4/10: 2391.6 MH/s
+  Vec:8 trial 5/10: 2395.5 MH/s
+  Vec:8 trial 6/10: 2344.9 MH/s
+  Vec:8 trial 7/10: 2360.9 MH/s
+  Vec:8 trial 8/10: 2396.1 MH/s
+  Vec:8 trial 9/10: 2375.7 MH/s
+  Vec:8 trial 10/10: 2390.6 MH/s
+
+--- Mode 1470: sha256(utf16le($pass)) ---
+  Vec:1 trial 1/10: 2998.9 MH/s
+  Vec:1 trial 2/10: 2991.7 MH/s
+  Vec:1 trial 3/10: 2987.7 MH/s
+  Vec:1 trial 4/10: 2997.6 MH/s
+  Vec:1 trial 5/10: 2979.7 MH/s
+  Vec:1 trial 6/10: 2922.3 MH/s
+  Vec:1 trial 7/10: 2960.0 MH/s
+  Vec:1 trial 8/10: 2975.7 MH/s
+  Vec:1 trial 9/10: 2958.5 MH/s
+  Vec:1 trial 10/10: 2980.1 MH/s
+  Vec:2 trial 1/10: 2949.3 MH/s
+  Vec:2 trial 2/10: 2947.4 MH/s
+  Vec:2 trial 3/10: 2921.8 MH/s
+  Vec:2 trial 4/10: 2926.4 MH/s
+  Vec:2 trial 5/10: 2877.7 MH/s
+  Vec:2 trial 6/10: 2933.2 MH/s
+  Vec:2 trial 7/10: 2904.5 MH/s
+  Vec:2 trial 8/10: 2876.5 MH/s
+  Vec:2 trial 9/10: 2917.2 MH/s
+  Vec:2 trial 10/10: 2929.1 MH/s
+  Vec:4 trial 1/10: 2375.2 MH/s
+  Vec:4 trial 2/10: 2372.8 MH/s
+  Vec:4 trial 3/10: 2380.2 MH/s
+  Vec:4 trial 4/10: 2334.2 MH/s
+  Vec:4 trial 5/10: 2344.8 MH/s
+  Vec:4 trial 6/10: 2344.9 MH/s
+  Vec:4 trial 7/10: 2322.3 MH/s
+  Vec:4 trial 8/10: 2376.7 MH/s
+  Vec:4 trial 9/10: 2372.8 MH/s
+  Vec:4 trial 10/10: 2384.6 MH/s
+  Vec:8 trial 1/10: 2382.3 MH/s
+  Vec:8 trial 2/10: 2373.5 MH/s
+  Vec:8 trial 3/10: 2380.7 MH/s
+  Vec:8 trial 4/10: 2364.3 MH/s
+  Vec:8 trial 5/10: 2349.3 MH/s
+  Vec:8 trial 6/10: 2379.7 MH/s
+  Vec:8 trial 7/10: 2365.7 MH/s
+  Vec:8 trial 8/10: 2361.8 MH/s
+  Vec:8 trial 9/10: 2338.9 MH/s
+  Vec:8 trial 10/10: 2363.2 MH/s
+
+--- Mode 5500: NetNTLMv1 / NetNTLMv1+ESS ---
+  Vec:1 trial 1/10: 21197.2 MH/s
+  Vec:1 trial 2/10: 21192.3 MH/s
+  Vec:1 trial 3/10: 21016.2 MH/s
+  Vec:1 trial 4/10: 21187.1 MH/s
+  Vec:1 trial 5/10: 21002.0 MH/s
+  Vec:1 trial 6/10: 21196.0 MH/s
+  Vec:1 trial 7/10: 21201.7 MH/s
+  Vec:1 trial 8/10: 21131.2 MH/s
+  Vec:1 trial 9/10: 20989.5 MH/s
+  Vec:1 trial 10/10: 21186.0 MH/s
+  Vec:2 trial 1/10: 22447.7 MH/s
+  Vec:2 trial 2/10: 22351.2 MH/s
+  Vec:2 trial 3/10: 22227.7 MH/s
+  Vec:2 trial 4/10: 22392.9 MH/s
+  Vec:2 trial 5/10: 22410.5 MH/s
+  Vec:2 trial 6/10: 22191.2 MH/s
+  Vec:2 trial 7/10: 22453.3 MH/s
+  Vec:2 trial 8/10: 22456.3 MH/s
+  Vec:2 trial 9/10: 22139.2 MH/s
+  Vec:2 trial 10/10: 22422.9 MH/s
+  Vec:4 trial 1/10: 21223.6 MH/s
+  Vec:4 trial 2/10: 21269.7 MH/s
+  Vec:4 trial 3/10: 21002.6 MH/s
+  Vec:4 trial 4/10: 21162.7 MH/s
+  Vec:4 trial 5/10: 21204.1 MH/s
+  Vec:4 trial 6/10: 21224.3 MH/s
+  Vec:4 trial 7/10: 21023.0 MH/s
+  Vec:4 trial 8/10: 21146.2 MH/s
+  Vec:4 trial 9/10: 21203.6 MH/s
+  Vec:4 trial 10/10: 21133.3 MH/s
+  Vec:8 trial 1/10: 21238.7 MH/s
+  Vec:8 trial 2/10: 21182.8 MH/s
+  Vec:8 trial 3/10: 21229.4 MH/s
+  Vec:8 trial 4/10: 20964.8 MH/s
+  Vec:8 trial 5/10: 21144.1 MH/s
+  Vec:8 trial 6/10: 21139.7 MH/s
+  Vec:8 trial 7/10: 20705.6 MH/s
+  Vec:8 trial 8/10: 21168.2 MH/s
+  Vec:8 trial 9/10: 21129.2 MH/s
+  Vec:8 trial 10/10: 21228.9 MH/s
+
+--- Mode 7300: IPMI2 RAKP HMAC-SHA1 ---
+  Vec:1 trial 1/10: 1031.6 MH/s
+  Vec:1 trial 2/10: 1036.4 MH/s
+  Vec:1 trial 3/10: 1042.0 MH/s
+  Vec:1 trial 4/10: 1036.7 MH/s
+  Vec:1 trial 5/10: 1040.9 MH/s
+  Vec:1 trial 6/10: 1036.3 MH/s
+  Vec:1 trial 7/10: 1034.6 MH/s
+  Vec:1 trial 8/10: 1026.1 MH/s
+  Vec:1 trial 9/10: 1038.2 MH/s
+  Vec:1 trial 10/10: 1015.6 MH/s
+  Vec:2 trial 1/10: 821.6 MH/s
+  Vec:2 trial 2/10: 817.2 MH/s
+  Vec:2 trial 3/10: 772.6 MH/s
+  Vec:2 trial 4/10: 756.1 MH/s
+  Vec:2 trial 5/10: 819.6 MH/s
+  Vec:2 trial 6/10: 834.8 MH/s
+  Vec:2 trial 7/10: 839.7 MH/s
+  Vec:2 trial 8/10: 820.1 MH/s
+  Vec:2 trial 9/10: 819.7 MH/s
+  Vec:2 trial 10/10: 821.2 MH/s
+  Vec:4 trial 1/10: 666.8 MH/s
+  Vec:4 trial 2/10: 678.8 MH/s
+  Vec:4 trial 3/10: 671.9 MH/s
+  Vec:4 trial 4/10: 680.8 MH/s
+  Vec:4 trial 5/10: 671.3 MH/s
+  Vec:4 trial 6/10: 683.2 MH/s
+  Vec:4 trial 7/10: 681.9 MH/s
+  Vec:4 trial 8/10: 673.7 MH/s
+  Vec:4 trial 9/10: 675.5 MH/s
+  Vec:4 trial 10/10: 680.1 MH/s
+  Vec:8 trial 1/10: 687.3 MH/s
+  Vec:8 trial 2/10: 689.5 MH/s
+  Vec:8 trial 3/10: 678.2 MH/s
+  Vec:8 trial 4/10: 682.6 MH/s
+  Vec:8 trial 5/10: 681.3 MH/s
+  Vec:8 trial 6/10: 687.7 MH/s
+  Vec:8 trial 7/10: 665.2 MH/s
+  Vec:8 trial 8/10: 688.1 MH/s
+  Vec:8 trial 9/10: 689.7 MH/s
+  Vec:8 trial 10/10: 683.0 MH/s
+
+--- Mode 18700: Java Object hashCode() ---
+  Vec:1 trial 1/10: 105500.0 MH/s
+  Vec:1 trial 2/10: 105600.0 MH/s
+  Vec:1 trial 3/10: 104100.0 MH/s
+  Vec:1 trial 4/10: 105500.0 MH/s
+  Vec:1 trial 5/10: 105500.0 MH/s
+  Vec:1 trial 6/10: 105300.0 MH/s
+  Vec:1 trial 7/10: 105400.0 MH/s
+  Vec:1 trial 8/10: 104500.0 MH/s
+  Vec:1 trial 9/10: 105400.0 MH/s
+  Vec:1 trial 10/10: 105100.0 MH/s
+  Vec:2 trial 1/10: 135800.0 MH/s
+  Vec:2 trial 2/10: 135800.0 MH/s
+  Vec:2 trial 3/10: 135900.0 MH/s
+  Vec:2 trial 4/10: 136600.0 MH/s
+  Vec:2 trial 5/10: 136400.0 MH/s
+  Vec:2 trial 6/10: 136500.0 MH/s
+  Vec:2 trial 7/10: 136300.0 MH/s
+  Vec:2 trial 8/10: 136300.0 MH/s
+  Vec:2 trial 9/10: 132100.0 MH/s
+  Vec:2 trial 10/10: 136200.0 MH/s
+  Vec:4 trial 1/10: 178500.0 MH/s
+  Vec:4 trial 2/10: 180600.0 MH/s
+  Vec:4 trial 3/10: 180300.0 MH/s
+  Vec:4 trial 4/10: 181200.0 MH/s
+  Vec:4 trial 5/10: 180100.0 MH/s
+  Vec:4 trial 6/10: 180800.0 MH/s
+  Vec:4 trial 7/10: 179500.0 MH/s
+  Vec:4 trial 8/10: 180100.0 MH/s
+  Vec:4 trial 9/10: 180700.0 MH/s
+  Vec:4 trial 10/10: 179600.0 MH/s
+  Vec:8 trial 1/10: 180500.0 MH/s
+  Vec:8 trial 2/10: 180900.0 MH/s
+  Vec:8 trial 3/10: 177100.0 MH/s
+  Vec:8 trial 4/10: 181000.0 MH/s
+  Vec:8 trial 5/10: 178900.0 MH/s
+  Vec:8 trial 6/10: 180100.0 MH/s
+  Vec:8 trial 7/10: 180300.0 MH/s
+  Vec:8 trial 8/10: 181700.0 MH/s
+  Vec:8 trial 9/10: 181000.0 MH/s
+  Vec:8 trial 10/10: 180300.0 MH/s
+
+===================================================================================================================
+BENCHMARK RESULTS - v7.1.2-386-g8000b3e60+
+GPU: Apple M3 Max
+Backend: Metal
+Timestamp: 2026-04-16T20:57:07Z
+===================================================================================================================
+
+Mode    Name                                   Vec1 MH/s    Vec2 MH/s   V2vs1%    Vec4 MH/s   V4vs1%  Best
+-------------------------------------------------------------------------------------------------------------------
+0       MD5                                      18651.3      20459.4    +9.7%      19962.3    +7.0% Vec:2
+1411    SSHA-256(Base64), LDAP {SSHA256}          2980.1       2931.7    -1.6%       2377.3   -20.2% Vec:1
+1470    sha256(utf16le($pass))                    2975.2       2918.3    -1.9%       2360.8   -20.6% Vec:1
+5500    NetNTLMv1 / NetNTLMv1+ESS                21129.9      22349.3    +5.8%      21159.3    +0.1% Vec:2
+7300    IPMI2 RAKP HMAC-SHA1                      1033.8        812.3   -21.4%        676.4   -34.6% Vec:1
+18700   Java Object hashCode()                  105190.0     135790.0   +29.1%     180140.0   +71.3% Vec:8
+
+Results saved to: results/apple-m3-max/targeted-rerun/apple-m3-max/20260416T205708Z/
