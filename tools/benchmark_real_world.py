@@ -198,6 +198,7 @@ def run_real_world_benchmark(
     scenario: dict,
     vec_width: int,
     timeout: int = 600,
+    device: str | None = None,
 ) -> dict | None:
     """Run hashcat with the given scenario config and return metrics.
 
@@ -235,6 +236,9 @@ def run_real_world_benchmark(
             "-o", os.path.join(tmpdir, "found.txt"),
             "--quiet",
         ]
+
+        if device:
+            cmd.extend(["-d", str(device)])
 
         attack_mode = scenario["attack_mode"]
 
@@ -295,6 +299,7 @@ def run_scenario_trials(
     scenario: dict,
     trials: int,
     verbose: bool = True,
+    device: str | None = None,
 ) -> dict:
     """Run a scenario across all Vec widths for multiple trials.
 
@@ -337,7 +342,7 @@ def run_scenario_trials(
             if temp is not None:
                 temps.append(temp)
 
-            result = run_real_world_benchmark(hashcat_bin, scenario, vec)
+            result = run_real_world_benchmark(hashcat_bin, scenario, vec, device=device)
 
             if result is not None:
                 speeds.append(result["hashes_per_second"])
@@ -428,6 +433,11 @@ def main() -> None:
         action="store_true",
         help="Suppress per-trial output",
     )
+    parser.add_argument(
+        "--device",
+        default=None,
+        help="Hashcat backend device id passed as -d (default: auto)",
+    )
     args = parser.parse_args()
 
     # Resolve hashcat source tree.
@@ -506,6 +516,7 @@ def main() -> None:
             resolved,
             args.trials,
             verbose=not args.quiet,
+            device=args.device,
         )
         all_results[resolved["name"]] = result
 

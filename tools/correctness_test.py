@@ -27,6 +27,7 @@ def run_hashcat_crack(
     wordlist: str,
     attack_mode: int = 0,
     timeout: int = 300,
+    device: str | None = None,
 ) -> set[str]:
     """Run hashcat in cracking mode and return the set of recovered passwords.
 
@@ -47,8 +48,12 @@ def run_hashcat_crack(
             "--outfile-format", "2",
             "--quiet",
             "--self-test-disable",
-            hash_file,
         ]
+
+        if device:
+            cmd.extend(["-d", str(device)])
+
+        cmd.append(hash_file)
 
         # Combinator attack uses wordlist as both left and right dict
         if attack_mode == 1:
@@ -205,6 +210,11 @@ def main() -> None:
         default="all",
         help="Which corpus tier to test (default: all)",
     )
+    parser.add_argument(
+        "--device",
+        default=None,
+        help="Hashcat backend device id passed as -d (default: auto)",
+    )
     args = parser.parse_args()
 
     # ── Self-test gate ──────────────────────────────────────────────────────
@@ -212,9 +222,12 @@ def main() -> None:
     # Verify by running a quick benchmark — if self-test fails, hashcat exits
     # with a non-zero code before producing benchmark output.
     print("Running hashcat self-test (mode 1000 benchmark)...")
+    self_test_cmd = [args.hashcat_bin, "-b", "-m", "1000", "--quiet"]
+    if args.device:
+        self_test_cmd.extend(["-d", str(args.device)])
     try:
         result = subprocess.run(
-            [args.hashcat_bin, "-b", "-m", "1000", "--quiet"],
+            self_test_cmd,
             capture_output=True, text=True, timeout=60,
         )
         if result.returncode != 0:
@@ -287,6 +300,7 @@ def main() -> None:
             hash_file=hash_file,
             wordlist=pw_file,
             attack_mode=args.attack_mode,
+            device=args.device,
         )
 
         tier_passed = 0

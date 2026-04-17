@@ -14,6 +14,10 @@ CORPUS_DIR   ?= corpus
 BITSELECT    ?= off
 VEC          ?= 1
 ATTACK_MODE  ?= 0
+DEVICE       ?=
+
+# Build `--device N` argument list only when DEVICE is set.
+DEVICE_FLAG  := $(if $(DEVICE),--device $(DEVICE),)
 
 # ---------- derived variables ----------
 VARIANT   := bs-$(BITSELECT)_vec-$(VEC)_a$(ATTACK_MODE)
@@ -58,6 +62,7 @@ test-variant: build-variant
 		--hashcat-bin $(BUILD_DIR)/hashcat \
 		--corpus-dir $(CORPUS_DIR) \
 		--attack-mode $(ATTACK_MODE) \
+		$(DEVICE_FLAG) \
 		--output $(RESULTS_DIR)/correctness/$(VARIANT).json
 	@echo "  Results saved to $(RESULTS_DIR)/correctness/$(VARIANT).json"
 
@@ -76,6 +81,7 @@ test-all:
 				HASHCAT_SRC="$(HASHCAT_SRC)" \
 				RESULTS_DIR="$(RESULTS_DIR)" \
 				CORPUS_DIR="$(CORPUS_DIR)" \
+				DEVICE="$(DEVICE)" \
 				BITSELECT=$$bs \
 				VEC=$$vec \
 				ATTACK_MODE=0 \

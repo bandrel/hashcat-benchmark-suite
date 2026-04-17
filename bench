@@ -111,11 +111,13 @@ def cmd_generate_corpus(args):
 def cmd_run_correctness(args):
     """Generate corpus and run correctness build matrix."""
     cmd_generate_corpus(args)
-    run(["make", "-f", "Makefile.correctness", "test-all",
-         f"PYTHON={python()}",
-         f"HASHCAT_SRC={args.hashcat_src}",
-         f"RESULTS_DIR={args.results_dir}"],
-        cwd=str(ROOT))
+    make_cmd = ["make", "-f", "Makefile.correctness", "test-all",
+                f"PYTHON={python()}",
+                f"HASHCAT_SRC={args.hashcat_src}",
+                f"RESULTS_DIR={args.results_dir}"]
+    if args.device:
+        make_cmd.append(f"DEVICE={args.device}")
+    run(make_cmd, cwd=str(ROOT))
 
 
 def cmd_run_synthetic(args):
@@ -124,6 +126,8 @@ def cmd_run_synthetic(args):
            "--hashcat-bin", resolve_hashcat_bin(args),
            "--trials", str(args.trials),
            "--output", args.results_dir]
+    if args.device:
+        cmd.extend(["--device", args.device])
     run(cmd)
 
 
@@ -136,6 +140,8 @@ def cmd_run_real_world(args):
            "--hashcat-src", args.hashcat_src,
            "--trials", str(args.trials),
            "--output", args.results_dir]
+    if args.device:
+        cmd.extend(["--device", args.device])
     run(cmd)
 
 
@@ -253,6 +259,15 @@ def build_parser():
     parser.add_argument(
         "--corpus-dir", default="corpus",
         help="Directory for test corpus (default: corpus)",
+    )
+    # On macOS, hashcat can auto-select the broken Apple OpenCL device and skip
+    # Metal, which makes kernel builds fail. Default to Metal (device #1) there.
+    default_device = os.environ.get("DEVICE")
+    if default_device is None and sys.platform == "darwin":
+        default_device = "1"
+    parser.add_argument(
+        "--device", default=default_device,
+        help="Hashcat backend device id passed as -d (default: 1 on macOS to force Metal, auto elsewhere)",
     )
 
     sub = parser.add_subparsers(dest="command")
