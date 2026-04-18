@@ -21,7 +21,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 TOOLS = ROOT / "tools"
-ROCKYOU_SHA256 = "9076652d8ae75ce713e23ab09e10d9ee1323b0b4a6d592ba1a46f8e5e4b5a836"
+ROCKYOU_SHA256 = "6dfa76aa0e02303994fd1062d0ac983f0b69ece5474d85a5bba36362e19c1076"
 
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
