@@ -38,6 +38,10 @@ from detect_system import detect_system
 from stats import check_quality, compute_summary
 
 
+# When True, print hashcat stdout/stderr on any failed trial. Set from --verbose-errors.
+VERBOSE_ERRORS = False
+
+
 # ── Scenario definitions ────────────────────────────────────────────────────
 
 SCENARIOS_FULL = [
@@ -115,15 +119,38 @@ _UNIT_MULTIPLIERS = {
 }
 
 _SPEED_RE = re.compile(r"Speed[^:]*:\s*([\d.]+)\s*([kMGT]?H/s)")
-_MACHINE_SPEED_RE = re.compile(r"SPEED\s+[\d.]+\s+([\d.]+)\s*([kMGT]?H/s)")
+# Machine-readable STATUS line (hashcat --machine-readable):
+#   STATUS <n> SPEED <hashes_dev0> <ms_dev0> [<hashes_devN> <ms_devN> ...] EXEC_RUNTIME ...
+# We grab the SPEED payload as "everything up to EXEC_RUNTIME".
+_MACHINE_STATUS_RE = re.compile(r"SPEED\s+(.*?)\s+EXEC_RUNTIME", re.DOTALL)
 
 
 def _parse_speed(output: str) -> float | None:
-    """Extract speed in MH/s from hashcat output."""
-    # Try machine-readable format first.
-    match = _MACHINE_SPEED_RE.search(output)
-    if not match:
-        match = _SPEED_RE.search(output)
+    """Extract speed in MH/s from hashcat output.
+
+    Prefers the last STATUS line from --machine-readable (final snapshot),
+    summing per-device (hashes, ms) pairs into an aggregate MH/s. Falls back
+    to the human-readable ``Speed.#1...: X MH/s`` format.
+    """
+    # Machine-readable: take the LAST STATUS line so final totals win over
+    # intermediate snapshots. Sum hashes and ms across devices.
+    matches = _MACHINE_STATUS_RE.findall(output)
+    if matches:
+        tokens = matches[-1].split()
+        # Expect even count: pairs of (hashes, ms).
+        if len(tokens) >= 2 and len(tokens) % 2 == 0:
+            try:
+                pairs = [(int(tokens[i]), int(tokens[i + 1]))
+                         for i in range(0, len(tokens), 2)]
+                total_hashes = sum(h for h, _ in pairs)
+                total_ms = sum(ms for _, ms in pairs)
+                if total_ms > 0:
+                    # hashes/ms → hashes/s → MH/s
+                    return (total_hashes / total_ms) * 1000.0 / 1e6
+            except ValueError:
+                pass  # Fall through to human-readable parser.
+
+    match = _SPEED_RE.search(output)
     if not match:
         return None
     value = float(match.group(1))
@@ -154,6 +181,9 @@ def _resolve_paths(
     rules_file (optional), mask (pass-through).
     """
     resolved = dict(scenario)
+    corpus_dir = os.path.abspath(corpus_dir)
+    hashcat_src = os.path.abspath(hashcat_src)
+    wordlist_path = os.path.abspath(wordlist_path)
 
     # Hash target file.
     target = scenario["hash_target"]
@@ -176,11 +206,11 @@ def _resolve_paths(
 
     wl_key = scenario.get("wordlist_key")
     if wl_key:
-        resolved["wordlist_file"] = wl_map.get(wl_key, wl_key)
+        resolved["wordlist_file"] = os.path.abspath(wl_map.get(wl_key, wl_key))
 
     wl2_key = scenario.get("wordlist2_key")
     if wl2_key:
-        resolved["wordlist2_file"] = wl_map.get(wl2_key, wl2_key)
+        resolved["wordlist2_file"] = os.path.abspath(wl_map.get(wl2_key, wl2_key))
 
     # Rules file.
     rules = scenario.get("rules")
@@ -277,8 +307,15 @@ def run_real_world_benchmark(
             recovered = _count_recovered(potfile)
 
             if speed is None:
-                # Try to salvage: if it completed but speed wasn't parseable,
-                # still return timing info.
+                if VERBOSE_ERRORS:
+                    print(
+                        f"\n[hashcat failure] exit={result.returncode} cmd={' '.join(cmd)}",
+                        file=sys.stderr,
+                    )
+                    if result.stdout.strip():
+                        print(f"--- stdout ---\n{result.stdout}", file=sys.stderr)
+                    if result.stderr.strip():
+                        print(f"--- stderr ---\n{result.stderr}", file=sys.stderr)
                 return None
 
             return {
@@ -288,6 +325,11 @@ def run_real_world_benchmark(
             }
 
         except subprocess.TimeoutExpired:
+            if VERBOSE_ERRORS:
+                print(
+                    f"\n[hashcat timeout after {timeout}s] cmd={' '.join(cmd)}",
+                    file=sys.stderr,
+                )
             return None
 
 
@@ -438,7 +480,15 @@ def main() -> None:
         default=None,
         help="Hashcat backend device id passed as -d (default: auto)",
     )
+    parser.add_argument(
+        "--verbose-errors",
+        action="store_true",
+        help="Print hashcat stdout/stderr for any failed trial",
+    )
     args = parser.parse_args()
+
+    global VERBOSE_ERRORS
+    VERBOSE_ERRORS = args.verbose_errors
 
     # Resolve hashcat source tree.
     hashcat_src = args.hashcat_src
@@ -459,7 +509,10 @@ def main() -> None:
         print()
 
     # Generate real-world hash targets if not already present.
-    corpus_dir = "corpus/real_world"
+    # Anchor to project root (parent of tools/) so the path is stable regardless
+    # of the caller's cwd and the generator subprocess's cwd.
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    corpus_dir = os.path.join(project_root, "corpus", "real_world")
     required_files = [
         "single.hash",
         "hashes_1k.txt",

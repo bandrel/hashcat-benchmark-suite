@@ -50,6 +50,9 @@ DEFAULT_MODES = [
 
 VEC_WIDTHS = [1, 2, 4, 8]
 
+# When True, print hashcat stdout/stderr on any failed trial. Set from --verbose-errors.
+VERBOSE_ERRORS = False
+
 # Speed unit -> MH/s multiplier
 _UNIT_MULTIPLIERS = {
     "H/s": 1e-6,
@@ -110,6 +113,15 @@ def run_benchmark(
 
         match = _SPEED_RE.search(combined)
         if not match:
+            if VERBOSE_ERRORS:
+                print(
+                    f"\n[hashcat failure] exit={result.returncode} cmd={' '.join(cmd)}",
+                    file=sys.stderr,
+                )
+                if result.stdout.strip():
+                    print(f"--- stdout ---\n{result.stdout}", file=sys.stderr)
+                if result.stderr.strip():
+                    print(f"--- stderr ---\n{result.stderr}", file=sys.stderr)
             return None
 
         value = float(match.group(1))
@@ -117,6 +129,8 @@ def run_benchmark(
         return value * _UNIT_MULTIPLIERS.get(unit, 1.0)
 
     except subprocess.TimeoutExpired:
+        if VERBOSE_ERRORS:
+            print(f"\n[hashcat timeout after 120s] cmd={' '.join(cmd)}", file=sys.stderr)
         return None
 
 
@@ -390,7 +404,15 @@ def main() -> None:
         action="store_true",
         help="Suppress per-trial output",
     )
+    parser.add_argument(
+        "--verbose-errors",
+        action="store_true",
+        help="Print hashcat stdout/stderr for any failed trial",
+    )
     args = parser.parse_args()
+
+    global VERBOSE_ERRORS
+    VERBOSE_ERRORS = args.verbose_errors
 
     # Parse modes.
     modes = (

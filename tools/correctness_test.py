@@ -62,14 +62,31 @@ def run_hashcat_crack(
             cmd.append(wordlist)
 
         try:
-            subprocess.run(
+            result = subprocess.run(
                 cmd,
                 timeout=timeout,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
+                capture_output=True,
+                text=True,
             )
         except subprocess.TimeoutExpired:
+            print(
+                f"\n[hashcat timeout after {timeout}s] cmd={' '.join(cmd)}",
+                file=sys.stderr,
+            )
             return set()
+
+        # hashcat returns 0 = all cracked, 1 = exhausted (normal for adversarial
+        # corpora). Any other code indicates a real error (kernel build, segfault,
+        # missing file, etc.) and must not be hidden.
+        if result.returncode not in (0, 1):
+            print(
+                f"\n[hashcat error] exit={result.returncode} cmd={' '.join(cmd)}",
+                file=sys.stderr,
+            )
+            if result.stdout.strip():
+                print(f"--- stdout ---\n{result.stdout}", file=sys.stderr)
+            if result.stderr.strip():
+                print(f"--- stderr ---\n{result.stderr}", file=sys.stderr)
 
         # Parse recovered passwords from outfile.
         # hashcat hex-encodes passwords containing colons as $HEX[...].
